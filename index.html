@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gelobel Churrascaria — Tradição e Sabor na Brasa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+--gold:#C8922A;
+--gold-light:#E8B84B;
+--gold-dark:#9B6E1A;
+--charcoal:#0D0C0A;
+--charcoal-2:#161410;
+--charcoal-3:#1F1C17;
+--charcoal-4:#2A2620;
+--cream:#F5EFE0;
+--cream-dark:#D4C9AE;
+--red-dark:#6B1E1E;
+--wood:#3D2B1F;
+--text-muted:rgba(245,239,224,0.55);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--charcoal);color:var(--cream);font-family:'DM Sans',sans-serif;overflow-x:hidden;}
+
+/* LOADER */
+#loader{position:fixed;inset:0;background:var(--charcoal);z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:24px;transition:opacity 0.8s ease,visibility 0.8s ease;}
+#loader.hide{opacity:0;visibility:hidden;}
+/* LOGO PLACEHOLDER */
+.logo-wrap{display:flex;align-items:center;gap:12px;}
+.logo-img-slot{display:flex;align-items:center;justify-content:center;border:1.5px dashed rgba(200,146,42,0.45);border-radius:4px;background:rgba(200,146,42,0.04);overflow:hidden;flex-shrink:0;}
+.logo-img-slot img{display:block;width:100%;height:100%;object-fit:contain;}
+/* Loader logo slot */
+.loader-logo-wrap{display:flex;flex-direction:column;align-items:center;gap:16px;}
+.loader-logo-slot{width:96px;height:96px;border:1.5px dashed rgba(200,146,42,0.5);border-radius:6px;background:rgba(200,146,42,0.05);display:flex;align-items:center;justify-content:center;animation:loaderPulse 1.5s ease-in-out infinite;}
+.loader-logo-slot img{width:100%;height:100%;object-fit:contain;}
+.loader-logo-slot-label{font-size:10px;letter-spacing:3px;color:rgba(200,146,42,0.4);text-transform:uppercase;}
+.loader-logo{font-family:'Playfair Display',serif;font-size:52px;font-weight:900;color:var(--gold);letter-spacing:8px;animation:loaderPulse 1.5s ease-in-out infinite;}
+.loader-bar{width:160px;height:2px;background:rgba(200,146,42,0.2);border-radius:2px;overflow:hidden;}
+.loader-fill{height:100%;width:0;background:linear-gradient(90deg,var(--gold-dark),var(--gold-light));border-radius:2px;animation:loaderBar 2.2s ease forwards;}
+@keyframes loaderPulse{0%,100%{opacity:0.7;}50%{opacity:1;}}
+@keyframes loaderBar{0%{width:0;}100%{width:100%;}}
+.loader-tagline{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--cream-dark);font-size:16px;letter-spacing:3px;opacity:0;animation:fadeIn 1s 0.5s forwards;}
+@keyframes fadeIn{to{opacity:1;}}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 60px;display:flex;align-items:center;justify-content:space-between;transition:all 0.4s ease;}
+nav.scrolled{background:rgba(13,12,10,0.95);backdrop-filter:blur(12px);padding:14px 60px;border-bottom:1px solid rgba(200,146,42,0.15);}
+.nav-logo{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:var(--gold);letter-spacing:4px;}
+.nav-logo-wrap .logo-img-slot{width:44px;height:44px;}
+.nav-logo-wrap{gap:16px;}
+.nav-logo-mark{width:156px;max-width:32vw;display:flex;align-items:center;flex-shrink:0;}
+.nav-logo-mark img{display:block;width:100%;height:auto;object-fit:contain;}
+.footer-brand .logo-img-slot{width:56px;height:56px;}
+.footer-brand .logo-wrap{align-items:center;gap:16px;}
+.footer-logo-mark{width:min(168px,100%);flex-shrink:0;display:flex;align-items:center;}
+.footer-logo-mark img{display:block;width:100%;height:auto;object-fit:contain;}
+.hero-logo-mark{width:min(320px,78vw);margin:0 auto 20px;display:flex;align-items:center;justify-content:center;}
+.hero-logo-mark img{display:block;width:100%;height:auto;object-fit:contain;}
+.nav-links{display:flex;gap:36px;list-style:none;}
+.nav-links a{color:var(--cream-dark);text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:400;transition:color 0.3s;}
+.nav-links a:hover{color:var(--gold);}
+.nav-cta{background:transparent;border:1px solid var(--gold);color:var(--gold);padding:10px 28px;font-size:12px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all 0.3s;font-family:'DM Sans',sans-serif;}
+.nav-cta:hover{background:var(--gold);color:var(--charcoal);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.hamburger span{display:block;width:26px;height:2px;background:var(--gold);transition:all 0.3s;}
+
+/* HERO */
+.hero{position:relative;height:100vh;min-height:700px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(13,12,10,0.3) 0%,rgba(13,12,10,0.6) 50%,rgba(13,12,10,0.9) 100%),
+  radial-gradient(ellipse at 30% 60%,rgba(200,146,42,0.08) 0%,transparent 60%),
+  url('https://images.unsplash.com/photo-1544025162-d76694265947?w=1920&q=85') center/cover no-repeat;
+transform:scale(1.08);animation:heroZoom 12s ease-in-out infinite alternate;will-change:transform;}
+@keyframes heroZoom{0%{transform:scale(1.08);}100%{transform:scale(1.14);}}
+.hero-particles{position:absolute;inset:0;pointer-events:none;}
+.particle{position:absolute;width:2px;height:2px;background:var(--gold-light);border-radius:50%;opacity:0;animation:floatUp linear infinite;}
+@keyframes floatUp{0%{opacity:0;transform:translateY(0) scale(0);}10%{opacity:0.6;}90%{opacity:0.2;}100%{opacity:0;transform:translateY(-120px) scale(1.5);}}
+.hero-content{position:relative;z-index:2;max-width:900px;padding:0 24px;opacity:0;animation:heroReveal 1.2s 2.5s ease forwards;}
+@keyframes heroReveal{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+.hero-badge{display:inline-block;border:1px solid rgba(200,146,42,0.4);color:var(--gold);font-size:11px;letter-spacing:4px;text-transform:uppercase;padding:8px 24px;margin-bottom:28px;font-family:'DM Sans',sans-serif;}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(52px,8vw,96px);font-weight:900;line-height:1;margin-bottom:8px;color:var(--cream);}
+.hero-title span{color:var(--gold);display:block;}
+.hero-subtitle{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(20px,3vw,28px);color:var(--cream-dark);margin-bottom:48px;font-weight:300;letter-spacing:1px;}
+.hero-divider{width:60px;height:1px;background:var(--gold);margin:0 auto 48px;opacity:0.6;}
+.hero-btns{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;}
+.btn-primary{background:var(--gold);color:var(--charcoal);padding:16px 44px;font-size:12px;letter-spacing:3px;text-transform:uppercase;border:none;cursor:pointer;font-weight:500;font-family:'DM Sans',sans-serif;transition:all 0.3s;text-decoration:none;display:inline-block;}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 30px rgba(200,146,42,0.3);}
+.btn-outline{background:transparent;color:var(--cream);padding:16px 44px;font-size:12px;letter-spacing:3px;text-transform:uppercase;border:1px solid rgba(245,239,224,0.4);cursor:pointer;font-weight:500;font-family:'DM Sans',sans-serif;transition:all 0.3s;text-decoration:none;display:inline-block;}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+.hero-scroll{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0.5;animation:heroReveal 1s 3.5s ease forwards;}
+.hero-scroll span{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--cream-dark);}
+.scroll-line{width:1px;height:48px;background:linear-gradient(180deg,var(--gold),transparent);animation:scrollPulse 2s ease-in-out infinite;}
+@keyframes scrollPulse{0%,100%{opacity:0.4;}50%{opacity:1;}}
+
+/* SECTION COMMON */
+section{padding:120px 60px;}
+.section-tag{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:block;}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,60px);font-weight:700;line-height:1.1;color:var(--cream);}
+.section-title em{font-style:italic;color:var(--gold);}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.9s ease,transform 0.9s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* SOBRE */
+.sobre{background:var(--charcoal-2);position:relative;overflow:hidden;}
+.sobre::before{content:'';position:absolute;right:-200px;top:50%;transform:translateY(-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(200,146,42,0.04),transparent 70%);pointer-events:none;}
+.sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1200px;margin:0 auto;}
+.sobre-text .section-tag{margin-bottom:12px;}
+.sobre-body{margin-top:28px;display:flex;flex-direction:column;gap:16px;}
+.sobre-body p{font-size:16px;line-height:1.85;color:var(--cream-dark);font-weight:300;}
+.sobre-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;}
+.stat{border-top:1px solid rgba(200,146,42,0.25);padding-top:20px;}
+.stat-num{font-family:'Playfair Display',serif;font-size:40px;font-weight:700;color:var(--gold);}
+.stat-label{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-top:4px;}
+.sobre-image-wrap{position:relative;}
+.sobre-img-main{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;}
+.sobre-img-placeholder{width:100%;aspect-ratio:4/5;background:linear-gradient(135deg,var(--charcoal-3),var(--wood));display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.sobre-img-placeholder::after{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80') center/cover;opacity:0.7;}
+.img-accent{position:absolute;bottom:-24px;right:-24px;width:55%;aspect-ratio:4/3;background:url('https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=600&q=80') center/cover;border:4px solid var(--charcoal-2);z-index:2;}
+.gold-line{width:48px;height:2px;background:var(--gold);margin:24px 0;}
+
+/* HISTÓRIA / LINHA DO TEMPO VERTICAL INTERATIVA */
+.historia{background:var(--charcoal-2);position:relative;overflow:hidden;padding:120px 60px;}
+.historia::before{content:'';position:absolute;left:-300px;top:0;bottom:0;width:700px;background:radial-gradient(ellipse at left center,rgba(200,146,42,0.04),transparent 70%);pointer-events:none;}
+.historia-header{text-align:center;max-width:720px;margin:0 auto 80px;}
+.historia-header p{margin-top:20px;font-size:17px;color:var(--text-muted);font-family:'Cormorant Garamond',serif;font-style:italic;line-height:1.8;}
+
+/* WRAPPER — single flex row, no gap issues */
+.vtl-wrap{
+  display:flex;
+  flex-direction:row;
+  max-width:960px;
+  margin:0 auto;
+  align-items:flex-start;
+}
+
+/* ── YEARS column (left) — text right-aligned toward the line ── */
+.vtl-years{
+  display:flex;
+  flex-direction:column;
+  flex-shrink:0;
+  width:130px;
+}
+.vtl-year-item{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end; /* push text+dot to the right edge */
+  cursor:pointer;
+  min-height:72px;
+  position:relative;
+  transition:all 0.3s;
+  gap:12px; /* gap between text and dot */
+}
+.vtl-date{
+  font-family:'Playfair Display',serif;
+  font-size:14px;
+  color:var(--text-muted);
+  transition:color 0.3s;
+  line-height:1.2;
+  text-align:right;
+  white-space:nowrap;
+}
+.vtl-year-item:hover .vtl-date{color:var(--gold);}
+.vtl-year-item.active .vtl-date{color:var(--gold);font-weight:700;}
+.vtl-hoje .vtl-date{color:rgba(232,184,75,0.65);}
+.vtl-hoje.active .vtl-date{color:var(--gold-light);}
+
+/* Dot — last child in flex row, sits right against the line */
+.vtl-yr-dot{
+  width:12px;height:12px;border-radius:50%;
+  flex-shrink:0;
+  border:2px solid rgba(200,146,42,0.3);
+  background:var(--charcoal-2);
+  transition:all 0.35s ease;
+  position:relative;z-index:2;
+}
+.vtl-year-item.active .vtl-yr-dot,
+.vtl-year-item:hover .vtl-yr-dot{
+  background:var(--gold);border-color:var(--gold);
+  box-shadow:0 0 0 5px rgba(200,146,42,0.15),0 0 14px rgba(200,146,42,0.4);
+  transform:scale(1.35);
+}
+.vtl-dot-pulse{
+  background:var(--gold);border-color:var(--gold-light);
+  animation:vtlPulse 2.2s ease-in-out infinite;
+}
+@keyframes vtlPulse{
+  0%,100%{box-shadow:0 0 0 4px rgba(200,146,42,0.12),0 0 12px rgba(200,146,42,0.3);}
+  50%{box-shadow:0 0 0 9px rgba(200,146,42,0.06),0 0 22px rgba(200,146,42,0.55);}
+}
+
+/* ── VERTICAL LINE — 2px strip between the two columns ── */
+.vtl-line{
+  width:2px;
+  flex-shrink:0;
+  align-self:stretch;
+  background:rgba(200,146,42,0.15);
+  position:relative;
+  min-height:100%;
+}
+.vtl-line-fill{
+  position:absolute;top:0;left:0;width:100%;
+  background:linear-gradient(180deg,var(--gold),var(--gold-dark));
+  transition:height 0.5s ease;
+  height:0%;
+}
+
+/* ── CONTENT panel (right) ── */
+.vtl-content{
+  flex:1;
+  padding-left:40px;
+}
+.vtl-panel{
+  display:none;
+  flex-direction:column;
+  gap:24px;
+  opacity:0;
+  transform:translateX(12px);
+  transition:opacity 0.45s ease,transform 0.45s ease;
+}
+.vtl-panel.active{display:flex;opacity:1;transform:translateX(0);}
+
+.vtl-img-slot{
+  width:100%;aspect-ratio:16/9;
+  border:1.5px dashed rgba(200,146,42,0.35);
+  background:var(--charcoal-3);
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;flex-shrink:0;
+}
+.vtl-img-slot img{width:100%;height:100%;object-fit:cover;display:block;}
+.vtl-img-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(200,146,42,0.35);}
+.vtl-img-hoje{border-color:rgba(200,146,42,0.5);background:rgba(200,146,42,0.04);}
+
+.vtl-text{display:flex;flex-direction:column;gap:14px;}
+.vtl-tag{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:500;}
+.vtl-tag-hoje{color:var(--gold-light);}
+.vtl-title{font-family:'Playfair Display',serif;font-size:clamp(19px,2.2vw,26px);font-weight:700;color:var(--cream);line-height:1.2;}
+.vtl-title-hoje{color:var(--gold-light);}
+.vtl-sub-title{font-family:'Playfair Display',serif;font-size:15px;font-weight:600;color:var(--gold);font-style:italic;}
+.vtl-text p{font-size:15px;color:var(--cream-dark);line-height:1.85;font-weight:300;}
+.vtl-award{display:flex;align-items:center;gap:12px;background:rgba(200,146,42,0.07);border-left:2px solid var(--gold);padding:10px 16px;font-size:14px;color:var(--cream-dark);}
+.vtl-award-icon{font-size:18px;flex-shrink:0;}
+.vtl-hoje-nums{display:flex;gap:0;margin-top:8px;border-top:1px solid rgba(200,146,42,0.15);padding-top:24px;}
+.vtl-num-box{flex:1;text-align:center;padding:0 12px;}
+.vtl-num-box+.vtl-num-box{border-left:1px solid rgba(200,146,42,0.12);}
+.vtl-big{display:block;font-family:'Playfair Display',serif;font-size:38px;font-weight:700;color:var(--gold);}
+.vtl-lbl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-top:4px;display:block;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .historia{padding:72px 20px;}
+  .vtl-wrap{flex-direction:column;}
+  .vtl-line{display:none;}
+  .vtl-years{
+    flex-direction:row;overflow-x:auto;width:100%;
+    border-bottom:1px solid rgba(200,146,42,0.15);
+    margin-bottom:36px;scrollbar-width:none;
+    justify-content:flex-start;
+  }
+  .vtl-years::-webkit-scrollbar{display:none;}
+  .vtl-year-item{
+    min-height:auto;padding:12px 16px;flex-shrink:0;
+    justify-content:flex-start;gap:0;
+    border-bottom:2px solid transparent;
+  }
+  .vtl-year-item.active{border-bottom-color:var(--gold);}
+  .vtl-yr-dot{display:none;}
+  .vtl-date{font-size:13px;text-align:left;}
+  .vtl-content{padding-left:0;}
+  .vtl-img-slot{aspect-ratio:4/3;}
+}
+@media(max-width:480px){
+  .vtl-title{font-size:18px;}
+  .vtl-big{font-size:28px;}
+}
+
+/* CARDÁPIO */
+.cardapio{background:var(--charcoal-3);position:relative;}
+.cardapio-header{text-align:center;max-width:700px;margin:0 auto 80px;}
+.cardapio-header p{margin-top:20px;font-size:16px;color:var(--text-muted);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;}
+.category-tabs{display:flex;gap:0;justify-content:center;margin-bottom:64px;border-bottom:1px solid rgba(200,146,42,0.15);flex-wrap:wrap;}
+.cat-tab{background:none;border:none;color:var(--text-muted);font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:16px 28px;cursor:pointer;font-family:'DM Sans',sans-serif;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all 0.3s;}
+.cat-tab.active,.cat-tab:hover{color:var(--gold);border-bottom-color:var(--gold);}
+.menu-panel{display:none;animation:fadeIn 0.5s ease;}
+.menu-panel.active{display:block;}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2px;}
+.menu-card{background:var(--charcoal-4);position:relative;overflow:hidden;cursor:pointer;transition:transform 0.4s ease;}
+.menu-card:hover{transform:scale(1.02);z-index:2;}
+.menu-card-img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform 0.6s ease;filter:brightness(0.85);}
+.menu-card:hover .menu-card-img{transform:scale(1.08);filter:brightness(1);}
+.menu-card-placeholder{width:100%;aspect-ratio:4/3;background:var(--charcoal-4);display:flex;align-items:flex-end;position:relative;overflow:hidden;}
+.menu-card-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(13,12,10,0.95) 100%);}
+.menu-card-body{position:absolute;bottom:0;left:0;right:0;padding:24px;}
+.menu-card-name{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;color:var(--cream);margin-bottom:6px;}
+.menu-card-desc{font-size:13px;color:var(--text-muted);line-height:1.5;}
+.menu-card-acomp{font-size:11px;color:rgba(200,146,42,0.7);margin-top:6px;letter-spacing:1px;}
+.menu-card-tag{display:inline-block;background:var(--gold);color:var(--charcoal);font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;margin-bottom:12px;font-weight:500;}
+.menu-drinks-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:24px;}
+.drink-category{margin-bottom:48px;}
+.drink-cat-title{font-family:'Playfair Display',serif;font-size:22px;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+.drink-cat-title::after{content:'';flex:1;height:1px;background:rgba(200,146,42,0.2);}
+.drink-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.drink-list li{font-size:15px;color:var(--cream-dark);padding:10px 0;border-bottom:1px solid rgba(245,239,224,0.06);display:flex;align-items:center;gap:8px;}
+.drink-list li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+.acomp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;}
+.acomp-item{background:var(--charcoal-4);padding:16px 20px;font-size:14px;color:var(--cream-dark);border-left:2px solid var(--gold);}
+
+/* EXPERIÊNCIA / GALERIA */
+.experiencia{background:var(--charcoal-2);overflow:hidden;}
+.exp-header{text-align:center;max-width:700px;margin:0 auto 72px;}
+.exp-header p{margin-top:20px;font-size:18px;color:var(--text-muted);font-family:'Cormorant Garamond',serif;font-style:italic;}
+.gallery-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:auto;gap:4px;max-width:1400px;margin:0 auto;}
+.gallery-item{overflow:hidden;position:relative;cursor:pointer;}
+.gallery-item::after{content:'';position:absolute;inset:0;background:rgba(200,146,42,0);transition:background 0.4s;}
+.gallery-item:hover::after{background:rgba(200,146,42,0.12);}
+.g1{grid-column:span 7;grid-row:span 2;aspect-ratio:unset;height:500px;}
+.g2{grid-column:span 5;height:248px;}
+.g3{grid-column:span 5;height:248px;}
+.g4{grid-column:span 4;height:320px;}
+.g5{grid-column:span 4;height:320px;}
+.g6{grid-column:span 4;height:320px;}
+.gallery-img{width:100%;height:100%;object-fit:cover;transition:transform 0.7s ease;}
+.gallery-item:hover .gallery-img{transform:scale(1.06);}
+
+/* UNIDADES */
+.unidades{background:var(--charcoal-3);}
+.unidades-header{text-align:center;max-width:700px;margin:0 auto 80px;}
+.unidades-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:2px;max-width:1200px;margin:0 auto;}
+.unit-card{background:var(--charcoal-4);overflow:hidden;position:relative;transition:transform 0.3s;}
+.unit-card:hover{transform:translateY(-4px);}
+.unit-img{width:100%;aspect-ratio:16/9;object-fit:cover;filter:brightness(0.7);transition:filter 0.4s;}
+.unit-card:hover .unit-img{filter:brightness(0.9);}
+.unit-img-placeholder{width:100%;aspect-ratio:16/9;background:var(--charcoal-3);position:relative;overflow:hidden;}
+.unit-body{padding:28px;}
+.unit-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--cream);margin-bottom:4px;}
+.unit-badge{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:block;}
+.unit-info{display:flex;flex-direction:column;gap:10px;margin-bottom:20px;}
+.unit-info-row{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--cream-dark);}
+.unit-icon{color:var(--gold);font-size:15px;flex-shrink:0;margin-top:1px;}
+.unit-hours{background:rgba(200,146,42,0.06);padding:16px;margin-bottom:20px;border-left:2px solid rgba(200,146,42,0.3);}
+.unit-hours h4{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.unit-hours p{font-size:13px;color:var(--cream-dark);line-height:1.7;}
+.unit-btn{display:block;text-align:center;background:transparent;border:1px solid rgba(200,146,42,0.3);color:var(--gold);padding:12px;font-size:11px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all 0.3s;font-family:'DM Sans',sans-serif;}
+.unit-btn:hover{background:var(--gold);color:var(--charcoal);}
+
+/* CTA */
+.cta-section{background:var(--charcoal);position:relative;text-align:center;padding:140px 60px;overflow:hidden;}
+.cta-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1920&q=80') center/cover;opacity:0.12;}
+.cta-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(200,146,42,0.12),transparent 70%);pointer-events:none;}
+.cta-content{position:relative;z-index:2;max-width:750px;margin:0 auto;}
+.cta-content .section-tag{display:block;text-align:center;margin-bottom:24px;}
+.cta-title{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,64px);font-weight:700;line-height:1.15;margin-bottom:24px;color:var(--cream);}
+.cta-title em{color:var(--gold);font-style:italic;}
+.cta-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:var(--text-muted);margin-bottom:48px;}
+.cta-divider{width:60px;height:1px;background:rgba(200,146,42,0.4);margin:0 auto 48px;}
+
+/* FOOTER */
+footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);padding:80px 60px 40px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:60px;max-width:1200px;margin:0 auto 60px;}
+.footer-brand .nav-logo{font-size:32px;display:block;margin-bottom:16px;}
+.footer-brand p{font-size:14px;color:var(--text-muted);line-height:1.8;max-width:280px;}
+.footer-social{display:flex;gap:12px;margin-top:24px;}
+.soc-btn{width:40px;height:40px;border:1px solid rgba(200,146,42,0.25);display:flex;align-items:center;justify-content:center;color:var(--cream-dark);text-decoration:none;font-size:14px;transition:all 0.3s;}
+.soc-btn:hover{border-color:var(--gold);color:var(--gold);background:rgba(200,146,42,0.05);}
+.footer-col h4{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-col ul li a{color:var(--text-muted);text-decoration:none;font-size:14px;transition:color 0.3s;}
+.footer-col ul li a:hover{color:var(--gold);}
+.footer-contact p{font-size:14px;color:var(--text-muted);line-height:1.9;}
+.footer-contact a{color:var(--cream-dark);text-decoration:none;}
+.footer-bottom{border-top:1px solid rgba(245,239,224,0.06);padding-top:32px;display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;}
+.footer-bottom p{font-size:13px;color:var(--text-muted);}
+.footer-bottom span{color:var(--gold);}
+
+/* MOBILE NAV */
+.mobile-nav{display:none;position:fixed;inset:0;background:rgba(13,12,10,0.98);z-index:200;flex-direction:column;align-items:center;justify-content:center;gap:32px;}
+.mobile-nav.open{display:flex;}
+.mobile-nav a{color:var(--cream);text-decoration:none;font-family:'Playfair Display',serif;font-size:32px;font-weight:700;transition:color 0.3s;}
+.mobile-nav a:hover{color:var(--gold);}
+.mobile-close{position:absolute;top:24px;right:24px;background:none;border:none;color:var(--cream);font-size:28px;cursor:pointer;}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  nav{padding:20px 32px;}
+  nav.scrolled{padding:14px 32px;}
+  .nav-links{display:none;}
+  .nav-cta{display:none;}
+  .hamburger{display:flex;}
+  section{padding:80px 32px;}
+  .sobre-grid{grid-template-columns:1fr;gap:48px;}
+  .img-accent{display:none;}
+  .sobre-stats{grid-template-columns:repeat(3,1fr);}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:40px;}
+  .gallery-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px;}
+  .g1{grid-column:span 2;height:280px;}
+  .g2,.g3,.g4,.g5,.g6{grid-column:span 1;height:200px;}
+}
+@media(max-width:640px){
+  section{padding:72px 20px;}
+  .hero-btns{flex-direction:column;align-items:center;}
+  .sobre-stats{grid-template-columns:1fr 1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+  .footer-bottom{flex-direction:column;gap:12px;text-align:center;}
+  .unidades-grid{grid-template-columns:1fr;}
+  .gallery-grid{display:flex;flex-direction:column;}
+  .g1,.g2,.g3,.g4,.g5,.g6{height:240px;}
+  .category-tabs{gap:4px;}
+  .cat-tab{padding:12px 16px;font-size:11px;}
+}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-logo-slot" title="Insira a logo aqui">
+    <!-- Substitua pelo <img src="logo.png" alt="Gelobel"> -->
+    <span class="loader-logo-slot-label">Logo</span>
+  </div>
+  <div class="loader-logo">GELOBEL</div>
+  <div class="loader-tagline">Tradição e Sabor na Brasa</div>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+</div>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" onclick="closeMobileNav()">✕</button>
+  <a href="#sobre" onclick="closeMobileNav()">Sobre</a>
+  <a href="#historia" onclick="closeMobileNav()">História</a>
+  <a href="#cardapio" onclick="closeMobileNav()">Cardápio</a>
+  <a href="#experiencia" onclick="closeMobileNav()">Experiência</a>
+  <a href="#unidades" onclick="closeMobileNav()">Unidades</a>
+</div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="logo-wrap nav-logo-wrap">
+    <div class="nav-logo-mark" title="Logo Gelobel">
+      <img src="https://gelobel.com.br/wp-content/uploads/2019/12/GELOBEL-AMARELO-E-BRANCO-2048x906.png"
+        alt="Gelobel Logo">
+    </div>
+    <!--<span class="nav-logo">GELOBEL</span>-->
+  </div>
+  <ul class="nav-links">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#historia">História</a></li>
+    <li><a href="#cardapio">Cardápio</a></li>
+    <li><a href="#experiencia">Experiência</a></li>
+    <li><a href="#unidades">Unidades</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('unidades').scrollIntoView({behavior:'smooth'})">Encontrar Unidade</button>
+  <div class="hamburger" onclick="document.getElementById('mobileNav').classList.add('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-particles" id="particles"></div>
+  <div class="hero-content">
+    <!--<div class="hero-logo-mark" title="Logo Gelobel">
+      <img src="https://gelobel.com.br/wp-content/uploads/2019/12/GELOBEL-AMARELO-E-BRANCO-2048x906.png" alt="Gelobel Logo">
+    <div class="hero-badge">Londrina · Curitiba · Desde 1991</div></div>-->
+    <h1 class="hero-title">Tradição e Sabor<span>na Brasa</span></h1>
+    <div class="hero-divider"></div>
+    <p class="hero-subtitle">O verdadeiro churrasco brasileiro, com a qualidade<br>e o aconchego que a sua família merece</p>
+    <div class="hero-btns">
+      <a href="#cardapio" class="btn-primary">Ver Cardápio</a>
+      <a href="#unidades" class="btn-outline">Conheça as Unidades</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Rolar</span>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="sobre" id="sobre">
+  <div class="sobre-grid">
+    <div class="sobre-left reveal">
+      <span class="section-tag">Nossa Trajetória</span>
+      <h2 class="section-title">Mais de trinta anos de <em>história</em></h2>
+      <div class="gold-line"></div>
+      <div class="sobre-body">
+        <p>A Gelobel nasceu em 1991 com uma missão simples: reunir pessoas ao redor de uma boa mesa. O que começou como um sonho em Londrina, Paraná, se transformou em uma das churrascarias mais queridas da região.</p>
+        <p>Ao longo das décadas, crescemos, nos reinventamos e abrimos novas unidades — mas nunca abrimos mão do que sempre nos definiu: ingredientes de qualidade, ambiente caloroso e atendimento de excelência.</p>
+        <p>Hoje, com várias unidades, o Grupo Gelobel continua escrevendo uma história repleta de conquistas, guiada pela paixão pelo que fazemos.</p>
+      </div>
+      <div class="sobre-stats">
+        <div class="stat">
+          <div class="stat-num">30+</div>
+          <div class="stat-label">Anos de tradição</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">6</div>
+          <div class="stat-label">Unidades</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">1991</div>
+          <div class="stat-label">Fundação</div>
+        </div>
+      </div>
+    </div>
+    <div class="sobre-image-wrap reveal">
+      <div class="sobre-img-placeholder"></div>
+      <div class="img-accent"></div>
+    </div>
+  </div>
+</section>
+
+<!-- HISTÓRIA — LINHA DO TEMPO VERTICAL -->
+<section class="historia" id="historia">
+  <div class="historia-header reveal">
+    <span class="section-tag">Nossa Trajetória</span>
+    <h2 class="section-title">Mais de trinta anos de <em>história</em></h2>
+    <p>A Gelobel nasceu em 1991 com uma missão simples: reunir pessoas ao redor de uma boa mesa. O que começou como um sonho em Londrina, Paraná, se transformou em uma das churrascarias mais queridas da região.</p>
+  </div>
+
+  <div class="vtl-wrap reveal">
+
+    <!-- COLUNA DOS ANOS (esquerda) -->
+    <div class="vtl-years">
+      <div class="vtl-year-item active" data-target="tl1991" onclick="selectYear(this,'tl1991')">
+        <span class="vtl-date">12/10 · 1991</span>
+        <div class="vtl-yr-dot"></div>
+      </div>
+      <div class="vtl-year-item" data-target="tl1997" onclick="selectYear(this,'tl1997')">
+        <span class="vtl-date">1997</span>
+        <div class="vtl-yr-dot"></div>
+      </div>
+      <div class="vtl-year-item" data-target="tl2011" onclick="selectYear(this,'tl2011')">
+        <span class="vtl-date">2011</span>
+        <div class="vtl-yr-dot"></div>
+      </div>
+      <div class="vtl-year-item" data-target="tl2012" onclick="selectYear(this,'tl2012')">
+        <span class="vtl-date">2012</span>
+        <div class="vtl-yr-dot"></div>
+      </div>
+      <div class="vtl-year-item" data-target="tl2014" onclick="selectYear(this,'tl2014')">
+        <span class="vtl-date">2014</span>
+        <div class="vtl-yr-dot"></div>
+      </div>
+      <div class="vtl-year-item" data-target="tl2019" onclick="selectYear(this,'tl2019')">
+        <span class="vtl-date">2019</span>
+        <div class="vtl-yr-dot"></div>
+      </div>
+      <div class="vtl-year-item" data-target="tl2020" onclick="selectYear(this,'tl2020')">
+        <span class="vtl-date">2020</span>
+        <div class="vtl-yr-dot"></div>
+      </div>
+      <div class="vtl-year-item vtl-hoje" data-target="tlhoje" onclick="selectYear(this,'tlhoje')">
+        <span class="vtl-date">Hoje</span>
+        <div class="vtl-yr-dot vtl-dot-pulse"></div>
+      </div>
+    </div>
+
+    <!-- LINHA VERTICAL CENTRAL -->
+    <div class="vtl-line">
+      <div class="vtl-line-fill"></div>
+    </div>
+
+    <!-- COLUNA DO CONTEÚDO (esquerda) -->
+    <div class="vtl-content">
+
+      <div class="vtl-panel active" id="tl1991">
+        <div class="vtl-img-slot" title="Adicione uma foto desta época">
+          <!-- <img src="foto-1991.jpg" alt="1991"> -->
+          <span class="vtl-img-label">Foto · 1991</span>
+        </div>
+        <div class="vtl-text">
+          <div class="vtl-tag">12 de outubro de 1991</div>
+          <h3 class="vtl-title">INAUGURAMOS NA DUQUE</h3>
+          <p>De início apenas como distribuidora de gelo, carvão e bebidas, conseguimos quebrar limites.</p>
+          <div class="vtl-sub-title">DESCOBRIMOS NOVOS E TRADICIONAIS SABORES</div>
+          <p>Nos tornamos um forte ponto de encontro de amigos e assim iniciando também nossos espetinhos que acompanhavam o que ainda é tradicional até hoje — maionese e farofa, receitas tradicionais de família.</p>
+        </div>
+      </div>
+
+      <div class="vtl-panel" id="tl1997">
+        <div class="vtl-img-slot" title="Adicione uma foto desta época">
+          <span class="vtl-img-label">Foto · 1997</span>
+        </div>
+        <div class="vtl-text">
+          <div class="vtl-tag">1997</div>
+          <h3 class="vtl-title">HOMENAGEAMOS NOSSA SEGUNDA CASA</h3>
+          <p>Em nome ao criador Paulo Ferreira, homenageamos nossa segunda casa e consolidamos a identidade da marca que é referência em Londrina até hoje.</p>
+        </div>
+      </div>
+
+      <div class="vtl-panel" id="tl2011">
+        <div class="vtl-img-slot" title="Adicione uma foto desta época">
+          <span class="vtl-img-label">Foto · 2011</span>
+        </div>
+        <div class="vtl-text">
+          <div class="vtl-tag">2011</div>
+          <h3 class="vtl-title">FOMOS PREMIADOS</h3>
+          <div class="vtl-award"><span class="vtl-award-icon">🏆</span> Troféu Top of Business 2011</div>
+          <div class="vtl-award"><span class="vtl-award-icon">🏆</span> Troféu Top Empreendedor</div>
+          <p>Um reconhecimento que confirmou o que já sabíamos: a qualidade e o carinho com que servimos nossos clientes fazem toda a diferença.</p>
+        </div>
+      </div>
+
+      <div class="vtl-panel" id="tl2012">
+        <div class="vtl-img-slot" title="Adicione uma foto desta época">
+          <span class="vtl-img-label">Foto · 2012</span>
+        </div>
+        <div class="vtl-text">
+          <div class="vtl-tag">2012</div>
+          <h3 class="vtl-title">REFERÊNCIA GASTRONÔMICA PELO 2º ANO CONSECUTIVO</h3>
+          <div class="vtl-award"><span class="vtl-award-icon">🏆</span> Troféu Top of Business 2012</div>
+          <div class="vtl-award"><span class="vtl-award-icon">🌎</span> Prêmio Latin American Quality Institute</div>
+          <p>Dois anos seguidos premiados. A Gelobel consolida sua posição como referência gastronômica no Paraná.</p>
+        </div>
+      </div>
+
+      <div class="vtl-panel" id="tl2014">
+        <div class="vtl-img-slot" title="Adicione uma foto desta época">
+          <span class="vtl-img-label">Foto · 2014</span>
+        </div>
+        <div class="vtl-text">
+          <div class="vtl-tag">2014</div>
+          <h3 class="vtl-title">INAUGURAMOS NOSSA UNIDADE DELIVERY</h3>
+          <p>A Gelobel Delivery nasce para levar o sabor da brasa até a porta da sua casa. Uma nova forma de viver a experiência Gelobel — com o mesmo sabor de sempre.</p>
+        </div>
+      </div>
+
+      <div class="vtl-panel" id="tl2019">
+        <div class="vtl-img-slot" title="Adicione uma foto desta época">
+          <span class="vtl-img-label">Foto · 2019</span>
+        </div>
+        <div class="vtl-text">
+          <div class="vtl-tag">2019</div>
+          <h3 class="vtl-title">INAUGURAÇÃO EM CURITIBA</h3>
+          <p>A Gelobel chega à capital paranaense com a inauguração no Shopping Estação — levando a tradição e o sabor de Londrina para uma nova cidade.</p>
+        </div>
+      </div>
+
+      <div class="vtl-panel" id="tl2020">
+        <div class="vtl-img-slot" title="Adicione uma foto desta época">
+          <span class="vtl-img-label">Foto · 2020</span>
+        </div>
+        <div class="vtl-text">
+          <div class="vtl-tag">2020</div>
+          <h3 class="vtl-title">EXPANDIMOS A UNIDADE GELOBEL BOULEVARD</h3>
+          <p>Em um novo ambiente, mais amplo e aconchegante — para a sua família ter ainda mais espaço e conforto ao redor de uma boa mesa.</p>
+        </div>
+      </div>
+
+      <div class="vtl-panel" id="tlhoje">
+        <div class="vtl-img-slot vtl-img-hoje" title="Adicione uma foto atual">
+          <span class="vtl-img-label">Foto Atual</span>
+        </div>
+        <div class="vtl-text">
+          <div class="vtl-tag vtl-tag-hoje">Hoje · Em plena atividade</div>
+          <h3 class="vtl-title vtl-title-hoje">E CONTINUA…</h3>
+          <p>6 unidades espalhadas entre Londrina e Curitiba. Centenas de clientes diários e a mesma paixão de sempre por servir bem — do primeiro espetinho ao último chopp.</p>
+          <div class="vtl-hoje-nums">
+            <div class="vtl-num-box"><span class="vtl-big">6</span><span class="vtl-lbl">Unidades</span></div>
+            <div class="vtl-num-box"><span class="vtl-big">30+</span><span class="vtl-lbl">Anos</span></div>
+            <div class="vtl-num-box"><span class="vtl-big">∞</span><span class="vtl-lbl">Histórias</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /vtl-content -->
+  </div><!-- /vtl-wrap -->
+</section>
+
+<!-- CARDÁPIO -->
+<section class="cardapio" id="cardapio">
+  <div class="cardapio-header reveal">
+    <span class="section-tag">Cardápio</span>
+    <h2 class="section-title">Uma experiência <em>gastronômica</em> completa</h2>
+    <p>Carnes nobres, acompanhamentos selecionados e bebidas para todos os momentos</p>
+  </div>
+
+  <div class="category-tabs reveal">
+    <button class="cat-tab active" onclick="showPanel('carnes',this)">Carnes</button>
+    <button class="cat-tab" onclick="showPanel('entradas',this)">Entradas & Porções</button>
+    <button class="cat-tab" onclick="showPanel('frios',this)">Frios</button>
+    <button class="cat-tab" onclick="showPanel('executivos',this)">Pratos Executivos</button>
+    <button class="cat-tab" onclick="showPanel('bebidas',this)">Bebidas</button>
+    <button class="cat-tab" onclick="showPanel('doces',this)">Doces</button>
+  </div>
+
+  <!-- CARNES -->
+  <div class="menu-panel active" id="panel-carnes">
+    <div class="menu-grid">
+
+      <div class="menu-card">
+        <div class="menu-card-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/Gelobel-16469-870x579.jpg') center/cover;height:260px;">
+          <div class="menu-card-overlay"></div>
+          <div class="menu-card-body">
+            <div class="menu-card-name">Espetinhos</div>
+            <div class="menu-card-desc">Acompanhado de farofa e creme de maionese</div>
+            <div class="menu-card-acomp">+ Acomp. adicionais disponíveis</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/Gelobel-16698.jpg') center/cover;height:260px;">
+          <div class="menu-card-overlay"></div>
+          <div class="menu-card-body">
+            <div class="menu-card-tag">Premium</div>
+            <div class="menu-card-name">Picanha</div>
+            <div class="menu-card-desc">Acompanhada de farofa e creme de maionese</div>
+            <div class="menu-card-acomp">+ Acomp. adicionais disponíveis</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/Gelobel-16500-870x579.jpg') center/cover;height:260px;">
+          <div class="menu-card-overlay"></div>
+          <div class="menu-card-body">
+            <div class="menu-card-name">Calabresa</div>
+            <div class="menu-card-desc">Acompanhada de farofa e creme de maionese</div>
+            <div class="menu-card-acomp">+ Acomp. adicionais disponíveis</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/Gelobel-16626-870x579.jpg') center/cover;height:260px;">
+          <div class="menu-card-overlay"></div>
+          <div class="menu-card-body">
+            <div class="menu-card-name">Contrafilé</div>
+            <div class="menu-card-desc">Acompanhado de farofa e creme de maionese</div>
+            <div class="menu-card-acomp">+ Acomp. adicionais disponíveis</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/Gelobel-18179-870x579.jpg') center/cover;height:260px;">
+          <div class="menu-card-overlay"></div>
+          <div class="menu-card-body">
+            <div class="menu-card-name">Costela</div>
+            <div class="menu-card-desc">Acompanhada de farofa e creme de maionese</div>
+            <div class="menu-card-acomp">+ Acomp. adicionais disponíveis</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ACOMPANHAMENTOS ADICIONAIS inline -->
+    <div style="max-width:960px;margin:48px auto 0;">
+      <div class="drink-cat-title" style="font-size:18px;margin-bottom:24px;">Acompanhamentos Adicionais</div>
+      <div class="acomp-grid">
+        <div class="acomp-item">Creme de Maionese extra</div>
+        <div class="acomp-item">Arroz Branco</div>
+        <div class="acomp-item">Salada de Tomate c/ Cebola</div>
+        <div class="acomp-item">Pão de Alho</div>
+        <div class="acomp-item">Farofa extra</div>
+        <div class="acomp-item">Mandioca Cozida</div>
+        <div class="acomp-item">Maionese de Batata</div>
+      </div>
+      <div class="acomp-nota" style="margin-top:20px;background:rgba(200,146,42,0.06);border-left:3px solid var(--gold);padding:14px 20px;">
+        <p style="font-size:13px;color:var(--cream-dark);line-height:1.7;"><span style="color:var(--gold);font-weight:500;">Inclusos em todas as carnes:</span> Farofa e Creme de Maionese.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ENTRADAS & PORÇÕES -->
+  <div class="menu-panel" id="panel-entradas">
+    <div class="menu-grid">
+      <div class="menu-card">
+        <div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1551248429-40975aa4de74?w=600&q=80') center/cover;height:240px;">
+          <div class="menu-card-overlay"></div>
+          <div class="menu-card-body"><div class="menu-card-name">Polenta Frita com Queijo</div></div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1620921568790-c1cf8984a408?w=600&q=80') center/cover;height:240px;">
+          <div class="menu-card-overlay"></div>
+          <div class="menu-card-body"><div class="menu-card-name">Bolinho de Bacalhau</div></div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1527477396000-e27163b481c2?w=600&q=80') center/cover;height:240px;">
+          <div class="menu-card-overlay"></div>
+          <div class="menu-card-body"><div class="menu-card-name">Costelinha de Porco</div></div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=600&q=80') center/cover;height:240px;">
+          <div class="menu-card-overlay"></div>
+          <div class="menu-card-body"><div class="menu-card-name">Frango a Passarinho</div></div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&q=80') center/cover;height:240px;">
+          <div class="menu-card-overlay"></div>
+          <div class="menu-card-body"><div class="menu-card-name">Filé de Tilápia</div></div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=600&q=80') center/cover;height:240px;">
+          <div class="menu-card-overlay"></div>
+          <div class="menu-card-body"><div class="menu-card-name">Mandioca Frita com Bacon</div></div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=600&q=80') center/cover;height:240px;">
+          <div class="menu-card-overlay"></div>
+          <div class="menu-card-body"><div class="menu-card-name">Frango a Passarinho com Alho</div></div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1639024471283-03518883512d?w=600&q=80') center/cover;height:240px;">
+          <div class="menu-card-overlay"></div>
+          <div class="menu-card-body"><div class="menu-card-name">Batata Frita com Queijo</div></div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1630431341973-02e1b662ec35?w=600&q=80') center/cover;height:240px;">
+          <div class="menu-card-overlay"></div>
+          <div class="menu-card-body"><div class="menu-card-name">Polenta Frita</div></div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1576107232684-1279f78fa571?w=600&q=80') center/cover;height:240px;">
+          <div class="menu-card-overlay"></div>
+          <div class="menu-card-body"><div class="menu-card-name">Batata Frita</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FRIOS -->
+  <div class="menu-panel" id="panel-frios">
+    <div class="menu-grid">
+      <div class="menu-card">
+        <div class="menu-card-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/GELOBEL-11132-870x579.jpg') center/cover;height:260px;">
+          <div class="menu-card-overlay"></div>
+          <div class="menu-card-body"><div class="menu-card-tag">Destaque</div><div class="menu-card-name">Tábua de Frios</div><div class="menu-card-desc">Salame, muçarela, presunto, provolone e mais</div></div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-card-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/GELOBEL-11352-870x579.jpg') center/cover;height:260px;">
+          <div class="menu-card-overlay"></div>
+          <div class="menu-card-body"><div class="menu-card-name">Porção de Salame</div></div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-card-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/GELOBEL-11322-870x579.jpg') center/cover;height:260px;">
+          <div class="menu-card-overlay"></div>
+          <div class="menu-card-body"><div class="menu-card-name">Porção de Provolone</div></div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-card-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/GELOBEL-11278-870x579.jpg') center/cover;height:260px;">
+          <div class="menu-card-overlay"></div>
+          <div class="menu-card-body"><div class="menu-card-name">Porção de Presunto</div></div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-card-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/GELOBEL-11300-870x579.jpg') center/cover;height:260px;">
+          <div class="menu-card-overlay"></div>
+          <div class="menu-card-body"><div class="menu-card-name">Porção de Azeitona</div></div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-card-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/GELOBEL-11249-870x579.jpg') center/cover;height:260px;">
+          <div class="menu-card-overlay"></div>
+          <div class="menu-card-body"><div class="menu-card-name">Porção de Muçarela</div></div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-card-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/GELOBEL-11315-870x579.jpg') center/cover;height:260px;">
+          <div class="menu-card-overlay"></div>
+          <div class="menu-card-body"><div class="menu-card-name">Porção de Palmito</div></div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-card-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/GELOBEL-11306-870x579.jpg') center/cover;height:260px;">
+          <div class="menu-card-overlay"></div>
+          <div class="menu-card-body"><div class="menu-card-name">Salada Mista</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRATOS EXECUTIVOS -->
+  <div class="menu-panel" id="panel-executivos">
+    <div style="max-width:900px;margin:0 auto;">
+      <div class="acomp-nota reveal" style="background:rgba(200,146,42,0.06);border-left:3px solid var(--gold);padding:18px 24px;margin-bottom:40px;">
+        <p style="font-size:14px;color:var(--cream-dark);line-height:1.7;"><span style="color:var(--gold);font-weight:500;">Exclusivos dos Shoppings:</span> Catuaí, Boulevard e Estação.</p>
+      </div>
+      <div class="menu-grid" style="max-width:700px;">
+        <div class="menu-card">
+          <div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1558030006-450675393462?w=600&q=80') center/cover;height:280px;">
+            <div class="menu-card-overlay"></div>
+            <div class="menu-card-body"><div class="menu-card-tag">Executivo</div><div class="menu-card-name">Contrafilé</div><div class="menu-card-desc">Prato executivo completo</div></div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=600&q=80') center/cover;height:280px;">
+            <div class="menu-card-overlay"></div>
+            <div class="menu-card-body"><div class="menu-card-tag">Executivo</div><div class="menu-card-name">Filé de Frango</div><div class="menu-card-desc">Prato executivo completo</div></div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&q=80') center/cover;height:280px;">
+            <div class="menu-card-overlay"></div>
+            <div class="menu-card-body"><div class="menu-card-tag">Executivo</div><div class="menu-card-name">Filé de Tilápia</div><div class="menu-card-desc">Prato executivo completo</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEBIDAS -->
+  <div class="menu-panel" id="panel-bebidas" style="max-width:1100px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:44px;">
+
+      <div class="drink-category">
+        <div class="drink-cat-title">Refrigerantes</div>
+        <ul class="drink-list">
+          <li>Itubaína Retrô (355mL)</li>
+          <li>Itubaína Retrô Zero (355mL)</li>
+        </ul>
+      </div>
+
+      <div class="drink-category">
+        <div class="drink-cat-title">Outras Bebidas</div>
+        <ul class="drink-list">
+          <li>Água Mineral Sem Gás</li>
+          <li>Água Mineral Com Gás</li>
+          <li>Água de Coco</li>
+          <li>H2O Limão / Limoneto</li>
+          <li>Red Bull</li>
+        </ul>
+      </div>
+
+      <div class="drink-category">
+        <div class="drink-cat-title">Sucos</div>
+        <ul class="drink-list">
+          <li>Laranja</li>
+          <li>Limonada Suíça</li>
+          <li>Abacaxi / Abacaxi com Hortelã</li>
+          <li>Coco</li>
+          <li>Limão</li>
+          <li>Maracujá</li>
+          <li>Morango</li>
+          <li style="color:var(--text-muted);font-size:12px;font-style:italic;">Disponíveis com Água ou Leite</li>
+        </ul>
+      </div>
+
+      <div class="drink-category">
+        <div class="drink-cat-title">Chopp <span style="font-size:11px;color:var(--text-muted);font-weight:400;letter-spacing:1px;">300mL ou 600mL</span></div>
+        <ul class="drink-list">
+          <li>Devassa</li>
+          <li>Eisenbahn Pilsen</li>
+          <li>Eisenbahn American IPA</li>
+          <li>Eisenbahn Pale Ale</li>
+          <li>Eisenbahn Weizenbier</li>
+          <li>Brahma</li>
+          <li style="color:var(--text-muted);font-size:12px;font-style:italic;">Disponível somente em Don Pablo e Duque</li>
+        </ul>
+      </div>
+
+      <div class="drink-category">
+        <div class="drink-cat-title">Cervejas Long Neck Especiais</div>
+        <ul class="drink-list">
+          <li>Eisenbahn Pilsen</li>
+          <li>Eisenbahn American IPA</li>
+          <li>Eisenbahn Pale Ale</li>
+          <li>Eisenbahn Weizenbier</li>
+          <li>Baden Baden IPA</li>
+          <li>Baden Baden Cristal</li>
+          <li>Baden Baden Golden</li>
+          <li>Baden Baden Witbier</li>
+        </ul>
+      </div>
+
+      <div class="drink-category">
+        <div class="drink-cat-title">Cervejas Long Neck</div>
+        <ul class="drink-list">
+          <li>Devassa Lager *</li>
+          <li>Heineken *</li>
+          <li>Skol 1500 **</li>
+          <li>Burgesa **</li>
+          <li>Brahma</li>
+          <li>Bohemia</li>
+          <li>Original **</li>
+          <li>Caracu *</li>
+          <li style="color:var(--text-muted);font-size:12px;font-style:italic;">* Somente shoppings · ** Somente Don Pablo e Duque</li>
+        </ul>
+      </div>
+
+      <div class="drink-category">
+        <div class="drink-cat-title">Cervejas Lata</div>
+        <ul class="drink-list">
+          <li>Skol</li>
+          <li>Brahma</li>
+          <li>Brahma Zero</li>
+        </ul>
+      </div>
+
+      <div class="drink-category">
+        <div class="drink-cat-title">Cervejas Garrafa 600mL</div>
+        <ul class="drink-list">
+          <li>Devassa Lager</li>
+          <li>Heineken</li>
+          <li>Skol</li>
+          <li>Antarctica Sub Zero</li>
+          <li>Brahma / Brahma Malzbier</li>
+          <li>Bohemia</li>
+          <li>Eisenbahn Pilsen</li>
+          <li>Itaipava / Itaipava Premium / Original</li>
+        </ul>
+      </div>
+
+      <div class="drink-category">
+        <div class="drink-cat-title">Batidas</div>
+        <ul class="drink-list">
+          <li>Abacaxi, Coco, Caju</li>
+          <li>Morango, Maracujá, Pêssego</li>
+          <li style="color:var(--text-muted);font-size:12px;font-style:italic;">Com Vodka, Vinho ou Pinga</li>
+        </ul>
+      </div>
+
+      <div class="drink-category">
+        <div class="drink-cat-title">Caipiras</div>
+        <ul class="drink-list">
+          <li>Limão Taiti, Limão Rosa</li>
+          <li>Morango, Kiwi, Abacaxi, Maracujá</li>
+          <li>Caipirinha com Picolê</li>
+          <li style="color:var(--text-muted);font-size:12px;font-style:italic;">Com Pinga, Ypióca, Vinho, Saquê, Vodka ou Steinhäger</li>
+        </ul>
+      </div>
+
+      <div class="drink-category">
+        <div class="drink-cat-title">Destilados</div>
+        <ul class="drink-list">
+          <li>Bacardi · Campari · Cinzano</li>
+          <li>Martini · Menta · St. Remy</li>
+          <li>Steinhäger · Underberg</li>
+          <li>Vodka Orloff · Vodka Absolut</li>
+          <li>Gin Seager's</li>
+          <li>Licor Amarula</li>
+          <li>Conhaque Dimel / Domecq</li>
+          <li>Tequila José Cuervo</li>
+          <li>Cachaça Seleta · Ypióca · Terra Brasilis</li>
+        </ul>
+      </div>
+
+      <div class="drink-category">
+        <div class="drink-cat-title">Whisky</div>
+        <ul class="drink-list">
+          <li>Ballantine's 8 anos</li>
+          <li>Ballantine's 12 anos</li>
+          <li>Johnnie Walker Black</li>
+          <li>Johnnie Walker Red</li>
+          <li>Natu Nobilis · Passport Scotch</li>
+          <li>Chivas Regal · Grant's</li>
+          <li>Jack Daniel's · White Horse · Gran Pa</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- DOCES -->
+  <div class="menu-panel" id="panel-doces">
+    <div class="menu-grid" style="max-width:700px;margin:0 auto;">
+      <div class="menu-card">
+        <div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&q=80') center/cover;height:300px;">
+          <div class="menu-card-overlay"></div>
+          <div class="menu-card-body"><div class="menu-card-tag">Clássico</div><div class="menu-card-name">Petit Gateau</div><div class="menu-card-desc">Bolinho quente com recheio de chocolate derretido</div></div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600&q=80') center/cover;height:300px;">
+          <div class="menu-card-overlay"></div>
+          <div class="menu-card-body"><div class="menu-card-tag">Especial</div><div class="menu-card-name">Pudim Holandês</div><div class="menu-card-desc">Cremoso e irresistível</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- EXPERIÊNCIA -->
+<section class="experiencia" id="experiencia">
+  <div class="exp-header reveal">
+    <span class="section-tag">Experiência Gelobel</span>
+    <h2 class="section-title">Momentos que <em>ficam</em> na memória</h2>
+    <p>Ambiente aconchegante, atendimento cuidadoso e a melhor brasa do Paraná</p>
+  </div>
+  <div class="gallery-grid reveal">
+    <div class="gallery-item g1">
+      <img class="gallery-img" src="https://images.unsplash.com/photo-1544025162-d76694265947?w=900&q=80" alt="Brasa Gelobel" loading="lazy">
+    </div>
+    <div class="gallery-item g2">
+      <img class="gallery-img" src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=700&q=80" alt="Carne na brasa" loading="lazy">
+    </div>
+    <div class="gallery-item g3">
+      <img class="gallery-img" src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=700&q=80" alt="Churrasco premium" loading="lazy">
+    </div>
+    <div class="gallery-item g4">
+      <img class="gallery-img" src="https://images.unsplash.com/photo-1558030006-450675393462?w=600&q=80" alt="Ambiente" loading="lazy">
+    </div>
+    <div class="gallery-item g5">
+      <img class="gallery-img" src="https://images.unsplash.com/photo-1484980972926-edee96e0960d?w=600&q=80" alt="Família" loading="lazy">
+    </div>
+    <div class="gallery-item g6">
+      <img class="gallery-img" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80" alt="Mesa posta" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- UNIDADES -->
+<section class="unidades" id="unidades">
+  <div class="unidades-header reveal">
+    <span class="section-tag">Onde Estamos</span>
+    <h2 class="section-title">Nossas <em>Unidades</em></h2>
+    <p style="margin-top:16px;color:var(--text-muted);font-size:16px;">Venha nos visitar. Estamos esperando por você com a brasa sempre acesa.</p>
+  </div>
+
+  <div class="unidades-grid">
+    <!-- Don Pablo -->
+    <div class="unit-card reveal">
+      <div class="unit-img-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/02/don_pablo_2020.jpg') center/cover;height:180px;filter:brightness(0.7);"></div>
+      <div class="unit-body">
+        <div class="unit-badge">Londrina</div>
+        <div class="unit-name">Don Pablo</div>
+        <div class="unit-info">
+          <div class="unit-info-row"><span class="unit-icon">📍</span><span>Rua Caracas, 80 - Londrina</span></div>
+          <div class="unit-info-row"><span class="unit-icon">📞</span><span>(43) 3325-2942</span></div>
+        </div>
+        <div class="unit-hours">
+          <h4>Horários</h4>
+          <p>Seg–Sex: 11h às 14h30 · 17h às 23h30<br>Sábado: 11h às 23h30<br>Domingo: 11h às 15h</p>
+        </div>
+        <a href="https://maps.google.com/?q=Rua+Caracas+80+Londrina" target="_blank" class="unit-btn">Ver no Google Maps ↗</a>
+      </div>
+    </div>
+
+    <!-- Catuaí -->
+    <div class="unit-card reveal">
+      <div class="unit-img-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/03/DSC_1174.jpg') center/cover;height:180px;filter:brightness(0.7);"></div>
+      <div class="unit-body">
+        <div class="unit-badge">Londrina</div>
+        <div class="unit-name">Catuaí</div>
+        <div class="unit-info">
+          <div class="unit-info-row"><span class="unit-icon">📍</span><span>Rod. Celso Garcia Cid, 5600 - Londrina</span></div>
+          <div class="unit-info-row"><span class="unit-icon">📞</span><span>(43) 3325-1168</span></div>
+        </div>
+        <div class="unit-hours">
+          <h4>Horários</h4>
+          <p>Segunda a Domingo: 11h às 20h</p>
+        </div>
+        <a href="https://maps.google.com/?q=Rod.+Celso+Garcia+Cid+5600+Londrina" target="_blank" class="unit-btn">Ver no Google Maps ↗</a>
+      </div>
+    </div>
+
+    <!-- Duque -->
+    <div class="unit-card reveal">
+      <div class="unit-img-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/02/duque_2020.jpg') center/cover;height:180px;filter:brightness(0.7);"></div>
+      <div class="unit-body">
+        <div class="unit-badge">Londrina</div>
+        <div class="unit-name">Duque</div>
+        <div class="unit-info">
+          <div class="unit-info-row"><span class="unit-icon">📍</span><span>Av. Duque de Caxias, 2070 - Londrina</span></div>
+          <div class="unit-info-row"><span class="unit-icon">📞</span><span>(43) 3323-8942</span></div>
+        </div>
+        <div class="unit-hours">
+          <h4>Horários</h4>
+          <p>Seg–Sex: 11h às 14h30 · 17h às 23h30<br>Sábado: 11h às 23h30<br>Domingo: Fechado</p>
+        </div>
+        <a href="https://maps.google.com/?q=Av+Duque+de+Caxias+2070+Londrina" target="_blank" class="unit-btn">Ver no Google Maps ↗</a>
+      </div>
+    </div>
+
+    <!-- Boulevard -->
+    <div class="unit-card reveal">
+      <div class="unit-img-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/02/boulevard_2020.jpg') center/cover;height:180px;filter:brightness(0.7);"></div>
+      <div class="unit-body">
+        <div class="unit-badge">Londrina</div>
+        <div class="unit-name">Boulevard</div>
+        <div class="unit-info">
+          <div class="unit-info-row"><span class="unit-icon">📍</span><span>Av. Theodoro Victorelli, 150 - Londrina</span></div>
+          <div class="unit-info-row"><span class="unit-icon">📞</span><span>(43) 3341-0804</span></div>
+        </div>
+        <div class="unit-hours">
+          <h4>Horários</h4>
+          <p>Segunda a Domingo: 11h às 20h</p>
+        </div>
+        <a href="https://maps.google.com/?q=Av+Theodoro+Victorelli+150+Londrina" target="_blank" class="unit-btn">Ver no Google Maps ↗</a>
+      </div>
+    </div>
+
+    <!-- Curitiba -->
+    <div class="unit-card reveal">
+      <div class="unit-img-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/gelobel_curitiba.jpg') center/cover;height:180px;filter:brightness(0.7);"></div>
+      <div class="unit-body">
+        <div class="unit-badge">Curitiba</div>
+        <div class="unit-name">Curitiba</div>
+        <div class="unit-info">
+          <div class="unit-info-row"><span class="unit-icon">📍</span><span>Av. Sete de Setembro, 2775 - Curitiba</span></div>
+          <div class="unit-info-row"><span class="unit-icon">📞</span><span>(41) 3026-0920</span></div>
+        </div>
+        <div class="unit-hours">
+          <h4>Horários</h4>
+          <p>Seg–Sáb: 12h às 22h<br>Domingo: 12h às 20h</p>
+        </div>
+        <a href="https://maps.google.com/?q=Av+Sete+de+Setembro+2775+Curitiba" target="_blank" class="unit-btn">Ver no Google Maps ↗</a>
+      </div>
+    </div>
+
+    <!-- Delivery -->
+    <div class="unit-card reveal">
+      <div class="unit-img-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/02/delivery_2020.jpg') center/cover;height:180px;filter:brightness(0.7);"></div>
+      <div class="unit-body">
+        <div class="unit-badge">Londrina · Delivery</div>
+        <div class="unit-name">Delivery</div>
+        <div class="unit-info">
+          <div class="unit-info-row"><span class="unit-icon">📍</span><span>Rua Caracas, 96 - Londrina</span></div>
+          <div class="unit-info-row"><span class="unit-icon">📞</span><span>(43) 3325-3553</span></div>
+        </div>
+        <div class="unit-hours">
+          <h4>Horários</h4>
+          <p>Seg–Sáb: 11h às 15h · 18h às 23h<br>Domingo: Fechado</p>
+        </div>
+        <a href="https://maps.google.com/?q=Rua+Caracas+96+Londrina" target="_blank" class="unit-btn">Ver no Google Maps ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-bg"></div>
+  <div class="cta-glow"></div>
+  <div class="cta-content reveal">
+    <span class="section-tag">Viva a Experiência</span>
+    <h2 class="cta-title">Reúna amigos, família e venha viver a <em>experiência Gelobel</em></h2>
+    <div class="cta-divider"></div>
+    <p class="cta-sub">A brasa está acesa e a mesa está posta — só falta você.</p>
+    <a href="#unidades" class="btn-primary">Encontrar Unidade</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="footer-grid">
+  <div class="footer-brand">
+    <div class="logo-wrap" style="margin-bottom:16px;align-items:center;">
+      <div class="footer-logo-mark">
+        <img src="https://gelobel.com.br/wp-content/uploads/2019/12/GELOBEL-AMARELO-E-BRANCO-2048x906.png"
+          alt="Gelobel Logo" style="width:100%;height:100%;object-fit:contain;">
+      </div>
+    </div>
+    <p>
+      Tradição, sabor e qualidade na brasa há mais de duas décadas. Londrina e Curitiba.
+    </p>
+    <div class="footer-social">
+      <a href="#" class="soc-btn" aria-label="Instagram">ig</a>
+      <a href="#" class="soc-btn" aria-label="Facebook">fb</a>
+      <a href="#" class="soc-btn" aria-label="WhatsApp">wa</a>
+    </div>
+  </div>
+  <div class="footer-col">
+      <h4>Navegação</h4>
+      <ul>
+        <li><a href="#sobre">Sobre nós</a></li>
+        <li><a href="#cardapio">Cardápio</a></li>
+        <li><a href="#experiencia">Experiência</a></li>
+        <li><a href="#unidades">Unidades</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Unidades</h4>
+      <ul>
+        <li><a href="https://maps.google.com/?q=Rua+Caracas+80+Londrina" target="_blank">Don Pablo</a></li>
+        <li><a href="https://maps.google.com/?q=Rod.+Celso+Garcia+Cid+5600+Londrina" target="_blank">Catuaí</a></li>
+        <li><a href="https://maps.google.com/?q=Av+Duque+de+Caxias+2070+Londrina" target="_blank">Duque</a></li>
+        <li><a href="https://maps.google.com/?q=Av+Theodoro+Victorelli+150+Londrina" target="_blank">Boulevard</a></li>
+        <li><a href="https://maps.google.com/?q=Av+Sete+de+Setembro+2775+Curitiba" target="_blank">Curitiba</a></li>
+      </ul>
+    </div>
+    <div class="footer-col footer-contact">
+      <h4>Contato</h4>
+      <p>
+        Don Pablo: <a href="tel:4333252942">(43) 3325-2942</a><br>
+        Catuaí: <a href="tel:4333251168">(43) 3325-1168</a><br>
+        Duque: <a href="tel:4333238942">(43) 3323-8942</a><br>
+        Boulevard: <a href="tel:4333410804">(43) 3341-0804</a><br>
+        Curitiba: <a href="tel:4130260920">(41) 3026-0920</a><br>
+        Delivery: <a href="tel:4333253553">(43) 3325-3553</a>
+      </p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 <span>Gelobel Churrascaria</span>. Todos os direitos reservados.</p>
+    <p>Feito com <span>♥</span> em Londrina, PR</p>
+  </div>
+</footer>
+
+<script>
+// LOADER
+window.addEventListener('load',()=>{
+  setTimeout(()=>{
+    document.getElementById('loader').classList.add('hide');
+  },2400);
+});
+
+// PARTICLES
+(function(){
+  const c=document.getElementById('particles');
+  for(let i=0;i<18;i++){
+    const p=document.createElement('div');
+    p.className='particle';
+    p.style.cssText=`left:${Math.random()*100}%;bottom:${Math.random()*40}%;animation-duration:${3+Math.random()*5}s;animation-delay:${Math.random()*6}s;`;
+    c.appendChild(p);
+  }
+})();
+
+// NAV SCROLL
+window.addEventListener('scroll',()=>{
+  document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>60);
+});
+
+// REVEAL ON SCROLL
+const revealEls=document.querySelectorAll('.reveal');
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}
+  });
+},{threshold:0.12});
+revealEls.forEach(el=>io.observe(el));
+
+// TABS
+function showPanel(name,btn){
+  document.querySelectorAll('.menu-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.cat-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('panel-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+
+// MOBILE NAV
+function closeMobileNav(){
+  document.getElementById('mobileNav').classList.remove('open');
+}
+
+// VERTICAL TIMELINE
+function selectYear(item, targetId){
+  // deactivate all
+  document.querySelectorAll('.vtl-year-item').forEach(i=>i.classList.remove('active'));
+  document.querySelectorAll('.vtl-panel').forEach(p=>{p.classList.remove('active');});
+  // activate clicked
+  item.classList.add('active');
+  const panel = document.getElementById(targetId);
+  if(panel){
+    // reset for animation
+    panel.style.opacity='0';
+    panel.style.transform='translateX(-16px)';
+    panel.classList.add('active');
+    requestAnimationFrame(()=>{
+      requestAnimationFrame(()=>{
+        panel.style.opacity='1';
+        panel.style.transform='translateX(0)';
+      });
+    });
+  }
+  // update line fill height
+  const items = [...document.querySelectorAll('.vtl-year-item')];
+  const idx = items.indexOf(item);
+  const fill = document.querySelector('.vtl-line-fill');
+  if(fill){ fill.style.height = ((idx/(items.length-1))*100)+'%'; }
+}
+
+// init first item
+window.addEventListener('DOMContentLoaded',()=>{
+  const first = document.querySelector('.vtl-year-item');
+  if(first){ selectYear(first,'tl1991'); }
+});
+
+
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',function(e){
+    const t=document.querySelector(this.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
+  });
+});
+</script>
+</body>
+</html>
