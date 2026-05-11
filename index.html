@@ -6,6 +6,7 @@
 <title>Gelobel Churrascaria — Tradição e Sabor na Brasa</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
 <style>
 :root{
 --gold:#C8922A;
@@ -28,11 +29,9 @@ body{background:var(--charcoal);color:var(--cream);font-family:'DM Sans',sans-se
 /* LOADER */
 #loader{position:fixed;inset:0;background:var(--charcoal);z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:24px;transition:opacity 0.8s ease,visibility 0.8s ease;}
 #loader.hide{opacity:0;visibility:hidden;}
-/* LOGO PLACEHOLDER */
 .logo-wrap{display:flex;align-items:center;gap:12px;}
 .logo-img-slot{display:flex;align-items:center;justify-content:center;border:1.5px dashed rgba(200,146,42,0.45);border-radius:4px;background:rgba(200,146,42,0.04);overflow:hidden;flex-shrink:0;}
 .logo-img-slot img{display:block;width:100%;height:100%;object-fit:contain;}
-/* Loader logo slot */
 .loader-logo-wrap{display:flex;flex-direction:column;align-items:center;gap:16px;}
 .loader-logo-slot{width:96px;height:96px;border:1.5px dashed rgba(200,146,42,0.5);border-radius:6px;background:rgba(200,146,42,0.05);display:flex;align-items:center;justify-content:center;animation:loaderPulse 1.5s ease-in-out infinite;}
 .loader-logo-slot img{width:100%;height:100%;object-fit:contain;}
@@ -127,7 +126,6 @@ section{padding:120px 60px;}
 .historia-header{text-align:center;max-width:720px;margin:0 auto 80px;}
 .historia-header p{margin-top:20px;font-size:17px;color:var(--text-muted);font-family:'Cormorant Garamond',serif;font-style:italic;line-height:1.8;}
 
-/* WRAPPER — single flex row, no gap issues */
 .vtl-wrap{
   display:flex;
   flex-direction:row;
@@ -136,7 +134,6 @@ section{padding:120px 60px;}
   align-items:flex-start;
 }
 
-/* ── YEARS column (left) — text right-aligned toward the line ── */
 .vtl-years{
   display:flex;
   flex-direction:column;
@@ -146,12 +143,12 @@ section{padding:120px 60px;}
 .vtl-year-item{
   display:flex;
   align-items:center;
-  justify-content:flex-end; /* push text+dot to the right edge */
+  justify-content:flex-end;
   cursor:pointer;
   min-height:72px;
   position:relative;
   transition:all 0.3s;
-  gap:12px; /* gap between text and dot */
+  gap:12px;
 }
 .vtl-date{
   font-family:'Playfair Display',serif;
@@ -167,7 +164,6 @@ section{padding:120px 60px;}
 .vtl-hoje .vtl-date{color:rgba(232,184,75,0.65);}
 .vtl-hoje.active .vtl-date{color:var(--gold-light);}
 
-/* Dot — last child in flex row, sits right against the line */
 .vtl-yr-dot{
   width:12px;height:12px;border-radius:50%;
   flex-shrink:0;
@@ -191,7 +187,6 @@ section{padding:120px 60px;}
   50%{box-shadow:0 0 0 9px rgba(200,146,42,0.06),0 0 22px rgba(200,146,42,0.55);}
 }
 
-/* ── VERTICAL LINE — 2px strip between the two columns ── */
 .vtl-line{
   width:2px;
   flex-shrink:0;
@@ -207,7 +202,6 @@ section{padding:120px 60px;}
   height:0%;
 }
 
-/* ── CONTENT panel (right) ── */
 .vtl-content{
   flex:1;
   padding-left:40px;
@@ -240,15 +234,31 @@ section{padding:120px 60px;}
 .vtl-title-hoje{color:var(--gold-light);}
 .vtl-sub-title{font-family:'Playfair Display',serif;font-size:15px;font-weight:600;color:var(--gold);font-style:italic;}
 .vtl-text p{font-size:15px;color:var(--cream-dark);line-height:1.85;font-weight:300;}
-.vtl-award{display:flex;align-items:center;gap:12px;background:rgba(200,146,42,0.07);border-left:2px solid var(--gold);padding:10px 16px;font-size:14px;color:var(--cream-dark);}
-.vtl-award-icon{font-size:18px;flex-shrink:0;}
+
+/* AWARD CARD com ícone SVG */
+.vtl-award{
+  display:flex;align-items:center;gap:14px;
+  background:rgba(200,146,42,0.07);
+  border-left:2px solid var(--gold);
+  padding:12px 18px;
+  font-size:14px;color:var(--cream-dark);
+}
+.vtl-award-icon{
+  flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  width:32px;height:32px;
+  background:rgba(200,146,42,0.12);
+  border-radius:50%;
+  color:var(--gold);
+}
+.vtl-award-icon svg{width:18px;height:18px;stroke:var(--gold);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+
 .vtl-hoje-nums{display:flex;gap:0;margin-top:8px;border-top:1px solid rgba(200,146,42,0.15);padding-top:24px;}
 .vtl-num-box{flex:1;text-align:center;padding:0 12px;}
 .vtl-num-box+.vtl-num-box{border-left:1px solid rgba(200,146,42,0.12);}
 .vtl-big{display:block;font-family:'Playfair Display',serif;font-size:38px;font-weight:700;color:var(--gold);}
 .vtl-lbl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-top:4px;display:block;}
 
-/* RESPONSIVE */
 @media(max-width:900px){
   .historia{padding:72px 20px;}
   .vtl-wrap{flex-direction:column;}
@@ -338,9 +348,12 @@ section{padding:120px 60px;}
 .unit-badge{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:block;}
 .unit-info{display:flex;flex-direction:column;gap:10px;margin-bottom:20px;}
 .unit-info-row{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--cream-dark);}
-.unit-icon{color:var(--gold);font-size:15px;flex-shrink:0;margin-top:1px;}
+.unit-icon{color:var(--gold);display:flex;align-items:center;flex-shrink:0;margin-top:1px;}
+.unit-icon svg{width:17px;height:17px;stroke:var(--gold);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
 .unit-hours{background:rgba(200,146,42,0.06);padding:16px;margin-bottom:20px;border-left:2px solid rgba(200,146,42,0.3);}
-.unit-hours h4{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.unit-hours-header{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.unit-hours-header svg{width:14px;height:14px;stroke:var(--gold);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.unit-hours h4{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);}
 .unit-hours p{font-size:13px;color:var(--cream-dark);line-height:1.7;}
 .unit-btn{display:block;text-align:center;background:transparent;border:1px solid rgba(200,146,42,0.3);color:var(--gold);padding:12px;font-size:11px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all 0.3s;font-family:'DM Sans',sans-serif;}
 .unit-btn:hover{background:var(--gold);color:var(--charcoal);}
@@ -362,8 +375,9 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
 .footer-brand .nav-logo{font-size:32px;display:block;margin-bottom:16px;}
 .footer-brand p{font-size:14px;color:var(--text-muted);line-height:1.8;max-width:280px;}
 .footer-social{display:flex;gap:12px;margin-top:24px;}
-.soc-btn{width:40px;height:40px;border:1px solid rgba(200,146,42,0.25);display:flex;align-items:center;justify-content:center;color:var(--cream-dark);text-decoration:none;font-size:14px;transition:all 0.3s;}
+.soc-btn{width:40px;height:40px;border:1px solid rgba(200,146,42,0.25);display:flex;align-items:center;justify-content:center;color:var(--cream-dark);text-decoration:none;font-size:16px;transition:all 0.3s;}
 .soc-btn:hover{border-color:var(--gold);color:var(--gold);background:rgba(200,146,42,0.05);}
+.soc-btn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
 .footer-col h4{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
 .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
 .footer-col ul li a{color:var(--text-muted);text-decoration:none;font-size:14px;transition:color 0.3s;}
@@ -416,7 +430,6 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
 <!-- LOADER -->
 <div id="loader">
   <div class="loader-logo-slot" title="Insira a logo aqui">
-    <!-- Substitua pelo <img src="logo.png" alt="Gelobel"> -->
     <span class="loader-logo-slot-label">Logo</span>
   </div>
   <div class="loader-logo">GELOBEL</div>
@@ -438,10 +451,8 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
 <nav id="mainNav">
   <div class="logo-wrap nav-logo-wrap">
     <div class="nav-logo-mark" title="Logo Gelobel">
-      <img src="https://gelobel.com.br/wp-content/uploads/2019/12/GELOBEL-AMARELO-E-BRANCO-2048x906.png"
-        alt="Gelobel Logo">
+      <img src="https://gelobel.com.br/wp-content/uploads/2019/12/GELOBEL-AMARELO-E-BRANCO-2048x906.png" alt="Gelobel Logo">
     </div>
-    <!--<span class="nav-logo">GELOBEL</span>-->
   </div>
   <ul class="nav-links">
     <li><a href="#sobre">Sobre</a></li>
@@ -461,9 +472,6 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
   <div class="hero-bg"></div>
   <div class="hero-particles" id="particles"></div>
   <div class="hero-content">
-    <!--<div class="hero-logo-mark" title="Logo Gelobel">
-      <img src="https://gelobel.com.br/wp-content/uploads/2019/12/GELOBEL-AMARELO-E-BRANCO-2048x906.png" alt="Gelobel Logo">
-    <div class="hero-badge">Londrina · Curitiba · Desde 1991</div></div>-->
     <h1 class="hero-title">Tradição e Sabor<span>na Brasa</span></h1>
     <div class="hero-divider"></div>
     <p class="hero-subtitle">O verdadeiro churrasco brasileiro, com a qualidade<br>e o aconchego que a sua família merece</p>
@@ -521,8 +529,6 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
   </div>
 
   <div class="vtl-wrap reveal">
-
-    <!-- COLUNA DOS ANOS (esquerda) -->
     <div class="vtl-years">
       <div class="vtl-year-item active" data-target="tl1991" onclick="selectYear(this,'tl1991')">
         <span class="vtl-date">12/10 · 1991</span>
@@ -558,17 +564,14 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
       </div>
     </div>
 
-    <!-- LINHA VERTICAL CENTRAL -->
     <div class="vtl-line">
       <div class="vtl-line-fill"></div>
     </div>
 
-    <!-- COLUNA DO CONTEÚDO (esquerda) -->
     <div class="vtl-content">
 
       <div class="vtl-panel active" id="tl1991">
         <div class="vtl-img-slot" title="Adicione uma foto desta época">
-          <!-- <img src="foto-1991.jpg" alt="1991"> -->
           <span class="vtl-img-label">Foto · 1991</span>
         </div>
         <div class="vtl-text">
@@ -598,8 +601,20 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
         <div class="vtl-text">
           <div class="vtl-tag">2011</div>
           <h3 class="vtl-title">FOMOS PREMIADOS</h3>
-          <div class="vtl-award"><span class="vtl-award-icon">🏆</span> Troféu Top of Business 2011</div>
-          <div class="vtl-award"><span class="vtl-award-icon">🏆</span> Troféu Top Empreendedor</div>
+          <!-- Troféu — ícone de medalha/prêmio -->
+          <div class="vtl-award">
+            <div class="vtl-award-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"/><path d="M9 15v7l3-2 3 2v-7"/></svg>
+            </div>
+            <span>Troféu Top of Business 2011</span>
+          </div>
+          <!-- Troféu empreendedor -->
+          <div class="vtl-award">
+            <div class="vtl-award-icon">
+              <svg viewBox="0 0 24 24"><path d="M8.56 2.9A7 7 0 0 1 19 9v1l1.17 2.34a1 1 0 0 1-.9 1.44H4.73a1 1 0 0 1-.9-1.44L5 10V9a7 7 0 0 1 3-5.8"/><path d="M9 17v2a3 3 0 0 0 6 0v-2"/><line x1="12" y1="12" x2="12" y2="12"/></svg>
+            </div>
+            <span>Troféu Top Empreendedor</span>
+          </div>
           <p>Um reconhecimento que confirmou o que já sabíamos: a qualidade e o carinho com que servimos nossos clientes fazem toda a diferença.</p>
         </div>
       </div>
@@ -611,8 +626,19 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
         <div class="vtl-text">
           <div class="vtl-tag">2012</div>
           <h3 class="vtl-title">REFERÊNCIA GASTRONÔMICA PELO 2º ANO CONSECUTIVO</h3>
-          <div class="vtl-award"><span class="vtl-award-icon">🏆</span> Troféu Top of Business 2012</div>
-          <div class="vtl-award"><span class="vtl-award-icon">🌎</span> Prêmio Latin American Quality Institute</div>
+          <div class="vtl-award">
+            <div class="vtl-award-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"/><path d="M9 15v7l3-2 3 2v-7"/></svg>
+            </div>
+            <span>Troféu Top of Business 2012</span>
+          </div>
+          <!-- Globo / prêmio internacional -->
+          <div class="vtl-award">
+            <div class="vtl-award-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3.6 9h16.8M3.6 15h16.8"/><path d="M12 3a14.5 14.5 0 0 1 0 18M12 3a14.5 14.5 0 0 0 0 18"/></svg>
+            </div>
+            <span>Prêmio Latin American Quality Institute</span>
+          </div>
           <p>Dois anos seguidos premiados. A Gelobel consolida sua posição como referência gastronômica no Paraná.</p>
         </div>
       </div>
@@ -666,8 +692,8 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
         </div>
       </div>
 
-    </div><!-- /vtl-content -->
-  </div><!-- /vtl-wrap -->
+    </div>
+  </div>
 </section>
 
 <!-- CARDÁPIO -->
@@ -680,7 +706,7 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
 
   <div class="category-tabs reveal">
     <button class="cat-tab active" onclick="showPanel('carnes',this)">Carnes</button>
-    <button class="cat-tab" onclick="showPanel('entradas',this)">Entradas & Porções</button>
+    <button class="cat-tab" onclick="showPanel('entradas',this)">Entradas &amp; Porções</button>
     <button class="cat-tab" onclick="showPanel('frios',this)">Frios</button>
     <button class="cat-tab" onclick="showPanel('executivos',this)">Pratos Executivos</button>
     <button class="cat-tab" onclick="showPanel('bebidas',this)">Bebidas</button>
@@ -690,7 +716,6 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
   <!-- CARNES -->
   <div class="menu-panel active" id="panel-carnes">
     <div class="menu-grid">
-
       <div class="menu-card">
         <div class="menu-card-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/Gelobel-16469-870x579.jpg') center/cover;height:260px;">
           <div class="menu-card-overlay"></div>
@@ -701,7 +726,6 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
           </div>
         </div>
       </div>
-
       <div class="menu-card">
         <div class="menu-card-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/Gelobel-16698.jpg') center/cover;height:260px;">
           <div class="menu-card-overlay"></div>
@@ -713,7 +737,6 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
           </div>
         </div>
       </div>
-
       <div class="menu-card">
         <div class="menu-card-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/Gelobel-16500-870x579.jpg') center/cover;height:260px;">
           <div class="menu-card-overlay"></div>
@@ -724,7 +747,6 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
           </div>
         </div>
       </div>
-
       <div class="menu-card">
         <div class="menu-card-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/Gelobel-16626-870x579.jpg') center/cover;height:260px;">
           <div class="menu-card-overlay"></div>
@@ -735,7 +757,6 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
           </div>
         </div>
       </div>
-
       <div class="menu-card">
         <div class="menu-card-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/Gelobel-18179-870x579.jpg') center/cover;height:260px;">
           <div class="menu-card-overlay"></div>
@@ -746,10 +767,7 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
           </div>
         </div>
       </div>
-
     </div>
-
-    <!-- ACOMPANHAMENTOS ADICIONAIS inline -->
     <div style="max-width:960px;margin:48px auto 0;">
       <div class="drink-cat-title" style="font-size:18px;margin-bottom:24px;">Acompanhamentos Adicionais</div>
       <div class="acomp-grid">
@@ -761,7 +779,7 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
         <div class="acomp-item">Mandioca Cozida</div>
         <div class="acomp-item">Maionese de Batata</div>
       </div>
-      <div class="acomp-nota" style="margin-top:20px;background:rgba(200,146,42,0.06);border-left:3px solid var(--gold);padding:14px 20px;">
+      <div style="margin-top:20px;background:rgba(200,146,42,0.06);border-left:3px solid var(--gold);padding:14px 20px;">
         <p style="font-size:13px;color:var(--cream-dark);line-height:1.7;"><span style="color:var(--gold);font-weight:500;">Inclusos em todas as carnes:</span> Farofa e Creme de Maionese.</p>
       </div>
     </div>
@@ -770,148 +788,43 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
   <!-- ENTRADAS & PORÇÕES -->
   <div class="menu-panel" id="panel-entradas">
     <div class="menu-grid">
-      <div class="menu-card">
-        <div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1551248429-40975aa4de74?w=600&q=80') center/cover;height:240px;">
-          <div class="menu-card-overlay"></div>
-          <div class="menu-card-body"><div class="menu-card-name">Polenta Frita com Queijo</div></div>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1620921568790-c1cf8984a408?w=600&q=80') center/cover;height:240px;">
-          <div class="menu-card-overlay"></div>
-          <div class="menu-card-body"><div class="menu-card-name">Bolinho de Bacalhau</div></div>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1527477396000-e27163b481c2?w=600&q=80') center/cover;height:240px;">
-          <div class="menu-card-overlay"></div>
-          <div class="menu-card-body"><div class="menu-card-name">Costelinha de Porco</div></div>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=600&q=80') center/cover;height:240px;">
-          <div class="menu-card-overlay"></div>
-          <div class="menu-card-body"><div class="menu-card-name">Frango a Passarinho</div></div>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&q=80') center/cover;height:240px;">
-          <div class="menu-card-overlay"></div>
-          <div class="menu-card-body"><div class="menu-card-name">Filé de Tilápia</div></div>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=600&q=80') center/cover;height:240px;">
-          <div class="menu-card-overlay"></div>
-          <div class="menu-card-body"><div class="menu-card-name">Mandioca Frita com Bacon</div></div>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=600&q=80') center/cover;height:240px;">
-          <div class="menu-card-overlay"></div>
-          <div class="menu-card-body"><div class="menu-card-name">Frango a Passarinho com Alho</div></div>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1639024471283-03518883512d?w=600&q=80') center/cover;height:240px;">
-          <div class="menu-card-overlay"></div>
-          <div class="menu-card-body"><div class="menu-card-name">Batata Frita com Queijo</div></div>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1630431341973-02e1b662ec35?w=600&q=80') center/cover;height:240px;">
-          <div class="menu-card-overlay"></div>
-          <div class="menu-card-body"><div class="menu-card-name">Polenta Frita</div></div>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1576107232684-1279f78fa571?w=600&q=80') center/cover;height:240px;">
-          <div class="menu-card-overlay"></div>
-          <div class="menu-card-body"><div class="menu-card-name">Batata Frita</div></div>
-        </div>
-      </div>
+      <div class="menu-card"><div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1551248429-40975aa4de74?w=600&q=80') center/cover;height:240px;"><div class="menu-card-overlay"></div><div class="menu-card-body"><div class="menu-card-name">Polenta Frita com Queijo</div></div></div></div>
+      <div class="menu-card"><div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1620921568790-c1cf8984a408?w=600&q=80') center/cover;height:240px;"><div class="menu-card-overlay"></div><div class="menu-card-body"><div class="menu-card-name">Bolinho de Bacalhau</div></div></div></div>
+      <div class="menu-card"><div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1527477396000-e27163b481c2?w=600&q=80') center/cover;height:240px;"><div class="menu-card-overlay"></div><div class="menu-card-body"><div class="menu-card-name">Costelinha de Porco</div></div></div></div>
+      <div class="menu-card"><div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=600&q=80') center/cover;height:240px;"><div class="menu-card-overlay"></div><div class="menu-card-body"><div class="menu-card-name">Frango a Passarinho</div></div></div></div>
+      <div class="menu-card"><div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&q=80') center/cover;height:240px;"><div class="menu-card-overlay"></div><div class="menu-card-body"><div class="menu-card-name">Filé de Tilápia</div></div></div></div>
+      <div class="menu-card"><div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=600&q=80') center/cover;height:240px;"><div class="menu-card-overlay"></div><div class="menu-card-body"><div class="menu-card-name">Mandioca Frita com Bacon</div></div></div></div>
+      <div class="menu-card"><div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=600&q=80') center/cover;height:240px;"><div class="menu-card-overlay"></div><div class="menu-card-body"><div class="menu-card-name">Frango a Passarinho com Alho</div></div></div></div>
+      <div class="menu-card"><div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1639024471283-03518883512d?w=600&q=80') center/cover;height:240px;"><div class="menu-card-overlay"></div><div class="menu-card-body"><div class="menu-card-name">Batata Frita com Queijo</div></div></div></div>
+      <div class="menu-card"><div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1630431341973-02e1b662ec35?w=600&q=80') center/cover;height:240px;"><div class="menu-card-overlay"></div><div class="menu-card-body"><div class="menu-card-name">Polenta Frita</div></div></div></div>
+      <div class="menu-card"><div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1576107232684-1279f78fa571?w=600&q=80') center/cover;height:240px;"><div class="menu-card-overlay"></div><div class="menu-card-body"><div class="menu-card-name">Batata Frita</div></div></div></div>
     </div>
   </div>
 
   <!-- FRIOS -->
   <div class="menu-panel" id="panel-frios">
     <div class="menu-grid">
-      <div class="menu-card">
-        <div class="menu-card-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/GELOBEL-11132-870x579.jpg') center/cover;height:260px;">
-          <div class="menu-card-overlay"></div>
-          <div class="menu-card-body"><div class="menu-card-tag">Destaque</div><div class="menu-card-name">Tábua de Frios</div><div class="menu-card-desc">Salame, muçarela, presunto, provolone e mais</div></div>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-card-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/GELOBEL-11352-870x579.jpg') center/cover;height:260px;">
-          <div class="menu-card-overlay"></div>
-          <div class="menu-card-body"><div class="menu-card-name">Porção de Salame</div></div>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-card-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/GELOBEL-11322-870x579.jpg') center/cover;height:260px;">
-          <div class="menu-card-overlay"></div>
-          <div class="menu-card-body"><div class="menu-card-name">Porção de Provolone</div></div>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-card-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/GELOBEL-11278-870x579.jpg') center/cover;height:260px;">
-          <div class="menu-card-overlay"></div>
-          <div class="menu-card-body"><div class="menu-card-name">Porção de Presunto</div></div>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-card-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/GELOBEL-11300-870x579.jpg') center/cover;height:260px;">
-          <div class="menu-card-overlay"></div>
-          <div class="menu-card-body"><div class="menu-card-name">Porção de Azeitona</div></div>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-card-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/GELOBEL-11249-870x579.jpg') center/cover;height:260px;">
-          <div class="menu-card-overlay"></div>
-          <div class="menu-card-body"><div class="menu-card-name">Porção de Muçarela</div></div>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-card-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/GELOBEL-11315-870x579.jpg') center/cover;height:260px;">
-          <div class="menu-card-overlay"></div>
-          <div class="menu-card-body"><div class="menu-card-name">Porção de Palmito</div></div>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-card-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/GELOBEL-11306-870x579.jpg') center/cover;height:260px;">
-          <div class="menu-card-overlay"></div>
-          <div class="menu-card-body"><div class="menu-card-name">Salada Mista</div></div>
-        </div>
-      </div>
+      <div class="menu-card"><div class="menu-card-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/GELOBEL-11132-870x579.jpg') center/cover;height:260px;"><div class="menu-card-overlay"></div><div class="menu-card-body"><div class="menu-card-tag">Destaque</div><div class="menu-card-name">Tábua de Frios</div><div class="menu-card-desc">Salame, muçarela, presunto, provolone e mais</div></div></div></div>
+      <div class="menu-card"><div class="menu-card-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/GELOBEL-11352-870x579.jpg') center/cover;height:260px;"><div class="menu-card-overlay"></div><div class="menu-card-body"><div class="menu-card-name">Porção de Salame</div></div></div></div>
+      <div class="menu-card"><div class="menu-card-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/GELOBEL-11322-870x579.jpg') center/cover;height:260px;"><div class="menu-card-overlay"></div><div class="menu-card-body"><div class="menu-card-name">Porção de Provolone</div></div></div></div>
+      <div class="menu-card"><div class="menu-card-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/GELOBEL-11278-870x579.jpg') center/cover;height:260px;"><div class="menu-card-overlay"></div><div class="menu-card-body"><div class="menu-card-name">Porção de Presunto</div></div></div></div>
+      <div class="menu-card"><div class="menu-card-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/GELOBEL-11300-870x579.jpg') center/cover;height:260px;"><div class="menu-card-overlay"></div><div class="menu-card-body"><div class="menu-card-name">Porção de Azeitona</div></div></div></div>
+      <div class="menu-card"><div class="menu-card-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/GELOBEL-11249-870x579.jpg') center/cover;height:260px;"><div class="menu-card-overlay"></div><div class="menu-card-body"><div class="menu-card-name">Porção de Muçarela</div></div></div></div>
+      <div class="menu-card"><div class="menu-card-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/GELOBEL-11315-870x579.jpg') center/cover;height:260px;"><div class="menu-card-overlay"></div><div class="menu-card-body"><div class="menu-card-name">Porção de Palmito</div></div></div></div>
+      <div class="menu-card"><div class="menu-card-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/GELOBEL-11306-870x579.jpg') center/cover;height:260px;"><div class="menu-card-overlay"></div><div class="menu-card-body"><div class="menu-card-name">Salada Mista</div></div></div></div>
     </div>
   </div>
 
   <!-- PRATOS EXECUTIVOS -->
   <div class="menu-panel" id="panel-executivos">
     <div style="max-width:900px;margin:0 auto;">
-      <div class="acomp-nota reveal" style="background:rgba(200,146,42,0.06);border-left:3px solid var(--gold);padding:18px 24px;margin-bottom:40px;">
+      <div class="reveal" style="background:rgba(200,146,42,0.06);border-left:3px solid var(--gold);padding:18px 24px;margin-bottom:40px;">
         <p style="font-size:14px;color:var(--cream-dark);line-height:1.7;"><span style="color:var(--gold);font-weight:500;">Exclusivos dos Shoppings:</span> Catuaí, Boulevard e Estação.</p>
       </div>
       <div class="menu-grid" style="max-width:700px;">
-        <div class="menu-card">
-          <div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1558030006-450675393462?w=600&q=80') center/cover;height:280px;">
-            <div class="menu-card-overlay"></div>
-            <div class="menu-card-body"><div class="menu-card-tag">Executivo</div><div class="menu-card-name">Contrafilé</div><div class="menu-card-desc">Prato executivo completo</div></div>
-          </div>
-        </div>
-        <div class="menu-card">
-          <div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=600&q=80') center/cover;height:280px;">
-            <div class="menu-card-overlay"></div>
-            <div class="menu-card-body"><div class="menu-card-tag">Executivo</div><div class="menu-card-name">Filé de Frango</div><div class="menu-card-desc">Prato executivo completo</div></div>
-          </div>
-        </div>
-        <div class="menu-card">
-          <div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&q=80') center/cover;height:280px;">
-            <div class="menu-card-overlay"></div>
-            <div class="menu-card-body"><div class="menu-card-tag">Executivo</div><div class="menu-card-name">Filé de Tilápia</div><div class="menu-card-desc">Prato executivo completo</div></div>
-          </div>
-        </div>
+        <div class="menu-card"><div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1558030006-450675393462?w=600&q=80') center/cover;height:280px;"><div class="menu-card-overlay"></div><div class="menu-card-body"><div class="menu-card-tag">Executivo</div><div class="menu-card-name">Contrafilé</div><div class="menu-card-desc">Prato executivo completo</div></div></div></div>
+        <div class="menu-card"><div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=600&q=80') center/cover;height:280px;"><div class="menu-card-overlay"></div><div class="menu-card-body"><div class="menu-card-tag">Executivo</div><div class="menu-card-name">Filé de Frango</div><div class="menu-card-desc">Prato executivo completo</div></div></div></div>
+        <div class="menu-card"><div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&q=80') center/cover;height:280px;"><div class="menu-card-overlay"></div><div class="menu-card-body"><div class="menu-card-tag">Executivo</div><div class="menu-card-name">Filé de Tilápia</div><div class="menu-card-desc">Prato executivo completo</div></div></div></div>
       </div>
     </div>
   </div>
@@ -919,7 +832,6 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
   <!-- BEBIDAS -->
   <div class="menu-panel" id="panel-bebidas" style="max-width:1100px;margin:0 auto;">
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:44px;">
-
       <div class="drink-category">
         <div class="drink-cat-title">Refrigerantes</div>
         <ul class="drink-list">
@@ -927,7 +839,6 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
           <li>Itubaína Retrô Zero (355mL)</li>
         </ul>
       </div>
-
       <div class="drink-category">
         <div class="drink-cat-title">Outras Bebidas</div>
         <ul class="drink-list">
@@ -938,7 +849,6 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
           <li>Red Bull</li>
         </ul>
       </div>
-
       <div class="drink-category">
         <div class="drink-cat-title">Sucos</div>
         <ul class="drink-list">
@@ -952,7 +862,6 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
           <li style="color:var(--text-muted);font-size:12px;font-style:italic;">Disponíveis com Água ou Leite</li>
         </ul>
       </div>
-
       <div class="drink-category">
         <div class="drink-cat-title">Chopp <span style="font-size:11px;color:var(--text-muted);font-weight:400;letter-spacing:1px;">300mL ou 600mL</span></div>
         <ul class="drink-list">
@@ -965,7 +874,6 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
           <li style="color:var(--text-muted);font-size:12px;font-style:italic;">Disponível somente em Don Pablo e Duque</li>
         </ul>
       </div>
-
       <div class="drink-category">
         <div class="drink-cat-title">Cervejas Long Neck Especiais</div>
         <ul class="drink-list">
@@ -979,7 +887,6 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
           <li>Baden Baden Witbier</li>
         </ul>
       </div>
-
       <div class="drink-category">
         <div class="drink-cat-title">Cervejas Long Neck</div>
         <ul class="drink-list">
@@ -994,7 +901,6 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
           <li style="color:var(--text-muted);font-size:12px;font-style:italic;">* Somente shoppings · ** Somente Don Pablo e Duque</li>
         </ul>
       </div>
-
       <div class="drink-category">
         <div class="drink-cat-title">Cervejas Lata</div>
         <ul class="drink-list">
@@ -1003,7 +909,6 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
           <li>Brahma Zero</li>
         </ul>
       </div>
-
       <div class="drink-category">
         <div class="drink-cat-title">Cervejas Garrafa 600mL</div>
         <ul class="drink-list">
@@ -1017,7 +922,6 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
           <li>Itaipava / Itaipava Premium / Original</li>
         </ul>
       </div>
-
       <div class="drink-category">
         <div class="drink-cat-title">Batidas</div>
         <ul class="drink-list">
@@ -1026,7 +930,6 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
           <li style="color:var(--text-muted);font-size:12px;font-style:italic;">Com Vodka, Vinho ou Pinga</li>
         </ul>
       </div>
-
       <div class="drink-category">
         <div class="drink-cat-title">Caipiras</div>
         <ul class="drink-list">
@@ -1036,7 +939,6 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
           <li style="color:var(--text-muted);font-size:12px;font-style:italic;">Com Pinga, Ypióca, Vinho, Saquê, Vodka ou Steinhäger</li>
         </ul>
       </div>
-
       <div class="drink-category">
         <div class="drink-cat-title">Destilados</div>
         <ul class="drink-list">
@@ -1051,7 +953,6 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
           <li>Cachaça Seleta · Ypióca · Terra Brasilis</li>
         </ul>
       </div>
-
       <div class="drink-category">
         <div class="drink-cat-title">Whisky</div>
         <ul class="drink-list">
@@ -1064,28 +965,16 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
           <li>Jack Daniel's · White Horse · Gran Pa</li>
         </ul>
       </div>
-
     </div>
   </div>
 
   <!-- DOCES -->
   <div class="menu-panel" id="panel-doces">
     <div class="menu-grid" style="max-width:700px;margin:0 auto;">
-      <div class="menu-card">
-        <div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&q=80') center/cover;height:300px;">
-          <div class="menu-card-overlay"></div>
-          <div class="menu-card-body"><div class="menu-card-tag">Clássico</div><div class="menu-card-name">Petit Gateau</div><div class="menu-card-desc">Bolinho quente com recheio de chocolate derretido</div></div>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600&q=80') center/cover;height:300px;">
-          <div class="menu-card-overlay"></div>
-          <div class="menu-card-body"><div class="menu-card-tag">Especial</div><div class="menu-card-name">Pudim Holandês</div><div class="menu-card-desc">Cremoso e irresistível</div></div>
-        </div>
-      </div>
+      <div class="menu-card"><div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&q=80') center/cover;height:300px;"><div class="menu-card-overlay"></div><div class="menu-card-body"><div class="menu-card-tag">Clássico</div><div class="menu-card-name">Petit Gateau</div><div class="menu-card-desc">Bolinho quente com recheio de chocolate derretido</div></div></div></div>
+      <div class="menu-card"><div class="menu-card-placeholder" style="background:url('https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600&q=80') center/cover;height:300px;"><div class="menu-card-overlay"></div><div class="menu-card-body"><div class="menu-card-tag">Especial</div><div class="menu-card-name">Pudim Holandês</div><div class="menu-card-desc">Cremoso e irresistível</div></div></div></div>
     </div>
   </div>
-
 </section>
 
 <!-- EXPERIÊNCIA -->
@@ -1096,24 +985,12 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
     <p>Ambiente aconchegante, atendimento cuidadoso e a melhor brasa do Paraná</p>
   </div>
   <div class="gallery-grid reveal">
-    <div class="gallery-item g1">
-      <img class="gallery-img" src="https://images.unsplash.com/photo-1544025162-d76694265947?w=900&q=80" alt="Brasa Gelobel" loading="lazy">
-    </div>
-    <div class="gallery-item g2">
-      <img class="gallery-img" src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=700&q=80" alt="Carne na brasa" loading="lazy">
-    </div>
-    <div class="gallery-item g3">
-      <img class="gallery-img" src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=700&q=80" alt="Churrasco premium" loading="lazy">
-    </div>
-    <div class="gallery-item g4">
-      <img class="gallery-img" src="https://images.unsplash.com/photo-1558030006-450675393462?w=600&q=80" alt="Ambiente" loading="lazy">
-    </div>
-    <div class="gallery-item g5">
-      <img class="gallery-img" src="https://images.unsplash.com/photo-1484980972926-edee96e0960d?w=600&q=80" alt="Família" loading="lazy">
-    </div>
-    <div class="gallery-item g6">
-      <img class="gallery-img" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80" alt="Mesa posta" loading="lazy">
-    </div>
+    <div class="gallery-item g1"><img class="gallery-img" src="https://images.unsplash.com/photo-1544025162-d76694265947?w=900&q=80" alt="Brasa Gelobel" loading="lazy"></div>
+    <div class="gallery-item g2"><img class="gallery-img" src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=700&q=80" alt="Carne na brasa" loading="lazy"></div>
+    <div class="gallery-item g3"><img class="gallery-img" src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=700&q=80" alt="Churrasco premium" loading="lazy"></div>
+    <div class="gallery-item g4"><img class="gallery-img" src="https://images.unsplash.com/photo-1558030006-450675393462?w=600&q=80" alt="Ambiente" loading="lazy"></div>
+    <div class="gallery-item g5"><img class="gallery-img" src="https://images.unsplash.com/photo-1484980972926-edee96e0960d?w=600&q=80" alt="Família" loading="lazy"></div>
+    <div class="gallery-item g6"><img class="gallery-img" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80" alt="Mesa posta" loading="lazy"></div>
   </div>
 </section>
 
@@ -1126,6 +1003,7 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
   </div>
 
   <div class="unidades-grid">
+
     <!-- Don Pablo -->
     <div class="unit-card reveal">
       <div class="unit-img-placeholder" style="background:url('https://gelobel.com.br/wp-content/uploads/2020/02/don_pablo_2020.jpg') center/cover;height:180px;filter:brightness(0.7);"></div>
@@ -1133,11 +1011,27 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
         <div class="unit-badge">Londrina</div>
         <div class="unit-name">Don Pablo</div>
         <div class="unit-info">
-          <div class="unit-info-row"><span class="unit-icon">📍</span><span>Rua Caracas, 80 - Londrina</span></div>
-          <div class="unit-info-row"><span class="unit-icon">📞</span><span>(43) 3325-2942</span></div>
+          <div class="unit-info-row">
+            <span class="unit-icon">
+              <!-- map-pin -->
+              <svg viewBox="0 0 24 24"><path d="M12 21C12 21 5 13.5 5 8a7 7 0 0 1 14 0c0 5.5-7 13-7 13z"/><circle cx="12" cy="8" r="2.5"/></svg>
+            </span>
+            <span>Rua Caracas, 80 - Londrina</span>
+          </div>
+          <div class="unit-info-row">
+            <span class="unit-icon">
+              <!-- phone -->
+              <svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+            </span>
+            <span>(43) 3325-2942</span>
+          </div>
         </div>
         <div class="unit-hours">
-          <h4>Horários</h4>
+          <div class="unit-hours-header">
+            <!-- clock -->
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+            <h4>Horários</h4>
+          </div>
           <p>Seg–Sex: 11h às 14h30 · 17h às 23h30<br>Sábado: 11h às 23h30<br>Domingo: 11h às 15h</p>
         </div>
         <a href="https://maps.google.com/?q=Rua+Caracas+80+Londrina" target="_blank" class="unit-btn">Ver no Google Maps ↗</a>
@@ -1151,11 +1045,20 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
         <div class="unit-badge">Londrina</div>
         <div class="unit-name">Catuaí</div>
         <div class="unit-info">
-          <div class="unit-info-row"><span class="unit-icon">📍</span><span>Rod. Celso Garcia Cid, 5600 - Londrina</span></div>
-          <div class="unit-info-row"><span class="unit-icon">📞</span><span>(43) 3325-1168</span></div>
+          <div class="unit-info-row">
+            <span class="unit-icon"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 5 13.5 5 8a7 7 0 0 1 14 0c0 5.5-7 13-7 13z"/><circle cx="12" cy="8" r="2.5"/></svg></span>
+            <span>Rod. Celso Garcia Cid, 5600 - Londrina</span>
+          </div>
+          <div class="unit-info-row">
+            <span class="unit-icon"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span>
+            <span>(43) 3325-1168</span>
+          </div>
         </div>
         <div class="unit-hours">
-          <h4>Horários</h4>
+          <div class="unit-hours-header">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+            <h4>Horários</h4>
+          </div>
           <p>Segunda a Domingo: 11h às 20h</p>
         </div>
         <a href="https://maps.google.com/?q=Rod.+Celso+Garcia+Cid+5600+Londrina" target="_blank" class="unit-btn">Ver no Google Maps ↗</a>
@@ -1169,11 +1072,20 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
         <div class="unit-badge">Londrina</div>
         <div class="unit-name">Duque</div>
         <div class="unit-info">
-          <div class="unit-info-row"><span class="unit-icon">📍</span><span>Av. Duque de Caxias, 2070 - Londrina</span></div>
-          <div class="unit-info-row"><span class="unit-icon">📞</span><span>(43) 3323-8942</span></div>
+          <div class="unit-info-row">
+            <span class="unit-icon"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 5 13.5 5 8a7 7 0 0 1 14 0c0 5.5-7 13-7 13z"/><circle cx="12" cy="8" r="2.5"/></svg></span>
+            <span>Av. Duque de Caxias, 2070 - Londrina</span>
+          </div>
+          <div class="unit-info-row">
+            <span class="unit-icon"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span>
+            <span>(43) 3323-8942</span>
+          </div>
         </div>
         <div class="unit-hours">
-          <h4>Horários</h4>
+          <div class="unit-hours-header">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+            <h4>Horários</h4>
+          </div>
           <p>Seg–Sex: 11h às 14h30 · 17h às 23h30<br>Sábado: 11h às 23h30<br>Domingo: Fechado</p>
         </div>
         <a href="https://maps.google.com/?q=Av+Duque+de+Caxias+2070+Londrina" target="_blank" class="unit-btn">Ver no Google Maps ↗</a>
@@ -1187,11 +1099,20 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
         <div class="unit-badge">Londrina</div>
         <div class="unit-name">Boulevard</div>
         <div class="unit-info">
-          <div class="unit-info-row"><span class="unit-icon">📍</span><span>Av. Theodoro Victorelli, 150 - Londrina</span></div>
-          <div class="unit-info-row"><span class="unit-icon">📞</span><span>(43) 3341-0804</span></div>
+          <div class="unit-info-row">
+            <span class="unit-icon"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 5 13.5 5 8a7 7 0 0 1 14 0c0 5.5-7 13-7 13z"/><circle cx="12" cy="8" r="2.5"/></svg></span>
+            <span>Av. Theodoro Victorelli, 150 - Londrina</span>
+          </div>
+          <div class="unit-info-row">
+            <span class="unit-icon"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span>
+            <span>(43) 3341-0804</span>
+          </div>
         </div>
         <div class="unit-hours">
-          <h4>Horários</h4>
+          <div class="unit-hours-header">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+            <h4>Horários</h4>
+          </div>
           <p>Segunda a Domingo: 11h às 20h</p>
         </div>
         <a href="https://maps.google.com/?q=Av+Theodoro+Victorelli+150+Londrina" target="_blank" class="unit-btn">Ver no Google Maps ↗</a>
@@ -1205,11 +1126,20 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
         <div class="unit-badge">Curitiba</div>
         <div class="unit-name">Curitiba</div>
         <div class="unit-info">
-          <div class="unit-info-row"><span class="unit-icon">📍</span><span>Av. Sete de Setembro, 2775 - Curitiba</span></div>
-          <div class="unit-info-row"><span class="unit-icon">📞</span><span>(41) 3026-0920</span></div>
+          <div class="unit-info-row">
+            <span class="unit-icon"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 5 13.5 5 8a7 7 0 0 1 14 0c0 5.5-7 13-7 13z"/><circle cx="12" cy="8" r="2.5"/></svg></span>
+            <span>Av. Sete de Setembro, 2775 - Curitiba</span>
+          </div>
+          <div class="unit-info-row">
+            <span class="unit-icon"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span>
+            <span>(41) 3026-0920</span>
+          </div>
         </div>
         <div class="unit-hours">
-          <h4>Horários</h4>
+          <div class="unit-hours-header">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+            <h4>Horários</h4>
+          </div>
           <p>Seg–Sáb: 12h às 22h<br>Domingo: 12h às 20h</p>
         </div>
         <a href="https://maps.google.com/?q=Av+Sete+de+Setembro+2775+Curitiba" target="_blank" class="unit-btn">Ver no Google Maps ↗</a>
@@ -1223,16 +1153,26 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
         <div class="unit-badge">Londrina · Delivery</div>
         <div class="unit-name">Delivery</div>
         <div class="unit-info">
-          <div class="unit-info-row"><span class="unit-icon">📍</span><span>Rua Caracas, 96 - Londrina</span></div>
-          <div class="unit-info-row"><span class="unit-icon">📞</span><span>(43) 3325-3553</span></div>
+          <div class="unit-info-row">
+            <span class="unit-icon"><svg viewBox="0 0 24 24"><path d="M12 21C12 21 5 13.5 5 8a7 7 0 0 1 14 0c0 5.5-7 13-7 13z"/><circle cx="12" cy="8" r="2.5"/></svg></span>
+            <span>Rua Caracas, 96 - Londrina</span>
+          </div>
+          <div class="unit-info-row">
+            <span class="unit-icon"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span>
+            <span>(43) 3325-3553</span>
+          </div>
         </div>
         <div class="unit-hours">
-          <h4>Horários</h4>
+          <div class="unit-hours-header">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+            <h4>Horários</h4>
+          </div>
           <p>Seg–Sáb: 11h às 15h · 18h às 23h<br>Domingo: Fechado</p>
         </div>
         <a href="https://maps.google.com/?q=Rua+Caracas+96+Londrina" target="_blank" class="unit-btn">Ver no Google Maps ↗</a>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -1255,65 +1195,67 @@ footer{background:var(--charcoal-2);border-top:1px solid rgba(200,146,42,0.1);pa
   <div class="footer-brand">
     <div class="logo-wrap" style="margin-bottom:16px;align-items:center;">
       <div class="footer-logo-mark">
-        <img src="https://gelobel.com.br/wp-content/uploads/2019/12/GELOBEL-AMARELO-E-BRANCO-2048x906.png"
-          alt="Gelobel Logo" style="width:100%;height:100%;object-fit:contain;">
+        <img src="https://gelobel.com.br/wp-content/uploads/2019/12/GELOBEL-AMARELO-E-BRANCO-2048x906.png" alt="Gelobel Logo" style="width:100%;height:100%;object-fit:contain;">
       </div>
     </div>
-    <p>
-      Tradição, sabor e qualidade na brasa há mais de duas décadas. Londrina e Curitiba.
-    </p>
+    <p>Tradição, sabor e qualidade na brasa há mais de duas décadas. Londrina e Curitiba.</p>
     <div class="footer-social">
-      <a href="#" class="soc-btn" aria-label="Instagram">ig</a>
-      <a href="#" class="soc-btn" aria-label="Facebook">fb</a>
-      <a href="#" class="soc-btn" aria-label="WhatsApp">wa</a>
+      <!-- Instagram -->
+      <a href="#" class="soc-btn" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <!-- Facebook -->
+      <a href="#" class="soc-btn" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <!-- WhatsApp -->
+      <a href="#" class="soc-btn" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/><path d="M9 10c0 5 3.5 7.5 7.5 4"/></svg>
+      </a>
     </div>
   </div>
   <div class="footer-col">
-      <h4>Navegação</h4>
-      <ul>
-        <li><a href="#sobre">Sobre nós</a></li>
-        <li><a href="#cardapio">Cardápio</a></li>
-        <li><a href="#experiencia">Experiência</a></li>
-        <li><a href="#unidades">Unidades</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Unidades</h4>
-      <ul>
-        <li><a href="https://maps.google.com/?q=Rua+Caracas+80+Londrina" target="_blank">Don Pablo</a></li>
-        <li><a href="https://maps.google.com/?q=Rod.+Celso+Garcia+Cid+5600+Londrina" target="_blank">Catuaí</a></li>
-        <li><a href="https://maps.google.com/?q=Av+Duque+de+Caxias+2070+Londrina" target="_blank">Duque</a></li>
-        <li><a href="https://maps.google.com/?q=Av+Theodoro+Victorelli+150+Londrina" target="_blank">Boulevard</a></li>
-        <li><a href="https://maps.google.com/?q=Av+Sete+de+Setembro+2775+Curitiba" target="_blank">Curitiba</a></li>
-      </ul>
-    </div>
-    <div class="footer-col footer-contact">
-      <h4>Contato</h4>
-      <p>
-        Don Pablo: <a href="tel:4333252942">(43) 3325-2942</a><br>
-        Catuaí: <a href="tel:4333251168">(43) 3325-1168</a><br>
-        Duque: <a href="tel:4333238942">(43) 3323-8942</a><br>
-        Boulevard: <a href="tel:4333410804">(43) 3341-0804</a><br>
-        Curitiba: <a href="tel:4130260920">(41) 3026-0920</a><br>
-        Delivery: <a href="tel:4333253553">(43) 3325-3553</a>
-      </p>
-    </div>
+    <h4>Navegação</h4>
+    <ul>
+      <li><a href="#sobre">Sobre nós</a></li>
+      <li><a href="#cardapio">Cardápio</a></li>
+      <li><a href="#experiencia">Experiência</a></li>
+      <li><a href="#unidades">Unidades</a></li>
+    </ul>
   </div>
-  <div class="footer-bottom">
-    <p>&copy; 2025 <span>Gelobel Churrascaria</span>. Todos os direitos reservados.</p>
-    <p>Feito com <span>♥</span> em Londrina, PR</p>
+  <div class="footer-col">
+    <h4>Unidades</h4>
+    <ul>
+      <li><a href="https://maps.google.com/?q=Rua+Caracas+80+Londrina" target="_blank">Don Pablo</a></li>
+      <li><a href="https://maps.google.com/?q=Rod.+Celso+Garcia+Cid+5600+Londrina" target="_blank">Catuaí</a></li>
+      <li><a href="https://maps.google.com/?q=Av+Duque+de+Caxias+2070+Londrina" target="_blank">Duque</a></li>
+      <li><a href="https://maps.google.com/?q=Av+Theodoro+Victorelli+150+Londrina" target="_blank">Boulevard</a></li>
+      <li><a href="https://maps.google.com/?q=Av+Sete+de+Setembro+2775+Curitiba" target="_blank">Curitiba</a></li>
+    </ul>
   </div>
+  <div class="footer-col footer-contact">
+    <h4>Contato</h4>
+    <p>
+      Don Pablo: <a href="tel:4333252942">(43) 3325-2942</a><br>
+      Catuaí: <a href="tel:4333251168">(43) 3325-1168</a><br>
+      Duque: <a href="tel:4333238942">(43) 3323-8942</a><br>
+      Boulevard: <a href="tel:4333410804">(43) 3341-0804</a><br>
+      Curitiba: <a href="tel:4130260920">(41) 3026-0920</a><br>
+      Delivery: <a href="tel:4333253553">(43) 3325-3553</a>
+    </p>
+  </div>
+</div>
+<div class="footer-bottom">
+  <p>&copy; 2025 <span>Gelobel Churrascaria</span>. Todos os direitos reservados.</p>
+  <p>Feito com <span>♥</span> em Londrina, PR</p>
+</div>
 </footer>
 
 <script>
-// LOADER
 window.addEventListener('load',()=>{
-  setTimeout(()=>{
-    document.getElementById('loader').classList.add('hide');
-  },2400);
+  setTimeout(()=>{document.getElementById('loader').classList.add('hide');},2400);
 });
 
-// PARTICLES
 (function(){
   const c=document.getElementById('particles');
   for(let i=0;i<18;i++){
@@ -1324,21 +1266,16 @@ window.addEventListener('load',()=>{
   }
 })();
 
-// NAV SCROLL
 window.addEventListener('scroll',()=>{
   document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>60);
 });
 
-// REVEAL ON SCROLL
 const revealEls=document.querySelectorAll('.reveal');
 const io=new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}
-  });
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});
 },{threshold:0.12});
 revealEls.forEach(el=>io.observe(el));
 
-// TABS
 function showPanel(name,btn){
   document.querySelectorAll('.menu-panel').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.cat-tab').forEach(t=>t.classList.remove('active'));
@@ -1346,44 +1283,31 @@ function showPanel(name,btn){
   btn.classList.add('active');
 }
 
-// MOBILE NAV
 function closeMobileNav(){
   document.getElementById('mobileNav').classList.remove('open');
 }
 
-// VERTICAL TIMELINE
-function selectYear(item, targetId){
-  // deactivate all
+function selectYear(item,targetId){
   document.querySelectorAll('.vtl-year-item').forEach(i=>i.classList.remove('active'));
   document.querySelectorAll('.vtl-panel').forEach(p=>{p.classList.remove('active');});
-  // activate clicked
   item.classList.add('active');
-  const panel = document.getElementById(targetId);
+  const panel=document.getElementById(targetId);
   if(panel){
-    // reset for animation
     panel.style.opacity='0';
     panel.style.transform='translateX(-16px)';
     panel.classList.add('active');
-    requestAnimationFrame(()=>{
-      requestAnimationFrame(()=>{
-        panel.style.opacity='1';
-        panel.style.transform='translateX(0)';
-      });
-    });
+    requestAnimationFrame(()=>{requestAnimationFrame(()=>{panel.style.opacity='1';panel.style.transform='translateX(0)';});});
   }
-  // update line fill height
-  const items = [...document.querySelectorAll('.vtl-year-item')];
-  const idx = items.indexOf(item);
-  const fill = document.querySelector('.vtl-line-fill');
-  if(fill){ fill.style.height = ((idx/(items.length-1))*100)+'%'; }
+  const items=[...document.querySelectorAll('.vtl-year-item')];
+  const idx=items.indexOf(item);
+  const fill=document.querySelector('.vtl-line-fill');
+  if(fill){fill.style.height=((idx/(items.length-1))*100)+'%';}
 }
 
-// init first item
 window.addEventListener('DOMContentLoaded',()=>{
-  const first = document.querySelector('.vtl-year-item');
-  if(first){ selectYear(first,'tl1991'); }
+  const first=document.querySelector('.vtl-year-item');
+  if(first){selectYear(first,'tl1991');}
 });
-
 
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',function(e){
