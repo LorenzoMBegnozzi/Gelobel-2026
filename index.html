@@ -5,6 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gelobel Churrascaria — Tradição e Sabor na Brasa</title>
+  <link rel="icon" type="image/png" href="./src/img/logo.png">
+  <link rel="shortcut icon" type="image/png" href="./src/img/logo.png">
+  <link rel="apple-touch-icon" href="./src/img/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
@@ -1906,17 +1909,113 @@
         padding: 72px 20px;
       }
 
+      nav,
+      nav.scrolled {
+        padding: 16px 20px;
+      }
+
+      .nav-logo-mark {
+        width: 132px;
+        max-width: 48vw;
+      }
+
+      .mobile-nav {
+        gap: 24px;
+        padding: 96px 20px 40px;
+      }
+
+      .mobile-nav a {
+        font-size: 24px;
+        text-align: center;
+      }
+
+      .hero {
+        min-height: 620px;
+      }
+
+      .hero-content {
+        padding: 0 4px;
+      }
+
+      .hero-subtitle {
+        font-size: 18px;
+        margin-bottom: 32px;
+      }
+
+      .hero-subtitle br {
+        display: none;
+      }
+
+      .hero-divider {
+        margin-bottom: 32px;
+      }
+
       .hero-btns {
         flex-direction: column;
         align-items: center;
+      }
+
+      .btn-primary,
+      .btn-outline {
+        width: min(100%, 320px);
+        padding: 15px 24px;
+        text-align: center;
+      }
+
+      .sobre-body p,
+      .vtl-text p,
+      .footer-brand p,
+      .footer-contact p {
+        font-size: 15px;
       }
 
       .sobre-stats {
         grid-template-columns: 1fr 1fr;
       }
 
+      .vtl-award {
+        align-items: flex-start;
+        padding: 12px 14px;
+      }
+
+      .vtl-hoje-nums {
+        flex-wrap: wrap;
+        row-gap: 16px;
+      }
+
+      .vtl-num-box {
+        min-width: calc(50% - 1px);
+      }
+
+      .menu-grid,
+      .acomp-grid {
+        grid-template-columns: 1fr;
+      }
+
+      #panel-bebidas>div {
+        grid-template-columns: 1fr !important;
+        gap: 28px !important;
+      }
+
+      .drink-category {
+        margin-bottom: 0;
+      }
+
+      .unit-body {
+        padding: 24px 20px;
+      }
+
+      .unit-hours {
+        padding: 14px;
+      }
+
       .footer-grid {
         grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      footer {
+        padding: 64px 20px 32px;
       }
 
       .footer-bottom {
@@ -1947,9 +2046,162 @@
         gap: 4px;
       }
 
+      .cta-section {
+        padding: 104px 20px;
+      }
+
+      .cta-glow {
+        width: 420px;
+        height: 220px;
+      }
+
       .cat-tab {
         padding: 12px 16px;
         font-size: 11px;
+      }
+    }
+
+    @media(max-width:480px) {
+      .loader-logo-slot {
+        width: min(82vw, 260px);
+        height: auto;
+      }
+
+      .loader-logo {
+        font-size: 38px;
+        letter-spacing: 5px;
+      }
+
+      .loader-tagline {
+        font-size: 14px;
+        letter-spacing: 2px;
+        text-align: center;
+        padding: 0 20px;
+      }
+
+      .loader-bar {
+        width: min(60vw, 180px);
+      }
+
+      section,
+      .historia,
+      .cta-section {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .section-tag {
+        letter-spacing: 3px;
+      }
+
+      .section-title {
+        font-size: clamp(30px, 10vw, 42px);
+      }
+
+      .hero-title {
+        font-size: clamp(42px, 14vw, 62px);
+      }
+
+      .hero-scroll {
+        bottom: 24px;
+      }
+
+      .sobre-stats {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .stat-num {
+        font-size: 34px;
+      }
+
+      .vtl-years {
+        margin-bottom: 28px;
+      }
+
+      .vtl-year-item {
+        padding: 10px 12px;
+      }
+
+      .vtl-date {
+        font-size: 12px;
+      }
+
+      .vtl-overlap-accent {
+        width: 46%;
+        right: 8px;
+        bottom: 8px;
+      }
+
+      .vtl-award {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .vtl-hoje-nums {
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .vtl-num-box,
+      .vtl-num-box+.vtl-num-box {
+        min-width: 100%;
+        border-left: none;
+      }
+
+      .menu-card-placeholder {
+        aspect-ratio: 5/4;
+      }
+
+      .menu-card-body {
+        padding: 20px;
+      }
+
+      .menu-card-name {
+        font-size: 18px;
+      }
+
+      .drink-cat-title {
+        font-size: 18px;
+        margin-bottom: 14px;
+      }
+
+      .drink-list li {
+        font-size: 14px;
+      }
+
+      .unit-info-row {
+        font-size: 13px;
+      }
+
+      .unit-btn {
+        padding: 11px 10px;
+      }
+
+      .cta-sub {
+        font-size: 18px;
+        margin-bottom: 36px;
+      }
+
+      .footer-col h4 {
+        margin-bottom: 14px;
+      }
+
+      .float-zap-wrap {
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+        align-items: stretch;
+      }
+
+      .float-zap-menu {
+        width: 100%;
+      }
+
+      .float-zap-btn {
+        justify-content: center;
+        width: 56px;
+        margin-left: auto;
       }
     }
   </style>
@@ -2386,7 +2638,7 @@
         </div>
         <div class="menu-card">
           <div class="menu-card-placeholder"
-            style="background:url('https://images.unsplash.com/photo-1620921568790-c1cf8984a408?w=600&q=80') center/cover;height:240px;">
+            style="background:url('https://compactaprint.com.br/wp-content/uploads/2025/03/Receita-de-Bolinho-de-Bacalhau-Facil-e-Barato.jpg') center/cover;height:240px;">
             <div class="menu-card-overlay"></div>
             <div class="menu-card-body">
               <div class="menu-card-name">Bolinho de Bacalhau</div>
@@ -2458,7 +2710,7 @@
         </div>
         <div class="menu-card">
           <div class="menu-card-placeholder"
-            style="background:url('https://images.unsplash.com/photo-1576107232684-1279f78fa571?w=600&q=80') center/cover;height:240px;">
+            style="background:url('https://softpig.com.br/wp-content/uploads/2023/10/Batata-frita-com-cheddar-e-bacon-Receita-softpig-1200x600.jpg') center/cover;height:240px;">
             <div class="menu-card-overlay"></div>
             <div class="menu-card-body">
               <div class="menu-card-name">Batata Frita</div>
