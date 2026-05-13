@@ -895,6 +895,34 @@ footer {
   display: block;
   margin-top: 2px;
 }
+.footer-map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 10px 14px;
+  border: 1px solid rgba(168,180,154,0.2);
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 0.68rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: border-color 0.3s ease, color 0.3s ease, background 0.3s ease;
+}
+.footer-map-link svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.footer-map-link:hover {
+  border-color: var(--sage);
+  color: var(--sage);
+  background: rgba(138,158,133,0.06);
+}
 
 /* REVEAL ANIMATIONS */
 .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.9s ease, transform 0.9s ease; }
@@ -1384,7 +1412,7 @@ footer {
         </div>
         <div class="footer-contact-row">
           <span class="footer-contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg></span>
-          <div class="footer-contact-value">Rod. Celso Garcia Cid, 5600 - Palhano 2<strong>Londrina, Parana</strong></div>
+          <div class="footer-contact-value">Rod. Celso Garcia Cid, 5600 - Palhano 2<strong>Londrina, Parana</strong><a href="https://maps.app.goo.gl/gG6QiJiQBsqvDYKT7" class="footer-map-link" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>Abrir no Maps</a></div>
         </div>
         <div class="footer-contact-row">
           <span class="footer-contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z" /><path d="M22 6l-10 7L2 6" /></svg></span>
