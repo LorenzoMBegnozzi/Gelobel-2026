@@ -46,6 +46,61 @@
       overflow-x: hidden;
     }
 
+    body.page-transitioning {
+      overflow: hidden;
+    }
+
+    #pageTransition {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at center, rgba(235, 187, 5, 0.12), rgba(13, 12, 10, 0.92) 42%, rgba(13, 12, 10, 0.98) 100%);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.75s ease, visibility 0.75s ease;
+      z-index: 10000;
+    }
+
+    #pageTransition.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: all;
+    }
+
+    .page-transition-mark {
+      text-align: center;
+      transform: translateY(28px) scale(0.96);
+      opacity: 0;
+      transition: transform 0.8s ease, opacity 0.8s ease;
+    }
+
+    #pageTransition.active .page-transition-mark {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+
+    .page-transition-brand {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(44px, 6vw, 78px);
+      font-weight: 400;
+      letter-spacing: 8px;
+      color: #F0E8D5;
+      text-transform: uppercase;
+    }
+
+    .page-transition-label {
+      display: block;
+      margin-top: 10px;
+      font-size: 10px;
+      letter-spacing: 7px;
+      text-transform: uppercase;
+      color: rgba(240, 232, 213, 0.62);
+    }
+
     /* LOADER */
     #loader {
       position: fixed;
@@ -221,6 +276,76 @@
       gap: 16px;
     }
 
+    .nav-brand-switch {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-brand-current {
+      display: flex;
+      align-items: center;
+      opacity: 0.98;
+      transition: opacity 0.35s ease, transform 0.35s ease, filter 0.35s ease;
+    }
+
+    .nav-brand-current.is-active {
+      filter: none;
+    }
+
+    .nav-brand-divider {
+      width: 1px;
+      height: 34px;
+      background: linear-gradient(180deg, transparent, rgba(245, 239, 224, 0.28), transparent);
+    }
+
+    .nav-brand-link {
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 3px;
+      padding: 10px 16px;
+      border: 1px solid rgba(240, 232, 213, 0.16);
+      background: rgba(240, 232, 213, 0.04);
+      text-decoration: none;
+      transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .nav-brand-link.is-inactive {
+      opacity: 0.58;
+      border-color: rgba(240, 232, 213, 0.1);
+      background: rgba(240, 232, 213, 0.02);
+    }
+
+    .nav-brand-link:hover {
+      transform: translateY(-2px);
+      border-color: rgba(240, 232, 213, 0.34);
+      background: rgba(240, 232, 213, 0.08);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
+    }
+
+    .nav-brand-link.is-inactive:hover {
+      opacity: 0.92;
+    }
+
+    .nav-brand-link-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      line-height: 1;
+      color: #F0E8D5;
+      text-transform: uppercase;
+    }
+
+    .nav-brand-link-subtitle {
+      font-size: 9px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: rgba(240, 232, 213, 0.68);
+      line-height: 1.1;
+    }
+
     .nav-logo-mark {
       width: 156px;
       max-width: 32vw;
@@ -315,6 +440,8 @@
 
     .hamburger {
       display: none;
+      background: none;
+      border: none;
       flex-direction: column;
       gap: 5px;
       cursor: pointer;
@@ -1799,49 +1926,6 @@
       color: var(--gold);
     }
 
-    /* MOBILE NAV */
-    .mobile-nav {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(13, 12, 10, 0.98);
-      z-index: 200;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 32px;
-      pointer-events: none;
-    }
-
-    .mobile-nav.open {
-      display: flex;
-      pointer-events: auto;
-    }
-
-    .mobile-nav a {
-      color: var(--cream);
-      text-decoration: none;
-      font-family: 'Playfair Display', serif;
-      font-size: 32px;
-      font-weight: 700;
-      transition: color 0.3s;
-    }
-
-    .mobile-nav a:hover {
-      color: var(--gold);
-    }
-
-    .mobile-close {
-      position: absolute;
-      top: 24px;
-      right: 24px;
-      background: none;
-      border: none;
-      color: var(--cream);
-      font-size: 28px;
-      cursor: pointer;
-    }
-
     /* RESPONSIVE */
     @media(max-width:1024px) {
       nav {
@@ -1854,6 +1938,23 @@
 
       .nav-links {
         display: none;
+      }
+
+      .nav-brand-divider {
+        display: none;
+      }
+
+      .nav-brand-link {
+        padding: 8px 12px;
+      }
+
+      .nav-brand-link-title {
+        font-size: 20px;
+      }
+
+      .nav-brand-link-subtitle {
+        font-size: 8px;
+        letter-spacing: 3px;
       }
 
       .nav-cta {
@@ -1920,16 +2021,6 @@
       .nav-logo-mark {
         width: 132px;
         max-width: 48vw;
-      }
-
-      .mobile-nav {
-        gap: 24px;
-        padding: 96px 20px 40px;
-      }
-
-      .mobile-nav a {
-        font-size: 24px;
-        text-align: center;
       }
 
       .hero {
@@ -2068,6 +2159,10 @@
       .loader-logo-slot {
         width: min(82vw, 260px);
         height: auto;
+      }
+
+      .nav-brand-link-subtitle {
+        display: none;
       }
 
       .loader-logo {
@@ -2212,6 +2307,13 @@
 
 <body>
 
+  <div id="pageTransition" aria-hidden="true">
+    <div class="page-transition-mark">
+      <span class="page-transition-brand">Belmar</span>
+      <span class="page-transition-label">Cozinha Japonesa</span>
+    </div>
+  </div>
+
   <!-- LOADER -->
   <div id="loader">
     <div class="loader-logo-slot" title="Gelobel Logo">
@@ -2224,23 +2326,20 @@
     </div>
   </div>
 
-  <!-- MOBILE NAV -->
-  <div class="mobile-nav" id="mobileNav">
-    <button class="mobile-close" onclick="closeMobileNav()">✕</button>
-    <a href="#sobre" onclick="closeMobileNav()">Sobre</a>
-    <a href="#historia" onclick="closeMobileNav()">História</a>
-    <a href="#cardapio" onclick="closeMobileNav()">Cardápio</a>
-    <a href="#experiencia" onclick="closeMobileNav()">Experiência</a>
-    <a href="#unidades" onclick="closeMobileNav()">Unidades</a>
-  </div>
-
   <!-- NAV -->
   <nav id="mainNav">
-    <div class="logo-wrap nav-logo-wrap">
-      <div class="nav-logo-mark" title="Logo Gelobel">
-        <img src="https://gelobel.com.br/wp-content/uploads/2019/12/GELOBEL-AMARELO-E-BRANCO-2048x906.png"
-          alt="Gelobel Logo">
+    <div class="nav-brand-switch">
+      <div class="logo-wrap nav-logo-wrap nav-brand-current is-active">
+        <div class="nav-logo-mark" title="Logo Gelobel">
+          <img src="https://gelobel.com.br/wp-content/uploads/2019/12/GELOBEL-AMARELO-E-BRANCO-2048x906.png"
+            alt="Gelobel Logo">
+        </div>
       </div>
+      <div class="nav-brand-divider" aria-hidden="true"></div>
+      <a href="./belmar.html" class="nav-brand-link is-inactive" data-transition-target="./belmar.html" aria-label="Abrir página Belmar">
+        <span class="nav-brand-link-title">Belmar</span>
+        <span class="nav-brand-link-subtitle">Cozinha Japonesa</span>
+      </a>
     </div>
     <ul class="nav-links">
       <li><a href="#sobre">Sobre</a></li>
@@ -2251,9 +2350,9 @@
     </ul>
     <button class="nav-cta" onclick="document.getElementById('unidades').scrollIntoView({behavior:'smooth'})">Encontrar
       Unidade</button>
-    <div class="hamburger" onclick="document.getElementById('mobileNav').classList.add('open')">
+    <button class="hamburger" id="navToggle" aria-label="Abrir menu">
       <span></span><span></span><span></span>
-    </div>
+    </button>
   </nav>
 
   <!-- HERO -->
@@ -3326,6 +3425,27 @@
       setTimeout(() => { document.getElementById('loader').classList.add('hide'); }, 2400);
     });
 
+    function transitionToPage(targetUrl) {
+      const overlay = document.getElementById('pageTransition');
+      if (!overlay || !targetUrl || document.body.classList.contains('page-transitioning')) {
+        return;
+      }
+
+      document.body.classList.add('page-transitioning');
+      overlay.classList.add('active');
+
+      window.setTimeout(() => {
+        window.location.href = targetUrl;
+      }, 620);
+    }
+
+    document.querySelectorAll('[data-transition-target]').forEach(link => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        transitionToPage(link.getAttribute('data-transition-target'));
+      });
+    });
+
     (function () {
       const c = document.getElementById('particles');
       for (let i = 0; i < 18; i++) {
@@ -3354,8 +3474,50 @@
     }
 
     function closeMobileNav() {
-      document.getElementById('mobileNav').classList.remove('open');
+      const links = document.querySelector('.nav-links');
+      if (!links) return;
+      links.removeAttribute('style');
+      links.dataset.mobileOpen = 'false';
     }
+
+    const navToggle = document.getElementById('navToggle');
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        const links = document.querySelector('.nav-links');
+        if (!links || window.innerWidth > 1024) return;
+
+        const open = links.dataset.mobileOpen === 'true';
+        if (open) {
+          closeMobileNav();
+          return;
+        }
+
+        Object.assign(links.style, {
+          display: 'flex',
+          flexDirection: 'column',
+          position: 'fixed',
+          top: '70px',
+          left: '0',
+          right: '0',
+          background: 'rgba(13, 12, 10, 0.97)',
+          padding: '32px 28px',
+          gap: '24px',
+          borderBottom: '1px solid rgba(200, 146, 42, 0.12)',
+          zIndex: '999'
+        });
+        links.dataset.mobileOpen = 'true';
+      });
+    }
+
+    document.querySelectorAll('.nav-links a').forEach((link) => {
+      link.addEventListener('click', closeMobileNav);
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1024) {
+        closeMobileNav();
+      }
+    });
 
     function selectYear(item, targetId) {
       document.querySelectorAll('.vtl-year-item').forEach(i => i.classList.remove('active'));

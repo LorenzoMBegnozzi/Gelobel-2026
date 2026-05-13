@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Belmar — Alta Gastronomia Japonesa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&family=Noto+Serif+JP:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* ── Brand exact colors ── */
+  --brand-green: #546150;
+  --brand-cream: #F0E8D5;
+
+  /* ── Green scale (derived from #546150) ── */
+  --olive: #546150;
+  --olive-light: #6E7E69;
+  --moss: #3D4A39;
+  --sage: #8A9E85;
+  --dark-green: #2E362B;
+
+  /* ── Cream scale (derived from #F0E8D5) ── */
+  --cream: #F0E8D5;
+  --cream-warm: #E8DFC8;
+  --bege: #D6CBB3;
+  --sand: #C4B89E;
+  --off-white: #F7F3EC;
+
+  /* ── Neutrals ── */
+  --brown-soft: #7A6B52;
+  --charcoal: #252820;
+  --ink: #181C16;
+
+  /* ── Glass / translucent ── */
+  --smoke: rgba(240,232,213,0.06);
+  --glass: rgba(240,232,213,0.08);
+  --glass-border: rgba(240,232,213,0.13);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background: var(--ink);
+  color: var(--cream);
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+  cursor: auto;
+}
+
+body.page-transitioning {
+  overflow: hidden;
+}
+
+#pageTransition {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, rgba(138,158,133,0.12), rgba(24,28,22,0.9) 42%, rgba(24,28,22,0.98) 100%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.75s ease, visibility 0.75s ease;
+  z-index: 10000;
+}
+
+#pageTransition.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+.page-transition-mark {
+  text-align: center;
+  transform: translateY(28px) scale(0.96);
+  opacity: 0;
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+#pageTransition.active .page-transition-mark {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+.page-transition-logo {
+  width: min(320px, 72vw);
+  display: block;
+  margin: 0 auto;
+}
+
+.page-transition-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.page-transition-label {
+  display: block;
+  margin-top: 14px;
+  font-size: 0.65rem;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: rgba(240,232,213,0.54);
+}
+
+/* LOADER */
+#loader {
+  position: fixed; inset: 0;
+  background: var(--ink);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+#loader.hidden { opacity: 0; visibility: hidden; }
+
+.loader-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: 12px;
+  color: var(--cream);
+  opacity: 0;
+  animation: loaderFadeIn 1s ease 0.3s forwards;
+}
+.loader-line {
+  width: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--sage), transparent);
+  animation: loaderLine 1.5s ease 0.8s forwards;
+}
+.loader-sub {
+  font-size: 0.65rem;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--olive-light);
+  opacity: 0;
+  animation: loaderFadeIn 0.8s ease 1.5s forwards;
+}
+
+@keyframes loaderFadeIn { to { opacity: 1; } }
+@keyframes loaderLine { to { width: 120px; } }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 28px 60px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: all 0.5s ease;
+}
+nav.scrolled {
+  background: rgba(13,17,12,0.94);
+  backdrop-filter: blur(20px);
+  padding: 20px 60px;
+  border-bottom: 1px solid var(--glass-border);
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 6px;
+  color: var(--cream);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.nav-brand-switch {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.nav-brand-panel {
+  transition: opacity 0.35s ease, transform 0.35s ease, border-color 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
+}
+.nav-brand-panel.is-active {
+  opacity: 1;
+}
+.nav-brand-panel.is-inactive {
+  opacity: 0.5;
+}
+.nav-brand-panel.is-inactive:hover {
+  opacity: 0.9;
+}
+.nav-brand-divider {
+  width: 1px;
+  height: 34px;
+  background: linear-gradient(180deg, transparent, rgba(240,232,213,0.24), transparent);
+}
+.nav-brand-link {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2px;
+  text-decoration: none;
+}
+.nav-brand-gelobel {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 16px;
+  border: 1px solid rgba(240,232,213,0.14);
+  background: rgba(240,232,213,0.04);
+}
+.nav-brand-gelobel img {
+  display: block;
+  width: 150px;
+  max-width: 28vw;
+  height: auto;
+  object-fit: contain;
+}
+.nav-brand-gelobel:hover {
+  transform: translateY(-2px);
+  border-color: rgba(240,232,213,0.3);
+  background: rgba(240,232,213,0.08);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.2);
+}
+.nav-links {
+  display: flex; gap: 40px; list-style: none;
+}
+.nav-links a {
+  font-size: 0.68rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--sage);
+  text-decoration: none;
+  transition: color 0.3s;
+  font-weight: 400;
+}
+.nav-links a:hover { color: var(--cream); }
+.nav-cta {
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--brand-cream);
+  background: var(--brand-green);
+  padding: 10px 24px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.nav-cta:hover { background: var(--brand-cream); color: var(--brand-green); }
+.nav-toggle {
+  display: none;
+  background: none; border: none; cursor: pointer;
+  flex-direction: column; gap: 6px; padding: 4px;
+}
+.nav-toggle span { display: block; width: 22px; height: 1px; background: var(--cream); transition: all 0.3s; }
+
+/* HERO */
+.hero {
+  position: relative;
+  height: 100vh; min-height: 700px;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 30% 50%, rgba(84,97,80,0.22) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 80% 30%, rgba(84,97,80,0.14) 0%, transparent 50%),
+    linear-gradient(160deg, #0D110C 0%, var(--ink) 40%, #0A0E09 100%);
+}
+
+/* Organic lines SVG background */
+.hero-lines {
+  position: absolute; inset: 0; overflow: hidden; pointer-events: none;
+}
+.hero-lines svg { width: 100%; height: 100%; opacity: 0.06; }
+
+/* Floating japanese character */
+.hero-kanji {
+  position: absolute;
+  right: 8%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(6rem, 12vw, 14rem);
+  font-weight: 200;
+  color: rgba(84,97,80,0.12);
+  line-height: 1;
+  writing-mode: vertical-rl;
+  letter-spacing: 20px;
+  pointer-events: none;
+  animation: floatKanji 8s ease-in-out infinite;
+}
+@keyframes floatKanji {
+  0%,100% { transform: translateY(-50%) translateX(0); }
+  50% { transform: translateY(-52%) translateX(-6px); }
+}
+
+.hero-content {
+  position: relative; z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  padding: 0 40px;
+}
+
+.hero-eyebrow {
+  font-size: 0.6rem;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  color: var(--olive-light);
+  margin-bottom: 32px;
+  opacity: 0;
+  animation: heroFade 1s ease 2.2s forwards;
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(5rem, 12vw, 11rem);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: 4px;
+  color: var(--cream);
+  margin-bottom: 8px;
+  opacity: 0;
+  animation: heroSlide 1.2s ease 2.4s forwards;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--sage);
+}
+
+.hero-divider {
+  width: 40px; height: 1px;
+  background: var(--olive-light);
+  margin: 32px auto;
+  opacity: 0;
+  animation: heroFade 0.8s ease 2.8s forwards;
+}
+
+.hero-sub {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: var(--bege);
+  line-height: 2;
+  max-width: 400px;
+  margin: 0 auto 48px;
+  opacity: 0;
+  animation: heroFade 0.8s ease 3s forwards;
+}
+
+.hero-btns {
+  display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+  opacity: 0;
+  animation: heroFade 0.8s ease 3.2s forwards;
+}
+
+.btn-prim {
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--brand-cream);
+  background: var(--brand-green);
+  padding: 14px 36px;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  font-weight: 500;
+}
+.btn-prim:hover { background: var(--brand-cream); color: var(--brand-green); transform: translateY(-2px); }
+
+.btn-sec {
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--cream);
+  border: 1px solid rgba(168,180,154,0.3);
+  padding: 14px 36px;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  font-weight: 400;
+}
+.btn-sec:hover { border-color: var(--sage); color: var(--sage); }
+
+.hero-scroll {
+  position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  opacity: 0;
+  animation: heroFade 0.8s ease 3.5s forwards;
+}
+.hero-scroll span { font-size: 0.55rem; letter-spacing: 4px; text-transform: uppercase; color: var(--olive-light); }
+.scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--olive-light), transparent); animation: scrollPulse 2s ease-in-out infinite; }
+@keyframes scrollPulse { 0%,100%{opacity:0.4;transform:scaleY(1)} 50%{opacity:1;transform:scaleY(1.2)} }
+
+@keyframes heroFade { from{opacity:0} to{opacity:1} }
+@keyframes heroSlide { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+
+/* Image placeholder premium */
+.img-placeholder {
+  width: 100%; height: 100%;
+  position: relative; overflow: hidden;
+  background: linear-gradient(135deg, #1E1C17 0%, #252219 50%, #1A1814 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.img-placeholder::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at center, rgba(168,180,154,0.08) 0%, transparent 70%);
+}
+.img-placeholder-inner {
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+  color: rgba(168,180,154,0.25); z-index: 1;
+}
+.img-placeholder-inner svg { width: 36px; height: 36px; }
+.img-placeholder-inner span { font-size: 0.6rem; letter-spacing: 4px; text-transform: uppercase; font-family: 'Jost', sans-serif; }
+
+/* SOBRE */
+#sobre {
+  padding: 160px 60px;
+  background: var(--brand-cream);
+  position: relative;
+  overflow: hidden;
+}
+#sobre::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(to right, transparent, var(--brand-green), transparent);
+  opacity: 0.3;
+}
+
+.sobre-inner {
+  max-width: 1300px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center;
+}
+
+.sobre-images {
+  position: relative;
+}
+.sobre-img-main {
+  width: 80%; aspect-ratio: 3/4; overflow: hidden;
+  position: relative;
+}
+.sobre-img-accent {
+  width: 55%; aspect-ratio: 4/3; overflow: hidden;
+  position: absolute; bottom: -60px; right: 0;
+  border: 6px solid var(--brand-cream);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.15);
+}
+
+.sobre-text { color: var(--charcoal); }
+.sobre-eyebrow {
+  font-size: 0.6rem; letter-spacing: 6px; text-transform: uppercase;
+  color: var(--olive); margin-bottom: 20px; display: block;
+}
+.sobre-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--charcoal);
+  margin-bottom: 32px;
+}
+.sobre-title em { font-style: italic; color: var(--olive); }
+.sobre-divider { width: 40px; height: 1px; background: var(--olive); margin-bottom: 32px; }
+.sobre-p {
+  font-size: 0.9rem; line-height: 1.9; color: #5A5748; margin-bottom: 20px;
+}
+.sobre-quote {
+  margin-top: 36px; padding: 28px 28px 28px 32px;
+  border-left: 2px solid var(--brand-green);
+  background: rgba(84,97,80,0.07);
+}
+.sobre-quote p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; font-weight: 400; font-style: italic;
+  color: var(--charcoal); line-height: 1.6;
+}
+
+/* EXPERIÊNCIA */
+#experiencia {
+  padding: 160px 60px;
+  background: var(--ink);
+  position: relative; overflow: hidden;
+}
+.exp-header {
+  text-align: center; margin-bottom: 80px;
+}
+.exp-eyebrow { font-size: 0.6rem; letter-spacing: 6px; text-transform: uppercase; color: var(--olive-light); margin-bottom: 20px; display: block; }
+.exp-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  font-weight: 300; color: var(--cream);
+  line-height: 1.1;
+}
+.exp-title em { font-style: italic; color: var(--sage); }
+
+.exp-grid {
+  max-width: 1300px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+}
+
+.exp-card {
+  position: relative; overflow: hidden;
+  aspect-ratio: 3/4;
+  cursor: pointer;
+  group: true;
+}
+.exp-card:nth-child(2) { margin-top: 60px; }
+.exp-card:nth-child(3) { margin-top: 30px; }
+.exp-card:nth-child(5) { margin-top: -40px; }
+.exp-card:nth-child(6) { margin-top: 20px; }
+
+.exp-card-img {
+  position: absolute; inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.exp-card:hover .exp-card-img { transform: scale(1.06); }
+
+.exp-card-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(28,26,22,0.95) 0%, rgba(28,26,22,0.2) 50%, transparent 100%);
+  transition: opacity 0.5s;
+}
+
+.exp-card-content {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 32px 28px;
+  transform: translateY(8px);
+  transition: transform 0.4s ease;
+}
+.exp-card:hover .exp-card-content { transform: translateY(0); }
+
+.exp-card-tag {
+  font-size: 0.55rem; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--sage); margin-bottom: 8px; display: block;
+}
+.exp-card-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem; font-weight: 400;
+  color: var(--cream); line-height: 1.2; margin-bottom: 8px;
+}
+.exp-card-desc {
+  font-size: 0.75rem; color: var(--bege); line-height: 1.7;
+  opacity: 0; transform: translateY(6px);
+  transition: opacity 0.4s ease 0.05s, transform 0.4s ease 0.05s;
+  font-weight: 300;
+}
+.exp-card:hover .exp-card-desc { opacity: 1; transform: translateY(0); }
+
+/* GLASS TAG */
+.glass-tag {
+  position: absolute; top: 20px; left: 20px;
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  padding: 6px 14px;
+  font-size: 0.55rem; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--cream);
+}
+
+/* RODIZIO */
+#rodizio {
+  padding: 160px 60px;
+  background: var(--brand-cream);
+  position: relative; overflow: hidden;
+}
+.rod-inner { max-width: 1100px; margin: 0 auto; }
+.rod-header { margin-bottom: 80px; }
+.rod-eyebrow { font-size: 0.6rem; letter-spacing: 6px; text-transform: uppercase; color: var(--olive); margin-bottom: 20px; display: block; }
+.rod-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  font-weight: 400; color: var(--charcoal);
+  line-height: 1.1; max-width: 500px;
+}
+.rod-title em { font-style: italic; color: var(--olive); }
+
+.rod-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 3px;
+}
+
+.rod-table {
+  background: var(--ink); padding: 56px 52px;
+  position: relative; overflow: hidden;
+}
+.rod-table::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--brand-green);
+}
+.rod-table-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.7rem; font-weight: 400; font-style: italic;
+  color: var(--sage); margin-bottom: 36px;
+}
+.rod-item {
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(250,248,244,0.07);
+  display: flex; justify-content: space-between; align-items: flex-end;
+}
+.rod-item:last-child { border-bottom: none; }
+.rod-item-label { font-size: 0.9rem; color: var(--bege); line-height: 1.55; }
+.rod-item-sub { font-size: 0.72rem; color: var(--olive-light); display: block; margin-top: 3px; }
+.rod-item-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem; font-weight: 300;
+  color: var(--cream); letter-spacing: -1px; flex-shrink: 0; padding-left: 20px;
+}
+
+.rod-info {
+  background: var(--brand-green); padding: 56px 52px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.rod-info-title { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 400; color: var(--cream); margin-bottom: 28px; font-style: italic; }
+.rod-info-item { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px; }
+.rod-info-icon { color: var(--sage); margin-top: 2px; flex-shrink: 0; }
+.rod-info-text { font-size: 0.9rem; color: rgba(245,240,232,0.75); line-height: 1.75; }
+.rod-info-text strong { color: var(--cream); display: block; font-size: 0.76rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; font-weight: 400; }
+
+.rod-infantil {
+  background: var(--brand-cream); padding: 56px 52px;
+  position: relative;
+}
+.rod-infantil::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--brand-green);
+  opacity: 0.4;
+}
+.rod-infantil .rod-table-title { color: var(--brown-soft); }
+.rod-infantil .rod-item { border-bottom-color: rgba(42,40,32,0.08); }
+.rod-infantil .rod-item-label { color: #6A6355; }
+.rod-infantil .rod-item-sub { color: var(--olive); }
+.rod-infantil .rod-item-price { color: var(--charcoal); }
+.rod-infantil .rod-cortesia { font-size: 1rem; color: var(--olive); font-style: italic; font-family: 'Cormorant Garamond', serif; }
+
+/* CARDAPIO */
+#cardapio {
+  padding: 160px 60px;
+  background: var(--ink);
+}
+.card-header { text-align: center; margin-bottom: 80px; }
+.card-eyebrow { font-size: 0.6rem; letter-spacing: 6px; text-transform: uppercase; color: var(--olive-light); margin-bottom: 20px; display: block; }
+.card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  font-weight: 300; color: var(--cream); line-height: 1.1;
+}
+.card-title em { font-style: italic; color: var(--sage); }
+
+.card-tabs {
+  display: flex; justify-content: center; gap: 0;
+  margin-bottom: 60px; flex-wrap: wrap;
+  border-bottom: 1px solid rgba(250,248,244,0.08);
+}
+.card-tab {
+  background: none; border: none; cursor: pointer;
+  font-family: 'Jost', sans-serif; font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--olive-light); padding: 14px 28px; transition: all 0.3s;
+  position: relative;
+}
+.card-tab::after {
+  content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 1px;
+  background: var(--sage); transform: scaleX(0); transition: transform 0.3s;
+}
+.card-tab.active { color: var(--sage); }
+.card-tab.active::after { transform: scaleX(1); }
+.card-tab:hover { color: var(--cream); }
+
+.card-panel { display: none; }
+.card-panel.active { display: block; }
+
+.card-grid {
+  max-width: 1300px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2px;
+}
+
+.menu-card {
+  background: #161410;
+  position: relative; overflow: hidden;
+  transition: background 0.4s;
+  cursor: pointer;
+}
+.menu-card:hover { background: #1C1A15; }
+
+.menu-card-img {
+  aspect-ratio: 4/3; position: relative; overflow: hidden;
+}
+.menu-card-img .exp-card-img { transition: transform 0.6s ease; }
+.menu-card:hover .exp-card-img { transform: scale(1.05); }
+
+.menu-card-body { padding: 28px 28px 32px; }
+.menu-card-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; font-weight: 400; color: var(--cream);
+  margin-bottom: 8px; line-height: 1.2;
+}
+.menu-card-desc { font-size: 0.75rem; color: var(--olive-light); line-height: 1.7; }
+
+/* HORARIOS */
+#horarios {
+  padding: 160px 60px;
+  background: var(--off-white);
+}
+.hor-inner { max-width: 1100px; margin: 0 auto; }
+.hor-header { margin-bottom: 80px; }
+.hor-eyebrow { font-size: 0.6rem; letter-spacing: 6px; text-transform: uppercase; color: var(--olive); margin-bottom: 20px; display: block; }
+.hor-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  font-weight: 400; color: var(--charcoal);
+  line-height: 1.1; max-width: 500px;
+}
+.hor-title em { font-style: italic; color: var(--olive); }
+
+.hor-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 3px;
+}
+.hor-card {
+  background: var(--ink); padding: 52px 48px;
+  position: relative; overflow: hidden;
+}
+.hor-card::before {
+  content: attr(data-num);
+  position: absolute; top: -10px; right: 28px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 8rem; font-weight: 300;
+  color: rgba(250,248,244,0.03); line-height: 1;
+  pointer-events: none;
+}
+.hor-card-icon { font-size: 1.2rem; margin-bottom: 20px; opacity: 0.6; }
+.hor-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.45rem; font-weight: 400; font-style: italic;
+  color: var(--sage); margin-bottom: 20px;
+}
+.hor-card-content { font-size: 0.9rem; color: var(--bege); line-height: 2; }
+.hor-card-content strong { color: var(--cream); font-weight: 400; }
+
+/* AMBIENTE */
+#ambiente {
+  padding: 160px 60px;
+  background: var(--ink);
+}
+.amb-header { text-align: center; margin-bottom: 80px; }
+.amb-eyebrow { font-size: 0.6rem; letter-spacing: 6px; text-transform: uppercase; color: var(--olive-light); margin-bottom: 20px; display: block; }
+.amb-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  font-weight: 300; color: var(--cream); line-height: 1.1;
+}
+.amb-title em { font-style: italic; color: var(--sage); }
+
+.masonry {
+  max-width: 1300px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 80px;
+  gap: 3px;
+}
+
+.masonry-item { overflow: hidden; position: relative; cursor: pointer; }
+.masonry-item:hover .masonry-img { transform: scale(1.06); }
+.masonry-img { width: 100%; height: 100%; transition: transform 0.7s ease; }
+
+.m1 { grid-column: span 5; grid-row: span 5; }
+.m2 { grid-column: span 4; grid-row: span 3; }
+.m3 { grid-column: span 3; grid-row: span 3; }
+.m4 { grid-column: span 3; grid-row: span 4; }
+.m5 { grid-column: span 4; grid-row: span 4; }
+.m6 { grid-column: span 5; grid-row: span 4; }
+.m7 { grid-column: span 4; grid-row: span 3; }
+.m8 { grid-column: span 4; grid-row: span 3; }
+
+/* CTA */
+#reservas {
+  padding: 200px 60px;
+  background: var(--moss);
+  position: relative; overflow: hidden; text-align: center;
+}
+#reservas::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(168,180,154,0.08) 0%, transparent 70%);
+}
+.reservas-kanji {
+  position: absolute; left: 5%; top: 50%; transform: translateY(-50%);
+  font-family: 'Noto Serif JP', serif; font-size: 14rem; font-weight: 200;
+  color: rgba(250,248,244,0.04); pointer-events: none; line-height: 1;
+  writing-mode: vertical-rl;
+}
+.reservas-content { position: relative; z-index: 2; max-width: 700px; margin: 0 auto; }
+.reservas-eyebrow { font-size: 0.6rem; letter-spacing: 6px; text-transform: uppercase; color: rgba(245,240,232,0.5); margin-bottom: 28px; display: block; }
+.reservas-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  font-weight: 300; color: var(--cream); line-height: 1.1; margin-bottom: 24px;
+}
+.reservas-title em { font-style: italic; }
+.reservas-sub {
+  font-size: 0.82rem; color: rgba(245,240,232,0.6);
+  line-height: 1.9; margin-bottom: 52px;
+}
+.reservas-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+/* FOOTER */
+footer {
+  background: #0E0D0B;
+  padding: 80px 60px 40px;
+  border-top: 1px solid rgba(250,248,244,0.06);
+}
+.footer-top {
+  max-width: 1300px; margin: 0 auto;
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px;
+  margin-bottom: 60px;
+}
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem; font-weight: 300; letter-spacing: 6px;
+  color: var(--cream); text-transform: uppercase; margin-bottom: 16px; display: block;
+}
+.footer-tagline { font-size: 0.7rem; letter-spacing: 2px; color: var(--olive-light); margin-bottom: 24px; font-style: italic; font-family: 'Cormorant Garamond', serif; }
+.footer-p { font-size: 0.78rem; color: rgba(168,180,154,0.6); line-height: 1.8; }
+
+.footer-col h4 { font-size: 0.6rem; letter-spacing: 4px; text-transform: uppercase; color: var(--olive-light); margin-bottom: 20px; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col ul li a { font-size: 0.78rem; color: rgba(245,240,232,0.5); text-decoration: none; transition: color 0.3s; }
+.footer-col ul li a:hover { color: var(--sage); }
+.footer-col .contact p { font-size: 0.78rem; color: rgba(245,240,232,0.5); line-height: 1.9; }
+.footer-col .contact strong { color: var(--sage); font-weight: 400; display: block; margin-top: 12px; }
+
+.footer-social { display: flex; gap: 12px; margin-top: 28px; }
+.footer-social a {
+  width: 36px; height: 36px; border: 1px solid rgba(168,180,154,0.2);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--olive-light); text-decoration: none; font-size: 0.75rem;
+  transition: all 0.3s; font-family: 'Jost', sans-serif;
+}
+.footer-social a svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.footer-social a:hover { border-color: var(--sage); color: var(--sage); }
+
+.footer-bottom {
+  max-width: 1300px; margin: 0 auto; padding-top: 28px;
+  border-top: 1px solid rgba(250,248,244,0.05);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-bottom p { font-size: 0.68rem; color: rgba(168,180,154,0.3); letter-spacing: 1px; }
+.footer-contact-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.footer-contact-row:last-child { margin-bottom: 0; }
+.footer-contact-icon {
+  width: 16px;
+  height: 16px;
+  margin-top: 4px;
+  color: var(--sage);
+  flex-shrink: 0;
+}
+.footer-contact-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.footer-contact-value,
+.footer-contact-value a {
+  font-size: 0.78rem;
+  color: rgba(245,240,232,0.5);
+  line-height: 1.9;
+  text-decoration: none;
+}
+.footer-contact-value strong {
+  color: var(--sage);
+  font-weight: 400;
+  display: block;
+  margin-top: 2px;
+}
+
+/* REVEAL ANIMATIONS */
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.9s ease, transform 0.9s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.9s ease, transform 0.9s ease; }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 0.9s ease, transform 0.9s ease; }
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+/* RESPONSIVE */
+@media (max-width: 1000px) {
+  nav { padding: 20px 28px; }
+  nav.scrolled { padding: 16px 28px; }
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .nav-toggle { display: flex; }
+  .nav-brand-divider { display: none; }
+  .nav-brand-gelobel { padding: 8px 12px; }
+  .nav-brand-gelobel img { width: 118px; max-width: 32vw; }
+  section, #sobre, #experiencia, #rodizio, #cardapio, #horarios, #ambiente, #reservas { padding: 100px 28px; }
+  .sobre-inner { grid-template-columns: 1fr; gap: 60px; }
+  .sobre-img-accent { display: none; }
+  .sobre-img-main { width: 100%; }
+  .exp-grid { grid-template-columns: 1fr 1fr; }
+  .exp-card:nth-child(n) { margin-top: 0; }
+  .rod-grid { grid-template-columns: 1fr; }
+  .hor-grid { grid-template-columns: 1fr; }
+  .masonry { grid-template-columns: 1fr 1fr; grid-auto-rows: 200px; }
+  .m1,.m2,.m3,.m4,.m5,.m6,.m7,.m8 { grid-column: span 1; grid-row: span 1; }
+  .footer-top { grid-template-columns: 1fr; gap: 40px; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  .hero-kanji { display: none; }
+  body { cursor: auto; }
+  .card-tab { padding: 12px 16px; }
+}
+@media (max-width: 600px) {
+  .exp-grid { grid-template-columns: 1fr; }
+  .hero-btns { flex-direction: column; align-items: center; }
+  .nav-brand-gelobel { padding: 8px 10px; }
+  .nav-brand-gelobel img { width: 100px; }
+}
+
+/* Horizontal line accent */
+.accent-line {
+  display: inline-block; width: 40px; height: 1px;
+  background: currentColor; vertical-align: middle; margin-right: 12px; opacity: 0.5;
+}
+
+/* SCROLL indicator */
+.section-number {
+  position: absolute; left: 60px; top: 160px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.7rem; font-weight: 300; letter-spacing: 2px;
+  color: rgba(250,248,244,0.15);
+  writing-mode: vertical-rl;
+}
+</style>
+</head>
+<body>
+
+<div id="pageTransition" aria-hidden="true">
+  <div class="page-transition-mark">
+    <span class="page-transition-logo">
+      <img src="https://gelobel.com.br/wp-content/uploads/2019/12/GELOBEL-AMARELO-E-BRANCO-2048x906.png" alt="Gelobel Logo">
+    </span>
+    <span class="page-transition-label">Voltando para a Gelobel</span>
+  </div>
+</div>
+
+<!-- LOADER -->
+<div id="loader">
+  <div style="display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:loaderFadeIn 1s ease 0.3s forwards">
+    <span style="font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:300;letter-spacing:10px;color:var(--cream);line-height:1">Belmar</span>
+    <span style="font-family:'Jost',sans-serif;font-size:0.58rem;letter-spacing:8px;text-transform:uppercase;color:var(--sage);font-weight:300">Cozinha Japonesa</span>
+  </div>
+  <div class="loader-line"></div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-brand-switch">
+    <div class="nav-brand-panel is-active">
+      <a href="#inicio" class="nav-logo nav-brand-link" style="display:flex;flex-direction:column;align-items:flex-start;line-height:1;gap:2px">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;letter-spacing:4px;color:var(--cream)">Belmar</span>
+        <span style="font-family:'Jost',sans-serif;font-size:0.45rem;letter-spacing:5px;text-transform:uppercase;color:var(--sage);font-weight:400;padding-left:2px">Cozinha Japonesa</span>
+      </a>
+    </div>
+    <div class="nav-brand-divider" aria-hidden="true"></div>
+    <a href="./index.html" class="nav-brand-panel nav-brand-gelobel is-inactive" data-transition-target="./index.html" aria-label="Voltar para página Gelobel">
+      <img src="https://gelobel.com.br/wp-content/uploads/2019/12/GELOBEL-AMARELO-E-BRANCO-2048x906.png" alt="Gelobel Logo">
+    </a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#sobre">A Casa</a></li>
+    <li><a href="#experiencia">Experiência</a></li>
+    <li><a href="#rodizio">Rodízio</a></li>
+    <li><a href="#cardapio">Cardápio</a></li>
+    <li><a href="#horarios">Horários</a></li>
+    <li><a href="#ambiente">Ambiente</a></li>
+  </ul>
+  <a href="https://www.flipsnack.com/B69E695569B/card-pio-belmar-2026" class="nav-cta" target="_blank" rel="noopener noreferrer">Cardápio</a>
+  <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-lines">
+    <svg viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <circle cx="720" cy="450" r="350" stroke="#8A9470" stroke-width="0.5"/>
+      <circle cx="720" cy="450" r="500" stroke="#6B7356" stroke-width="0.3"/>
+      <circle cx="720" cy="450" r="650" stroke="#4A5240" stroke-width="0.2"/>
+      <line x1="0" y1="450" x2="1440" y2="450" stroke="#8A9470" stroke-width="0.3"/>
+      <line x1="720" y1="0" x2="720" y2="900" stroke="#8A9470" stroke-width="0.3"/>
+      <path d="M 200 100 Q 500 400 800 200 T 1400 500" stroke="#A8B49A" stroke-width="0.4" fill="none"/>
+      <path d="M 100 700 Q 400 300 700 600 T 1440 300" stroke="#6B7356" stroke-width="0.3" fill="none"/>
+    </svg>
+  </div>
+  <div class="hero-kanji">美食</div>
+
+  <div class="hero-content">
+    <h1 class="hero-title" style="letter-spacing:4px;margin-bottom:0;line-height:1">Belmar</h1>
+    <p style="font-family:'Jost',sans-serif;font-size:0.7rem;letter-spacing:10px;text-transform:uppercase;color:var(--sage);font-weight:300;margin-bottom:0;opacity:0;animation:heroFade 1s ease 2.8s forwards">Cozinha Japonesa</p>
+    <div class="hero-divider" style="margin-top:36px"></div>
+    <p class="hero-sub">Ingredientes selecionados, técnica apurada e um ambiente que convida ao silêncio sofisticado.</p>
+    <div class="hero-btns">
+      <a href="#cardapio" class="btn-prim">Conheça o Menu</a>
+      <a href="https://www.flipsnack.com/B69E695569B/card-pio-belmar-2026" class="btn-sec" target="_blank" rel="noopener noreferrer">Cardápio Digital</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="sobre-inner">
+    <div class="sobre-images reveal-left">
+      <div class="sobre-img-main">
+        <img src="./src/img-belmar/pesca.jpg" alt="Ambiente Belmar" style="display:block;width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="sobre-img-accent">
+        <div class="img-placeholder">
+          <div class="img-placeholder-inner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Detalhe</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sobre-text reveal-right">
+      <span class="sobre-eyebrow"><span class="accent-line"></span>A Casa</span>
+      <h2 class="sobre-title">Alta gastronomia<br><em>com propósito</em></h2>
+      <div class="sobre-divider"></div>
+      <p class="sobre-p">O Belmar nasce de uma visão singular: oferecer uma experiência gastronômica japonesa que honra a tradição e abraça o contemporâneo. Cada detalhe foi pensado para criar momentos de beleza e sabor.</p>
+      <p class="sobre-p">Nossa culinária é conduzida por ingredientes selecionados com rigor, técnicas apuradas ao longo de anos e uma filosofia de hospitalidade que vai além do serviço — é uma forma de cuidado.</p>
+      <div class="sobre-quote">
+        <p>"Servir é um ato de amor."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIÊNCIA -->
+<section id="experiencia">
+  <div class="exp-header reveal">
+    <span class="exp-eyebrow"><span class="accent-line"></span>Gastronomia<span class="accent-line" style="margin-left:12px;margin-right:0"></span></span>
+    <h2 class="exp-title">Uma <em>experiência</em><br>sensorial completa</h2>
+  </div>
+  <div class="exp-grid">
+
+    <div class="exp-card reveal" style="transition-delay:0s">
+      <img class="exp-card-img" src="./src/img-belmar/1.jpg" alt="Sushi Premium Belmar">
+      <div class="exp-card-overlay"></div>
+      <div class="glass-tag">Tradicional</div>
+      <div class="exp-card-content">
+        <span class="exp-card-tag">Especialidade</span>
+        <h3 class="exp-card-name">Sushi Premium</h3>
+        <p class="exp-card-desc">Arroz temperado com perfeição, frutos do mar selecionados e técnica japonesa autêntica.</p>
+      </div>
+    </div>
+
+    <div class="exp-card reveal" style="transition-delay:0.08s">
+      <img class="exp-card-img" src="./src/img-belmar/sashimi.jpg" alt="Sashimi Belmar">
+      <div class="exp-card-overlay"></div>
+      <div class="glass-tag">Fresco</div>
+      <div class="exp-card-content">
+        <span class="exp-card-tag">Da casa</span>
+        <h3 class="exp-card-name">Sashimi</h3>
+        <p class="exp-card-desc">Fatias delicadas de peixes nobres, servidas com molho especial e wasabi artesanal.</p>
+      </div>
+    </div>
+
+    <div class="exp-card reveal" style="transition-delay:0.16s">
+      <img class="exp-card-img" src="./src/img-belmar/2.jpg" alt="Omakase Belmar">
+      <div class="exp-card-overlay"></div>
+      <div class="glass-tag">Exclusivo</div>
+      <div class="exp-card-content">
+        <span class="exp-card-tag">Chef's table</span>
+        <h3 class="exp-card-name">Omakase</h3>
+        <p class="exp-card-desc">Confie ao chef a criação de um menu personalizado, uma jornada sensorial única.</p>
+      </div>
+    </div>
+
+    <div class="exp-card reveal" style="transition-delay:0.24s">
+      <img class="exp-card-img" src="./src/img-belmar/drinks.jpg" alt="Drinks Belmar">
+      <div class="exp-card-overlay"></div>
+      <div class="glass-tag">Assinatura</div>
+      <div class="exp-card-content">
+        <span class="exp-card-tag">Bar</span>
+        <h3 class="exp-card-name">Drinks</h3>
+        <p class="exp-card-desc">Coquetéis autorais inspirados na estética japonesa, com ingredientes naturais e equilíbrio refinado.</p>
+      </div>
+    </div>
+
+    <div class="exp-card reveal" style="transition-delay:0.32s">
+      <img class="exp-card-img" src="./src/img-belmar/3.jpg" alt="Sobremesas Belmar">
+      <div class="exp-card-overlay"></div>
+      <div class="glass-tag">Sazonal</div>
+      <div class="exp-card-content">
+        <span class="exp-card-tag">Encerramento</span>
+        <h3 class="exp-card-name">Sobremesas</h3>
+        <p class="exp-card-desc">Finalizações delicadas que encerram a refeição com suavidade e memória sensorial.</p>
+      </div>
+    </div>
+
+    <div class="exp-card reveal" style="transition-delay:0.40s">
+      <img class="exp-card-img" src="./src/img-belmar/4.jpg" alt="Entradas Belmar">
+      <div class="exp-card-overlay"></div>
+      <div class="glass-tag">Início</div>
+      <div class="exp-card-content">
+        <span class="exp-card-tag">Abertura</span>
+        <h3 class="exp-card-name">Entradas</h3>
+        <p class="exp-card-desc">Preparações leves e elegantes que abrem o paladar para a experiência que está por vir.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- RODIZIO -->
+<section id="rodizio">
+  <div class="rod-inner">
+    <div class="rod-header reveal">
+      <span class="rod-eyebrow"><span class="accent-line" style="background:var(--olive)"></span>Modalidade</span>
+      <h2 class="rod-title">Rodízio<br><em>Premium</em></h2>
+    </div>
+    <div class="rod-grid">
+
+      <div class="rod-table reveal" style="transition-delay:0.1s">
+        <h3 class="rod-table-title">Adulto</h3>
+        <div class="rod-item">
+          <div class="rod-item-label">Segunda a Quinta<span class="rod-item-sub">Somente jantar</span></div>
+          <div class="rod-item-price">R$&nbsp;139<span style="font-size:1rem">,90</span></div>
+        </div>
+        <div class="rod-item">
+          <div class="rod-item-label">Sexta-feira<span class="rod-item-sub">Somente jantar</span></div>
+          <div class="rod-item-price">R$&nbsp;149<span style="font-size:1rem">,90</span></div>
+        </div>
+        <div class="rod-item">
+          <div class="rod-item-label">Sábado, Domingo e Feriados<span class="rod-item-sub">Almoço e jantar</span></div>
+          <div class="rod-item-price">R$&nbsp;149<span style="font-size:1rem">,90</span></div>
+        </div>
+      </div>
+
+      <div class="rod-info reveal" style="transition-delay:0.18s">
+        <h3 class="rod-info-title">Horários de funcionamento</h3>
+        <div class="rod-info-item">
+          <span class="rod-info-icon">◎</span>
+          <div class="rod-info-text"><strong>Almoço</strong>11h às 15h</div>
+        </div>
+        <div class="rod-info-item">
+          <span class="rod-info-icon">◎</span>
+          <div class="rod-info-text"><strong>Jantar</strong>18h às 23h</div>
+        </div>
+        <div class="rod-info-item" style="margin-top:12px;padding-top:20px;border-top:1px solid rgba(250,248,244,0.07)">
+          <span class="rod-info-icon">◎</span>
+          <div class="rod-info-text"><strong>Nota</strong>Rodízio disponível de segunda a domingo conforme tabela de preços ao lado</div>
+        </div>
+      </div>
+
+      <div class="rod-infantil reveal" style="transition-delay:0.26s">
+        <h3 class="rod-table-title">Infantil</h3>
+        <div class="rod-item" style="border-bottom:1px solid rgba(42,40,32,0.08);padding-bottom:18px;margin-bottom:4px">
+          <div class="rod-item-label">Até 6 anos<span class="rod-item-sub"></span></div>
+          <div class="rod-item-price rod-cortesia" style="font-size:1.1rem;font-family:'Cormorant Garamond',serif;font-style:italic">Cortesia</div>
+        </div>
+        <div class="rod-item">
+          <div class="rod-item-label">7 a 10 anos — Seg a Qui<span class="rod-item-sub">Somente jantar</span></div>
+          <div class="rod-item-price">R$&nbsp;69<span style="font-size:1rem">,90</span></div>
+        </div>
+        <div class="rod-item">
+          <div class="rod-item-label">7 a 10 anos — Sexta<span class="rod-item-sub">Somente jantar</span></div>
+          <div class="rod-item-price">R$&nbsp;74<span style="font-size:1rem">,90</span></div>
+        </div>
+        <div class="rod-item">
+          <div class="rod-item-label">7 a 10 anos — Sáb, Dom e Fer.<span class="rod-item-sub">Almoço e jantar</span></div>
+          <div class="rod-item-price">R$&nbsp;74<span style="font-size:1rem">,90</span></div>
+        </div>
+      </div>
+
+      <div style="background:var(--charcoal);padding:52px 48px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;" class="reveal" style="transition-delay:0.34s">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:200;color:var(--sage);line-height:1;margin-bottom:24px">無限</div>
+        <p style="font-size:0.78rem;color:rgba(245,240,232,0.5);line-height:1.9;margin-bottom:32px">Uma experiência ilimitada de sabores japoneses autênticos, preparados com técnica e dedicação para cada visita ser única e memorável.</p>
+        <a href="https://www.flipsnack.com/B69E695569B/card-pio-belmar-2026" class="btn-prim" target="_blank" rel="noopener noreferrer">Ver Cardápio</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CARDÁPIO -->
+<section id="cardapio">
+  <div class="card-header reveal">
+    <span class="card-eyebrow"><span class="accent-line"></span>Menu<span class="accent-line" style="margin-left:12px;margin-right:0"></span></span>
+    <h2 class="card-title">Nosso <em>Cardápio</em></h2>
+    <div style="margin-top:30px">
+      <a href="https://www.flipsnack.com/B69E695569B/card-pio-belmar-2026" class="btn-sec" target="_blank" rel="noopener noreferrer">Abrir Cardápio Completo</a>
+    </div>
+  </div>
+
+  <div class="card-tabs">
+    <button class="card-tab active" onclick="cardTab('sushi',this)">Sushis</button>
+    <button class="card-tab" onclick="cardTab('sashimi',this)">Sashimis</button>
+    <button class="card-tab" onclick="cardTab('combinados',this)">Combinados</button>
+    <button class="card-tab" onclick="cardTab('temaki',this)">Temakis</button>
+    <button class="card-tab" onclick="cardTab('entradas',this)">Entradas</button>
+    <button class="card-tab" onclick="cardTab('quentes',this)">Pratos Quentes</button>
+    <button class="card-tab" onclick="cardTab('drinks',this)">Drinks</button>
+    <button class="card-tab" onclick="cardTab('sobremesas',this)">Sobremesas</button>
+  </div>
+
+  <div id="tab-sushi" class="card-panel active">
+    <div class="card-grid" style="max-width:1300px;margin:0 auto">
+      <div class="menu-card"><div class="menu-card-img"><div class="img-placeholder" style="height:100%"><div class="img-placeholder-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto</span></div></div></div><div class="menu-card-body"><h4 class="menu-card-name">Salmão Especial</h4><p class="menu-card-desc">Salmão fresco com cream cheese e cebolinha, finalizado com molho especial da casa.</p></div></div>
+      <div class="menu-card"><div class="menu-card-img"><div class="img-placeholder" style="height:100%"><div class="img-placeholder-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto</span></div></div></div><div class="menu-card-body"><h4 class="menu-card-name">Atum Premium</h4><p class="menu-card-desc">Atum azul selecionado, cortado em temperatura ideal, com wasabi artesanal.</p></div></div>
+      <div class="menu-card"><div class="menu-card-img"><div class="img-placeholder" style="height:100%"><div class="img-placeholder-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto</span></div></div></div><div class="menu-card-body"><h4 class="menu-card-name">Camarão Flamejado</h4><p class="menu-card-desc">Camarão grande flambado com molho de maionese temperada e lâminas de pepino.</p></div></div>
+      <div class="menu-card"><div class="menu-card-img"><div class="img-placeholder" style="height:100%"><div class="img-placeholder-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto</span></div></div></div><div class="menu-card-body"><h4 class="menu-card-name">Vieira & Tarê</h4><p class="menu-card-desc">Vieira fresca com molho tarê reduzido e cebolinha japonesa, servida sobre arroz temperado.</p></div></div>
+    </div>
+  </div>
+
+  <div id="tab-sashimi" class="card-panel">
+    <div class="card-grid" style="max-width:1300px;margin:0 auto">
+      <div class="menu-card"><div class="menu-card-img"><div class="img-placeholder" style="height:100%"><div class="img-placeholder-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto</span></div></div></div><div class="menu-card-body"><h4 class="menu-card-name">Sashimi de Salmão</h4><p class="menu-card-desc">Fatias finas de salmão norueguês premium, servidas com gengibre e shôyu artesanal.</p></div></div>
+      <div class="menu-card"><div class="menu-card-img"><div class="img-placeholder" style="height:100%"><div class="img-placeholder-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto</span></div></div></div><div class="menu-card-body"><h4 class="menu-card-name">Sashimi de Atum</h4><p class="menu-card-desc">Atum selecionado em cortes elegantes com azeite de gergelim e wasabi artesanal.</p></div></div>
+    </div>
+  </div>
+
+  <div id="tab-combinados" class="card-panel">
+    <div class="card-grid" style="max-width:1300px;margin:0 auto">
+      <div class="menu-card"><div class="menu-card-img"><div class="img-placeholder" style="height:100%"><div class="img-placeholder-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto</span></div></div></div><div class="menu-card-body"><h4 class="menu-card-name">Combinado Belmar</h4><p class="menu-card-desc">Curadoria do chef com as melhores peças da casa, para dois.</p></div></div>
+      <div class="menu-card"><div class="menu-card-img"><div class="img-placeholder" style="height:100%"><div class="img-placeholder-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto</span></div></div></div><div class="menu-card-body"><h4 class="menu-card-name">Combinado Executivo</h4><p class="menu-card-desc">Seleção equilibrada de sushis e sashimis para o almoço de negócios.</p></div></div>
+    </div>
+  </div>
+
+  <div id="tab-temaki" class="card-panel"><div class="card-grid" style="max-width:1300px;margin:0 auto"><div class="menu-card"><div class="menu-card-img"><div class="img-placeholder" style="height:100%"><div class="img-placeholder-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto</span></div></div></div><div class="menu-card-body"><h4 class="menu-card-name">Temaki Salmão</h4><p class="menu-card-desc">Cone de alga com arroz, salmão fresco e cream cheese suave.</p></div></div><div class="menu-card"><div class="menu-card-img"><div class="img-placeholder" style="height:100%"><div class="img-placeholder-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto</span></div></div></div><div class="menu-card-body"><h4 class="menu-card-name">Temaki Philadelphia</h4><p class="menu-card-desc">Cream cheese, salmão e cebolinha dentro de alga crocante.</p></div></div></div></div>
+
+  <div id="tab-entradas" class="card-panel"><div class="card-grid" style="max-width:1300px;margin:0 auto"><div class="menu-card"><div class="menu-card-img"><div class="img-placeholder" style="height:100%"><div class="img-placeholder-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto</span></div></div></div><div class="menu-card-body"><h4 class="menu-card-name">Edamame</h4><p class="menu-card-desc">Vagens de soja cozidas, levemente salgadas e servidas quentes.</p></div></div><div class="menu-card"><div class="menu-card-img"><div class="img-placeholder" style="height:100%"><div class="img-placeholder-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto</span></div></div></div><div class="menu-card-body"><h4 class="menu-card-name">Gyoza</h4><p class="menu-card-desc">Pastéis japoneses grelhados recheados de carne suína e repolho napa.</p></div></div></div></div>
+
+  <div id="tab-quentes" class="card-panel"><div class="card-grid" style="max-width:1300px;margin:0 auto"><div class="menu-card"><div class="menu-card-img"><div class="img-placeholder" style="height:100%"><div class="img-placeholder-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto</span></div></div></div><div class="menu-card-body"><h4 class="menu-card-name">Ramen Belmar</h4><p class="menu-card-desc">Caldo tonkotsu reduzido por 18h, macarrão artesanal, ovo marinado e chashu suíno.</p></div></div><div class="menu-card"><div class="menu-card-img"><div class="img-placeholder" style="height:100%"><div class="img-placeholder-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto</span></div></div></div><div class="menu-card-body"><h4 class="menu-card-name">Wagyu Grelhado</h4><p class="menu-card-desc">Contrafilé wagyu A4 grelhado com manteiga de missô e legumes da estação.</p></div></div></div></div>
+
+  <div id="tab-drinks" class="card-panel"><div class="card-grid" style="max-width:1300px;margin:0 auto"><div class="menu-card"><div class="menu-card-img"><div class="img-placeholder" style="height:100%"><div class="img-placeholder-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto</span></div></div></div><div class="menu-card-body"><h4 class="menu-card-name">Sake Especial</h4><p class="menu-card-desc">Seleção de sakes premium servidos frios ou quentes conforme a estação.</p></div></div><div class="menu-card"><div class="menu-card-img"><div class="img-placeholder" style="height:100%"><div class="img-placeholder-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto</span></div></div></div><div class="menu-card-body"><h4 class="menu-card-name">Yuzu Sour</h4><p class="menu-card-desc">Citrus yuzu japonês, xarope de shiso, espuma leve de limão e gim artesanal.</p></div></div></div></div>
+
+  <div id="tab-sobremesas" class="card-panel"><div class="card-grid" style="max-width:1300px;margin:0 auto"><div class="menu-card"><div class="menu-card-img"><div class="img-placeholder" style="height:100%"><div class="img-placeholder-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto</span></div></div></div><div class="menu-card-body"><h4 class="menu-card-name">Mochi Artesanal</h4><p class="menu-card-desc">Mochi de arroz glutinoso com recheios sazonais e finalização de matcha premium.</p></div></div><div class="menu-card"><div class="menu-card-img"><div class="img-placeholder" style="height:100%"><div class="img-placeholder-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto</span></div></div></div><div class="menu-card-body"><h4 class="menu-card-name">Crème Matcha</h4><p class="menu-card-desc">Creme suave de matcha cerimônia com fava de baunilha e geleia de yuzu.</p></div></div></div></div>
+
+</section>
+
+<!-- HORÁRIOS -->
+<section id="horarios">
+  <div class="hor-inner">
+    <div class="hor-header reveal">
+      <span class="hor-eyebrow"><span class="accent-line" style="background:var(--olive)"></span>Quando nos visitar</span>
+      <h2 class="hor-title">Horários de<br><em>Funcionamento</em></h2>
+    </div>
+    <div class="hor-grid">
+      <div class="hor-card reveal" data-num="01">
+        <div class="hor-card-icon">◎</div>
+        <h3 class="hor-card-title">À la carte</h3>
+        <div class="hor-card-content">
+          <strong>Todos os dias</strong>
+          11h às 23h
+        </div>
+      </div>
+      <div class="hor-card reveal" data-num="02" style="transition-delay:0.1s">
+        <div class="hor-card-icon">◎</div>
+        <h3 class="hor-card-title">Rodízio</h3>
+        <div class="hor-card-content">
+          <strong>Segunda a sexta</strong>
+          Apenas jantar — 18h às 23h<br><br>
+          <strong>Sábado e Domingo</strong>
+          Almoço 11h às 15h<br>
+          Jantar 18h às 23h
+        </div>
+      </div>
+      <div class="hor-card reveal" data-num="03" style="transition-delay:0.2s">
+        <div class="hor-card-icon">◎</div>
+        <h3 class="hor-card-title">Menu Executivo</h3>
+        <div class="hor-card-content">
+          <strong>Segunda a sexta</strong>
+          Apenas almoço — 11h às 15h
+        </div>
+      </div>
+      <div class="hor-card reveal" data-num="04" style="transition-delay:0.3s">
+        <div class="hor-card-icon">◎</div>
+        <h3 class="hor-card-title">Menu Degustação</h3>
+        <div class="hor-card-content">
+          <strong>Segunda a sexta</strong>
+          Apenas almoço — 11h às 15h<br><br>
+          <em style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--olive-light);font-size:0.9rem">Reserva recomendada com antecedência.</em>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AMBIENTE -->
+<section id="ambiente">
+  <div class="amb-header reveal">
+    <span class="amb-eyebrow"><span class="accent-line"></span>Espaço<span class="accent-line" style="margin-left:12px;margin-right:0"></span></span>
+    <h2 class="amb-title">O <em>Ambiente</em></h2>
+  </div>
+  <div class="masonry">
+    <div class="masonry-item m1"><div class="masonry-img img-placeholder"><div class="img-placeholder-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Ambiente</span></div></div></div>
+    <div class="masonry-item m2"><div class="masonry-img img-placeholder"><div class="img-placeholder-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Pratos</span></div></div></div>
+    <div class="masonry-item m3"><div class="masonry-img img-placeholder"><div class="img-placeholder-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Detalhes</span></div></div></div>
+    <div class="masonry-item m4"><div class="masonry-img img-placeholder"><div class="img-placeholder-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Bar</span></div></div></div>
+    <div class="masonry-item m5"><div class="masonry-img img-placeholder"><div class="img-placeholder-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Iluminação</span></div></div></div>
+    <div class="masonry-item m6"><div class="masonry-img img-placeholder"><div class="img-placeholder-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Gastronomia</span></div></div></div>
+    <div class="masonry-item m7"><div class="masonry-img img-placeholder"><div class="img-placeholder-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Mesa</span></div></div></div>
+    <div class="masonry-item m8"><div class="masonry-img img-placeholder"><div class="img-placeholder-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Drinks</span></div></div></div>
+  </div>
+</section>
+
+<!-- CARDAPIO DIGITAL / CTA -->
+<section id="reservas">
+  <div class="reservas-kanji">予</div>
+  <div class="reservas-content reveal">
+    <span class="reservas-eyebrow"><span class="accent-line" style="background:rgba(245,240,232,0.3)"></span>Cardápio Digital<span class="accent-line" style="margin-left:12px;margin-right:0;background:rgba(245,240,232,0.3)"></span></span>
+    <h2 class="reservas-title">Acesse nosso<br>cardápio <em>completo</em><br>online</h2>
+    <p class="reservas-sub">Abra o menu digital do Belmar para ver pratos, combinações e detalhes da experiência antes da sua visita, com leitura rápida e visual elegante.</p>
+    <div class="reservas-btns">
+      <a href="https://www.flipsnack.com/B69E695569B/card-pio-belmar-2026" class="btn-prim" target="_blank" rel="noopener noreferrer">Abrir Cardápio</a>
+      <a href="#cardapio" class="btn-sec" style="color:rgba(245,240,232,0.7);border-color:rgba(245,240,232,0.2)">Ver Destaques</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="footer-logo">Belmar</span>
+      <p class="footer-tagline">Alta Gastronomia Japonesa</p>
+      <p class="footer-p">Uma experiência gastronômica que une a tradição japonesa à sensibilidade contemporânea. Cada visita, um momento único.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/belmaroficial" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg></a>
+        <a href="https://www.facebook.com/profile.php?id=61575587770982" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Menu</h4>
+      <ul>
+        <li><a href="#sobre">A Casa</a></li>
+        <li><a href="#experiencia">Experiência</a></li>
+        <li><a href="#rodizio">Rodízio</a></li>
+        <li><a href="#cardapio">Cardápio</a></li>
+        <li><a href="#horarios">Horários</a></li>
+        <li><a href="#ambiente">Ambiente</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Horários</h4>
+      <div class="contact">
+        <p>À la carte<strong>Todos os dias — 11h às 23h</strong></p>
+        <p>Rodízio<strong>Seg–Sex jantar · Sáb–Dom almoço e jantar</strong></p>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <div class="contact">
+        <div class="footer-contact-row">
+          <span class="footer-contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.79.61 2.65a2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6.09 6.09l1.43-1.27a2 2 0 0 1 2.11-.45c.86.28 1.75.49 2.65.61A2 2 0 0 1 22 16.92z" /></svg></span>
+          <div class="footer-contact-value"><a href="tel:+5500000000000">(43) 3322-0073</a></div>
+        </div>
+        <div class="footer-contact-row">
+          <span class="footer-contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg></span>
+          <div class="footer-contact-value">Rod. Celso Garcia Cid, 5600 - Palhano 2<strong>Londrina, Parana</strong></div>
+        </div>
+        <div class="footer-contact-row">
+          <span class="footer-contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z" /><path d="M22 6l-10 7L2 6" /></svg></span>
+          <div class="footer-contact-value"><a href="mailto:contato@belmar.com.br">contato@belmar.com.br</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 Belmar — Alta Gastronomia Japonesa. Todos os direitos reservados.</p>
+    <p>Design sofisticado para uma experiência inesquecível</p>
+  </div>
+</footer>
+
+<script>
+// LOADER
+window.addEventListener('load', () => {
+  setTimeout(() => { document.getElementById('loader').classList.add('hidden'); }, 2400);
+});
+
+function transitionToPage(targetUrl) {
+  const overlay = document.getElementById('pageTransition');
+  if (!overlay || !targetUrl || document.body.classList.contains('page-transitioning')) {
+    return;
+  }
+
+  document.body.classList.add('page-transitioning');
+  overlay.classList.add('active');
+
+  window.setTimeout(() => {
+    window.location.href = targetUrl;
+  }, 620);
+}
+
+document.querySelectorAll('[data-transition-target]').forEach(link => {
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
+    transitionToPage(link.getAttribute('data-transition-target'));
+  });
+});
+
+// NAV SCROLL
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
+
+// NAV MOBILE
+document.getElementById('navToggle').addEventListener('click', () => {
+  const links = document.querySelector('.nav-links');
+  const open = links.style.display === 'flex';
+  Object.assign(links.style, { display: open ? 'none' : 'flex', flexDirection: 'column', position: 'fixed', top: '70px', left: '0', right: '0', background: 'rgba(14,13,11,0.97)', padding: '32px 28px', gap: '24px', borderBottom: '1px solid rgba(168,180,154,0.1)', zIndex: '999' });
+  if (open) links.style.display = 'none';
+});
+
+// CARDÁPIO TABS
+function cardTab(name, btn) {
+  document.querySelectorAll('.card-tab').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.card-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  const panel = document.getElementById('tab-' + name);
+  if (panel) panel.classList.add('active');
+}
+
+// SCROLL REVEAL
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.07 });
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => revealObserver.observe(el));
+
+// PARALLAX HERO
+document.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  const heroContent = document.querySelector('.hero-content');
+  if (heroContent) heroContent.style.transform = `translateY(${y * 0.25}px)`;
+  const kanji = document.querySelector('.hero-kanji');
+  if (kanji) kanji.style.transform = `translateY(calc(-50% + ${y * 0.1}px))`;
+});
+</script>
+</body>
+</html>
