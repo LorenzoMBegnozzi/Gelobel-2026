@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gelobel Churrascaria — Tradição e Sabor na Brasa</title>
+  <link rel="icon" type="image/png" href="../img-gelobel/logo.png">
+  <link rel="shortcut icon" type="image/png" href="../img-gelobel/logo.png">
+  <link rel="apple-touch-icon" href="../img-gelobel/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+  <link rel="stylesheet" href="../css/gelobel.css">
+</head>
+
+<body>
+
+  <div id="pageTransition" aria-hidden="true">
+    <div class="page-transition-mark">
+      <span class="page-transition-brand">Belmar</span>
+      <span class="page-transition-label">Cozinha Japonesa</span>
+    </div>
+  </div>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-logo-slot" title="Gelobel Logo">
+      <img src="https://gelobel.com.br/wp-content/uploads/2019/12/GELOBEL-AMARELO-E-BRANCO-2048x906.png"
+        alt="Gelobel Logo">
+    </div>
+    <div class="loader-tagline">Tradição e Sabor na Brasa</div>
+    <div class="loader-bar">
+      <div class="loader-fill"></div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav id="mainNav">
+    <div class="nav-brand-switch">
+      <div class="logo-wrap nav-logo-wrap nav-brand-current is-active">
+        <div class="nav-logo-mark" title="Logo Gelobel">
+          <img src="https://gelobel.com.br/wp-content/uploads/2019/12/GELOBEL-AMARELO-E-BRANCO-2048x906.png"
+            alt="Gelobel Logo">
+        </div>
+      </div>
+      <div class="nav-brand-divider" aria-hidden="true"></div>
+      <a href="./belmar.html" class="nav-brand-link is-inactive" data-transition-target="./belmar.html" aria-label="Abrir página Belmar">
+        <span class="nav-brand-link-title">Belmar</span>
+        <span class="nav-brand-link-subtitle">Cozinha Japonesa</span>
+      </a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#historia">História</a></li>
+      <li><a href="#cardapio">Cardápio</a></li>
+      <li><a href="#experiencia">Experiência</a></li>
+      <li><a href="#unidades">Unidades</a></li>
+    </ul>
+    <button class="nav-cta" onclick="document.getElementById('unidades').scrollIntoView({behavior:'smooth'})">Encontrar
+      Unidade</button>
+    <button class="hamburger" id="navToggle" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-particles" id="particles"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Tradição e Sabor<span>na Brasa</span></h1>
+      <div class="hero-divider"></div>
+      <p class="hero-subtitle">O verdadeiro churrasco brasileiro, com a qualidade<br>e o aconchego que a sua família
+        merece</p>
+      <div class="hero-btns">
+        <a href="#cardapio" class="btn-primary">Ver Cardápio</a>
+        <a href="#unidades" class="btn-outline">Conheça as Unidades</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>Rolar</span>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="sobre" id="sobre">
+    <div class="sobre-grid">
+      <div class="sobre-left reveal">
+        <span class="section-tag">Nossa Trajetória</span>
+        <h2 class="section-title">Mais de trinta anos de <em>história</em></h2>
+        <div class="gold-line"></div>
+        <div class="sobre-body">
+          <p>A Gelobel nasceu em 1991 com uma missão simples: reunir pessoas ao redor de uma boa mesa. O que começou
+            como um sonho em Londrina, Paraná, se transformou em uma das churrascarias mais queridas da região.</p>
+          <p>Ao longo das décadas, crescemos, nos reinventamos e abrimos novas unidades — mas nunca abrimos mão do que
+            sempre nos definiu: ingredientes de qualidade, ambiente caloroso e atendimento de excelência.</p>
+          <p>Hoje, com várias unidades, o Grupo Gelobel continua escrevendo uma história repleta de conquistas, guiada
+            pela paixão pelo que fazemos.</p>
+        </div>
+        <div class="sobre-stats">
+          <div class="stat">
+            <div class="stat-num">30+</div>
+            <div class="stat-label">Anos de tradição</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">6</div>
+            <div class="stat-label">Unidades</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">1991</div>
+            <div class="stat-label">Fundação</div>
+          </div>
+        </div>
+      </div>
+      <div class="sobre-image-wrap reveal">
+        <div class="sobre-img-placeholder"></div>
+        <div class="img-accent"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HISTÓRIA — LINHA DO TEMPO VERTICAL -->
+  <section class="historia" id="historia">
+    <div class="historia-header reveal">
+      <span class="section-tag">Nossa Trajetória</span>
+      <h2 class="section-title">Mais de trinta anos de <em>história</em></h2>
+      <p>A Gelobel nasceu em 1991 com uma missão simples: reunir pessoas ao redor de uma boa mesa. O que começou como um
+        sonho em Londrina, Paraná, se transformou em uma das churrascarias mais queridas da região.</p>
+    </div>
+
+    <div class="vtl-wrap reveal">
+      <div class="vtl-years">
+        <div class="vtl-year-item active" data-target="tl1991" onclick="selectYear(this,'tl1991')">
+          <span class="vtl-date">12/10 · 1991</span>
+          <div class="vtl-yr-dot"></div>
+        </div>
+        <div class="vtl-year-item" data-target="tl1997" onclick="selectYear(this,'tl1997')">
+          <span class="vtl-date">1997</span>
+          <div class="vtl-yr-dot"></div>
+        </div>
+        <div class="vtl-year-item" data-target="tl2011" onclick="selectYear(this,'tl2011')">
+          <span class="vtl-date">2011</span>
+          <div class="vtl-yr-dot"></div>
+        </div>
+        <div class="vtl-year-item" data-target="tl2012" onclick="selectYear(this,'tl2012')">
+          <span class="vtl-date">2012</span>
+          <div class="vtl-yr-dot"></div>
+        </div>
+        <div class="vtl-year-item" data-target="tl2014" onclick="selectYear(this,'tl2014')">
+          <span class="vtl-date">2014</span>
+          <div class="vtl-yr-dot"></div>
+        </div>
+        <div class="vtl-year-item" data-target="tl2019" onclick="selectYear(this,'tl2019')">
+          <span class="vtl-date">2019</span>
+          <div class="vtl-yr-dot"></div>
+        </div>
+        <div class="vtl-year-item" data-target="tl2020" onclick="selectYear(this,'tl2020')">
+          <span class="vtl-date">2020</span>
+          <div class="vtl-yr-dot"></div>
+        </div>
+        <div class="vtl-year-item vtl-hoje" data-target="tlhoje" onclick="selectYear(this,'tlhoje')">
+          <span class="vtl-date">Hoje</span>
+          <div class="vtl-yr-dot vtl-dot-pulse"></div>
+        </div>
+      </div>
+
+      <div class="vtl-line">
+        <div class="vtl-line-fill"></div>
+      </div>
+
+      <div class="vtl-content">
+
+        <!-- 1991 -->
+        <div class="vtl-panel active" id="tl1991">
+          <div class="vtl-img-slot" title="1991 - Inauguração na Duque">
+            <img src="https://gelobel.com.br/wp-content/uploads/2020/02/duque_2020.jpg"
+              alt="Gelobel 1991 - Unidade Duque">
+          </div>
+          <div class="vtl-text">
+            <div class="vtl-tag">12 de outubro de 1991</div>
+            <h3 class="vtl-title">INAUGURAMOS NA DUQUE</h3>
+            <p>De início apenas como distribuidora de gelo, carvão e bebidas, conseguimos quebrar limites.</p>
+            <div class="vtl-sub-title">DESCOBRIMOS NOVOS E TRADICIONAIS SABORES</div>
+            <p>Nos tornamos um forte ponto de encontro de amigos e assim iniciando também nossos espetinhos que
+              acompanhavam o que ainda é tradicional até hoje — maionese e farofa, receitas tradicionais de família.</p>
+          </div>
+        </div>
+
+        <!-- 1997 — layout especial: composição lateral com sobreposição -->
+        <div class="vtl-panel" id="tl1997">
+          <div class="vtl-overlap-wrap">
+            <div class="vtl-overlap-main">
+              <img src="https://gelobel.com.br/wp-content/uploads/2020/02/don_pablo_2020.jpg"
+                alt="Don Pablo - fachada">
+            </div>
+            <div class="vtl-overlap-accent">
+              <img
+                src="https://netdeal.com.br/api/images/proxy?format=webp&quality=100&src=https://s3.amazonaws.com/producao.spayce.com.br/1634914731417_01.jpg"
+                alt="Don Pablo - interior">
+            </div>
+          </div>
+          <div class="vtl-text">
+            <div class="vtl-tag">1997</div>
+            <h3 class="vtl-title">HOMENAGEAMOS NOSSA SEGUNDA CASA</h3>
+            <p>Em nome ao criador Paulo Ferreira, homenageamos nossa segunda casa — o <strong
+                style="color:var(--gold)">Don Pablo</strong> — e consolidamos a identidade da marca que é referência em
+              Londrina até hoje.</p>
+          </div>
+        </div>
+
+        <!-- 2011 -->
+        <div class="vtl-panel" id="tl2011">
+          <div class="vtl-img-slot" title="2011 - Premiação">
+            <img src="https://gelobel.com.br/wp-content/uploads/2020/02/2011.png" alt="Prêmios Gelobel 2011">
+          </div>
+          <div class="vtl-text">
+            <div class="vtl-tag">2011</div>
+            <h3 class="vtl-title">FOMOS PREMIADOS</h3>
+            <div class="vtl-award">
+              <div class="vtl-award-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" />
+                  <path d="M9 15v7l3-2 3 2v-7" />
+                </svg>
+              </div>
+              <span>Troféu Top of Business 2011</span>
+            </div>
+            <div class="vtl-award">
+              <div class="vtl-award-icon">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M8.56 2.9A7 7 0 0 1 19 9v1l1.17 2.34a1 1 0 0 1-.9 1.44H4.73a1 1 0 0 1-.9-1.44L5 10V9a7 7 0 0 1 3-5.8" />
+                  <path d="M9 17v2a3 3 0 0 0 6 0v-2" />
+                </svg>
+              </div>
+              <span>Troféu Top Empreendedor</span>
+            </div>
+            <p>Um reconhecimento que confirmou o que já sabíamos: a qualidade e o carinho com que servimos nossos
+              clientes fazem toda a diferença.</p>
+          </div>
+        </div>
+
+        <!-- 2012 -->
+        <div class="vtl-panel" id="tl2012">
+          <div class="vtl-img-slot" title="2012 - Premiação">
+            <img src="https://gelobel.com.br/wp-content/uploads/2020/02/2012.png" alt="Prêmios Gelobel 2012">
+          </div>
+          <div class="vtl-text">
+            <div class="vtl-tag">2012</div>
+            <h3 class="vtl-title">REFERÊNCIA GASTRONÔMICA PELO 2º ANO CONSECUTIVO</h3>
+            <div class="vtl-award">
+              <div class="vtl-award-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" />
+                  <path d="M9 15v7l3-2 3 2v-7" />
+                </svg>
+              </div>
+              <span>Troféu Top of Business 2012</span>
+            </div>
+            <div class="vtl-award">
+              <div class="vtl-award-icon">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M3.6 9h16.8M3.6 15h16.8" />
+                  <path d="M12 3a14.5 14.5 0 0 1 0 18M12 3a14.5 14.5 0 0 0 0 18" />
+                </svg>
+              </div>
+              <span>Prêmio Latin American Quality Institute</span>
+            </div>
+            <p>Dois anos seguidos premiados. A Gelobel consolida sua posição como referência gastronômica no Paraná.</p>
+          </div>
+        </div>
+
+        <!-- 2014 -->
+        <div class="vtl-panel" id="tl2014">
+          <div class="vtl-img-slot" title="2014 - Gelobel Delivery">
+            <img src="https://gelobel.com.br/wp-content/uploads/2020/02/delivery_2020.jpg" alt="Gelobel Delivery 2014">
+          </div>
+          <div class="vtl-text">
+            <div class="vtl-tag">2014</div>
+            <h3 class="vtl-title">INAUGURAMOS NOSSA UNIDADE DELIVERY</h3>
+            <p>A Gelobel Delivery nasce para levar o sabor da brasa até a porta da sua casa. Uma nova forma de viver a
+              experiência Gelobel — com o mesmo sabor de sempre.</p>
+          </div>
+        </div>
+
+        <!-- 2019 -->
+        <div class="vtl-panel" id="tl2019">
+          <div class="vtl-img-slot" title="2019 - Curitiba">
+            <img src="https://gelobel.com.br/wp-content/uploads/2020/01/gelobel_curitiba.jpg"
+              alt="Gelobel Curitiba 2019">
+          </div>
+          <div class="vtl-text">
+            <div class="vtl-tag">2019</div>
+            <h3 class="vtl-title">INAUGURAÇÃO EM CURITIBA</h3>
+            <p>A Gelobel chega à capital paranaense com a inauguração no Shopping Estação — levando a tradição e o sabor
+              de Londrina para uma nova cidade.</p>
+          </div>
+        </div>
+
+        <!-- 2020 -->
+        <div class="vtl-panel" id="tl2020">
+          <div class="vtl-img-slot" title="2020 - Boulevard">
+            <img src="https://gelobel.com.br/wp-content/uploads/2020/02/boulevard_2020.jpg"
+              alt="Gelobel Boulevard 2020">
+          </div>
+          <div class="vtl-text">
+            <div class="vtl-tag">2020</div>
+            <h3 class="vtl-title">EXPANDIMOS A UNIDADE GELOBEL BOULEVARD</h3>
+            <p>Em um novo ambiente, mais amplo e aconchegante — para a sua família ter ainda mais espaço e conforto ao
+              redor de uma boa mesa.</p>
+          </div>
+        </div>
+
+        <!-- HOJE -->
+        <div class="vtl-panel" id="tlhoje">
+          <div class="vtl-img-slot vtl-img-hoje" title="Hoje">
+            <img
+              src="https://netdeal.com.br/api/images/proxy?format=webp&width=800&src=https://www.netdeal.com.br/api/images/producao.spayce.com.br/1634914514315_gelobel.jpg"
+              alt="Gelobel Hoje">
+          </div>
+          <div class="vtl-text">
+            <div class="vtl-tag vtl-tag-hoje">Hoje · Em plena atividade</div>
+            <h3 class="vtl-title vtl-title-hoje">E CONTINUA…</h3>
+            <p>6 unidades espalhadas entre Londrina e Curitiba. Centenas de clientes diários e a mesma paixão de sempre
+              por servir bem — do primeiro espetinho ao último chopp.</p>
+            <div class="vtl-hoje-nums">
+              <div class="vtl-num-box"><span class="vtl-big">6</span><span class="vtl-lbl">Unidades</span></div>
+              <div class="vtl-num-box"><span class="vtl-big">30+</span><span class="vtl-lbl">Anos</span></div>
+              <div class="vtl-num-box"><span class="vtl-big">∞</span><span class="vtl-lbl">Histórias</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CARDÁPIO -->
+  <section class="cardapio" id="cardapio">
+    <div class="cardapio-header reveal">
+      <span class="section-tag">Cardápio</span>
+      <h2 class="section-title">Uma experiência <em>gastronômica</em> completa</h2>
+      <p>Carnes nobres, acompanhamentos selecionados e bebidas para todos os momentos</p>
+    </div>
+
+    <div class="category-tabs reveal">
+      <button class="cat-tab active" onclick="showPanel('carnes',this)">Carnes</button>
+      <button class="cat-tab" onclick="showPanel('entradas',this)">Entradas &amp; Porções</button>
+      <button class="cat-tab" onclick="showPanel('frios',this)">Frios</button>
+      <button class="cat-tab" onclick="showPanel('executivos',this)">Pratos Executivos</button>
+      <button class="cat-tab" onclick="showPanel('bebidas',this)">Bebidas</button>
+      <button class="cat-tab" onclick="showPanel('doces',this)">Doces</button>
+    </div>
+
+    <!-- CARNES -->
+    <div class="menu-panel active" id="panel-carnes">
+      <div class="menu-grid">
+        <div class="menu-card">
+          <div class="menu-card-placeholder"
+            style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/Gelobel-16469-870x579.jpg') center/cover;height:260px;">
+            <div class="menu-card-overlay"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">Espetinhos</div>
+              <div class="menu-card-desc">Acompanhado de farofa e creme de maionese</div>
+              <div class="menu-card-acomp">+ Acomp. adicionais disponíveis</div>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-placeholder"
+            style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/Gelobel-16698.jpg') center/cover;height:260px;">
+            <div class="menu-card-overlay"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-tag">Premium</div>
+              <div class="menu-card-name">Picanha</div>
+              <div class="menu-card-desc">Acompanhada de farofa e creme de maionese</div>
+              <div class="menu-card-acomp">+ Acomp. adicionais disponíveis</div>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-placeholder"
+            style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/Gelobel-16500-870x579.jpg') center/cover;height:260px;">
+            <div class="menu-card-overlay"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">Calabresa</div>
+              <div class="menu-card-desc">Acompanhada de farofa e creme de maionese</div>
+              <div class="menu-card-acomp">+ Acomp. adicionais disponíveis</div>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-placeholder"
+            style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/Gelobel-16626-870x579.jpg') center/cover;height:260px;">
+            <div class="menu-card-overlay"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">Contrafilé</div>
+              <div class="menu-card-desc">Acompanhado de farofa e creme de maionese</div>
+              <div class="menu-card-acomp">+ Acomp. adicionais disponíveis</div>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-placeholder"
+            style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/Gelobel-18179-870x579.jpg') center/cover;height:260px;">
+            <div class="menu-card-overlay"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">Costela</div>
+              <div class="menu-card-desc">Acompanhada de farofa e creme de maionese</div>
+              <div class="menu-card-acomp">+ Acomp. adicionais disponíveis</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="max-width:960px;margin:48px auto 0;">
+        <div class="drink-cat-title" style="font-size:18px;margin-bottom:24px;">Acompanhamentos Adicionais</div>
+        <div class="acomp-grid">
+          <div class="acomp-item">Creme de Maionese extra</div>
+          <div class="acomp-item">Arroz Branco</div>
+          <div class="acomp-item">Salada de Tomate c/ Cebola</div>
+          <div class="acomp-item">Pão de Alho</div>
+          <div class="acomp-item">Farofa extra</div>
+          <div class="acomp-item">Mandioca Cozida</div>
+          <div class="acomp-item">Maionese de Batata</div>
+        </div>
+        <div
+          style="margin-top:20px;background:rgba(200,146,42,0.06);border-left:3px solid var(--gold);padding:14px 20px;">
+          <p style="font-size:13px;color:var(--cream-dark);line-height:1.7;"><span
+              style="color:var(--gold);font-weight:500;">Inclusos em todas as carnes:</span> Farofa e Creme de Maionese.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ENTRADAS & PORÇÕES -->
+    <div class="menu-panel" id="panel-entradas">
+      <div class="menu-grid">
+        <div class="menu-card">
+          <div class="menu-card-placeholder"
+            style="background:url('https://images.unsplash.com/photo-1551248429-40975aa4de74?w=600&q=80') center/cover;height:240px;">
+            <div class="menu-card-overlay"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">Polenta Frita com Queijo</div>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-placeholder"
+            style="background:url('https://compactaprint.com.br/wp-content/uploads/2025/03/Receita-de-Bolinho-de-Bacalhau-Facil-e-Barato.jpg') center/cover;height:240px;">
+            <div class="menu-card-overlay"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">Bolinho de Bacalhau</div>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-placeholder"
+            style="background:url('https://images.unsplash.com/photo-1527477396000-e27163b481c2?w=600&q=80') center/cover;height:240px;">
+            <div class="menu-card-overlay"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">Costelinha de Porco</div>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-placeholder"
+            style="background:url('https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=600&q=80') center/cover;height:240px;">
+            <div class="menu-card-overlay"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">Frango a Passarinho</div>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-placeholder"
+            style="background:url('https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&q=80') center/cover;height:240px;">
+            <div class="menu-card-overlay"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">Filé de Tilápia</div>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-placeholder"
+            style="background:url('https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=600&q=80') center/cover;height:240px;">
+            <div class="menu-card-overlay"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">Mandioca Frita com Bacon</div>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-placeholder"
+            style="background:url('https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=600&q=80') center/cover;height:240px;">
+            <div class="menu-card-overlay"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">Frango a Passarinho com Alho</div>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-placeholder"
+            style="background:url('https://images.unsplash.com/photo-1639024471283-03518883512d?w=600&q=80') center/cover;height:240px;">
+            <div class="menu-card-overlay"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">Batata Frita com Queijo</div>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-placeholder"
+            style="background:url('https://images.unsplash.com/photo-1630431341973-02e1b662ec35?w=600&q=80') center/cover;height:240px;">
+            <div class="menu-card-overlay"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">Polenta Frita</div>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-placeholder"
+            style="background:url('https://softpig.com.br/wp-content/uploads/2023/10/Batata-frita-com-cheddar-e-bacon-Receita-softpig-1200x600.jpg') center/cover;height:240px;">
+            <div class="menu-card-overlay"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">Batata Frita</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FRIOS -->
+    <div class="menu-panel" id="panel-frios">
+      <div class="menu-grid">
+        <div class="menu-card">
+          <div class="menu-card-placeholder"
+            style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/GELOBEL-11132-870x579.jpg') center/cover;height:260px;">
+            <div class="menu-card-overlay"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-tag">Destaque</div>
+              <div class="menu-card-name">Tábua de Frios</div>
+              <div class="menu-card-desc">Salame, muçarela, presunto, provolone e mais</div>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-placeholder"
+            style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/GELOBEL-11352-870x579.jpg') center/cover;height:260px;">
+            <div class="menu-card-overlay"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">Porção de Salame</div>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-placeholder"
+            style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/GELOBEL-11322-870x579.jpg') center/cover;height:260px;">
+            <div class="menu-card-overlay"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">Porção de Provolone</div>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-placeholder"
+            style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/GELOBEL-11278-870x579.jpg') center/cover;height:260px;">
+            <div class="menu-card-overlay"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">Porção de Presunto</div>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-placeholder"
+            style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/GELOBEL-11300-870x579.jpg') center/cover;height:260px;">
+            <div class="menu-card-overlay"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">Porção de Azeitona</div>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-placeholder"
+            style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/GELOBEL-11249-870x579.jpg') center/cover;height:260px;">
+            <div class="menu-card-overlay"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">Porção de Muçarela</div>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-placeholder"
+            style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/GELOBEL-11315-870x579.jpg') center/cover;height:260px;">
+            <div class="menu-card-overlay"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">Porção de Palmito</div>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-placeholder"
+            style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/GELOBEL-11306-870x579.jpg') center/cover;height:260px;">
+            <div class="menu-card-overlay"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">Salada Mista</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRATOS EXECUTIVOS -->
+    <div class="menu-panel" id="panel-executivos">
+      <div style="max-width:900px;margin:0 auto;">
+        <div class="reveal"
+          style="background:rgba(200,146,42,0.06);border-left:3px solid var(--gold);padding:18px 24px;margin-bottom:40px;">
+          <p style="font-size:14px;color:var(--cream-dark);line-height:1.7;"><span
+              style="color:var(--gold);font-weight:500;">Exclusivos dos Shoppings:</span> Catuaí, Boulevard e Estação.
+          </p>
+        </div>
+        <div class="menu-grid" style="max-width:700px;">
+          <div class="menu-card">
+            <div class="menu-card-placeholder"
+              style="background:url('https://images.unsplash.com/photo-1558030006-450675393462?w=600&q=80') center/cover;height:280px;">
+              <div class="menu-card-overlay"></div>
+              <div class="menu-card-body">
+                <div class="menu-card-tag">Executivo</div>
+                <div class="menu-card-name">Contrafilé</div>
+                <div class="menu-card-desc">Prato executivo completo</div>
+              </div>
+            </div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-placeholder"
+              style="background:url('https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=600&q=80') center/cover;height:280px;">
+              <div class="menu-card-overlay"></div>
+              <div class="menu-card-body">
+                <div class="menu-card-tag">Executivo</div>
+                <div class="menu-card-name">Filé de Frango</div>
+                <div class="menu-card-desc">Prato executivo completo</div>
+              </div>
+            </div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-placeholder"
+              style="background:url('https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&q=80') center/cover;height:280px;">
+              <div class="menu-card-overlay"></div>
+              <div class="menu-card-body">
+                <div class="menu-card-tag">Executivo</div>
+                <div class="menu-card-name">Filé de Tilápia</div>
+                <div class="menu-card-desc">Prato executivo completo</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BEBIDAS -->
+    <div class="menu-panel" id="panel-bebidas" style="max-width:1100px;margin:0 auto;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:44px;">
+        <div class="drink-category">
+          <div class="drink-cat-title">Refrigerantes</div>
+          <ul class="drink-list">
+            <li>Itubaína Retrô (355mL)</li>
+            <li>Itubaína Retrô Zero (355mL)</li>
+          </ul>
+        </div>
+        <div class="drink-category">
+          <div class="drink-cat-title">Outras Bebidas</div>
+          <ul class="drink-list">
+            <li>Água Mineral Sem Gás</li>
+            <li>Água Mineral Com Gás</li>
+            <li>Água de Coco</li>
+            <li>H2O Limão / Limoneto</li>
+            <li>Red Bull</li>
+          </ul>
+        </div>
+        <div class="drink-category">
+          <div class="drink-cat-title">Sucos</div>
+          <ul class="drink-list">
+            <li>Laranja</li>
+            <li>Limonada Suíça</li>
+            <li>Abacaxi / Abacaxi com Hortelã</li>
+            <li>Coco</li>
+            <li>Limão</li>
+            <li>Maracujá</li>
+            <li>Morango</li>
+            <li style="color:var(--text-muted);font-size:12px;font-style:italic;">Disponíveis com Água ou Leite</li>
+          </ul>
+        </div>
+        <div class="drink-category">
+          <div class="drink-cat-title">Chopp <span
+              style="font-size:11px;color:var(--text-muted);font-weight:400;letter-spacing:1px;">300mL ou 600mL</span>
+          </div>
+          <ul class="drink-list">
+            <li>Devassa</li>
+            <li>Eisenbahn Pilsen</li>
+            <li>Eisenbahn American IPA</li>
+            <li>Eisenbahn Pale Ale</li>
+            <li>Eisenbahn Weizenbier</li>
+            <li>Brahma</li>
+            <li style="color:var(--text-muted);font-size:12px;font-style:italic;">Disponível somente em Don Pablo e
+              Duque</li>
+          </ul>
+        </div>
+        <div class="drink-category">
+          <div class="drink-cat-title">Cervejas Long Neck Especiais</div>
+          <ul class="drink-list">
+            <li>Eisenbahn Pilsen</li>
+            <li>Eisenbahn American IPA</li>
+            <li>Eisenbahn Pale Ale</li>
+            <li>Eisenbahn Weizenbier</li>
+            <li>Baden Baden IPA</li>
+            <li>Baden Baden Cristal</li>
+            <li>Baden Baden Golden</li>
+            <li>Baden Baden Witbier</li>
+          </ul>
+        </div>
+        <div class="drink-category">
+          <div class="drink-cat-title">Cervejas Long Neck</div>
+          <ul class="drink-list">
+            <li>Devassa Lager *</li>
+            <li>Heineken *</li>
+            <li>Skol 1500 **</li>
+            <li>Burgesa **</li>
+            <li>Brahma</li>
+            <li>Bohemia</li>
+            <li>Original **</li>
+            <li>Caracu *</li>
+            <li style="color:var(--text-muted);font-size:12px;font-style:italic;">* Somente shoppings · ** Somente Don
+              Pablo e Duque</li>
+          </ul>
+        </div>
+        <div class="drink-category">
+          <div class="drink-cat-title">Cervejas Lata</div>
+          <ul class="drink-list">
+            <li>Skol</li>
+            <li>Brahma</li>
+            <li>Brahma Zero</li>
+          </ul>
+        </div>
+        <div class="drink-category">
+          <div class="drink-cat-title">Cervejas Garrafa 600mL</div>
+          <ul class="drink-list">
+            <li>Devassa Lager</li>
+            <li>Heineken</li>
+            <li>Skol</li>
+            <li>Antarctica Sub Zero</li>
+            <li>Brahma / Brahma Malzbier</li>
+            <li>Bohemia</li>
+            <li>Eisenbahn Pilsen</li>
+            <li>Itaipava / Itaipava Premium / Original</li>
+          </ul>
+        </div>
+        <div class="drink-category">
+          <div class="drink-cat-title">Batidas</div>
+          <ul class="drink-list">
+            <li>Abacaxi, Coco, Caju</li>
+            <li>Morango, Maracujá, Pêssego</li>
+            <li style="color:var(--text-muted);font-size:12px;font-style:italic;">Com Vodka, Vinho ou Pinga</li>
+          </ul>
+        </div>
+        <div class="drink-category">
+          <div class="drink-cat-title">Caipiras</div>
+          <ul class="drink-list">
+            <li>Limão Taiti, Limão Rosa</li>
+            <li>Morango, Kiwi, Abacaxi, Maracujá</li>
+            <li>Caipirinha com Picolê</li>
+            <li style="color:var(--text-muted);font-size:12px;font-style:italic;">Com Pinga, Ypióca, Vinho, Saquê, Vodka
+              ou Steinhäger</li>
+          </ul>
+        </div>
+        <div class="drink-category">
+          <div class="drink-cat-title">Destilados</div>
+          <ul class="drink-list">
+            <li>Bacardi · Campari · Cinzano</li>
+            <li>Martini · Menta · St. Remy</li>
+            <li>Steinhäger · Underberg</li>
+            <li>Vodka Orloff · Vodka Absolut</li>
+            <li>Gin Seager's</li>
+            <li>Licor Amarula</li>
+            <li>Conhaque Dimel / Domecq</li>
+            <li>Tequila José Cuervo</li>
+            <li>Cachaça Seleta · Ypióca · Terra Brasilis</li>
+          </ul>
+        </div>
+        <div class="drink-category">
+          <div class="drink-cat-title">Whisky</div>
+          <ul class="drink-list">
+            <li>Ballantine's 8 anos</li>
+            <li>Ballantine's 12 anos</li>
+            <li>Johnnie Walker Black</li>
+            <li>Johnnie Walker Red</li>
+            <li>Natu Nobilis · Passport Scotch</li>
+            <li>Chivas Regal · Grant's</li>
+            <li>Jack Daniel's · White Horse · Gran Pa</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- DOCES -->
+    <div class="menu-panel" id="panel-doces">
+      <div class="menu-grid" style="max-width:700px;margin:0 auto;">
+        <div class="menu-card">
+          <div class="menu-card-placeholder"
+            style="background:url('https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&q=80') center/cover;height:300px;">
+            <div class="menu-card-overlay"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-tag">Clássico</div>
+              <div class="menu-card-name">Petit Gateau</div>
+              <div class="menu-card-desc">Bolinho quente com recheio de chocolate derretido</div>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-placeholder"
+            style="background:url('https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600&q=80') center/cover;height:300px;">
+            <div class="menu-card-overlay"></div>
+            <div class="menu-card-body">
+              <div class="menu-card-tag">Especial</div>
+              <div class="menu-card-name">Pudim Holandês</div>
+              <div class="menu-card-desc">Cremoso e irresistível</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIÊNCIA -->
+  <section class="experiencia" id="experiencia">
+    <div class="exp-header reveal">
+      <span class="section-tag">Experiência Gelobel</span>
+      <h2 class="section-title">Momentos que <em>ficam</em> na memória</h2>
+      <p>Ambiente aconchegante, atendimento cuidadoso e a melhor brasa do Paraná</p>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="gallery-item g1"><img class="gallery-img"
+          src="https://images.unsplash.com/photo-1544025162-d76694265947?w=900&q=80" alt="Brasa Gelobel" loading="lazy">
+      </div>
+      <div class="gallery-item g2"><img class="gallery-img"
+          src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=700&q=80" alt="Carne na brasa"
+          loading="lazy"></div>
+      <div class="gallery-item g3"><img class="gallery-img"
+          src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=700&q=80" alt="Churrasco premium"
+          loading="lazy"></div>
+      <div class="gallery-item g4"><img class="gallery-img"
+          src="https://images.unsplash.com/photo-1558030006-450675393462?w=600&q=80" alt="Ambiente" loading="lazy">
+      </div>
+      <div class="gallery-item g5"><img class="gallery-img"
+          src="https://images.unsplash.com/photo-1484980972926-edee96e0960d?w=600&q=80" alt="Família" loading="lazy">
+      </div>
+      <div class="gallery-item g6"><img class="gallery-img"
+          src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80" alt="Mesa posta" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- UNIDADES -->
+  <section class="unidades" id="unidades">
+    <div class="unidades-header reveal">
+      <span class="section-tag">Onde Estamos</span>
+      <h2 class="section-title">Nossas <em>Unidades</em></h2>
+      <p style="margin-top:16px;color:var(--text-muted);font-size:16px;">Venha nos visitar. Estamos esperando por você
+        com a brasa sempre acesa.</p>
+    </div>
+    <div class="unidades-grid">
+      <div class="unit-card reveal">
+        <div class="unit-img-placeholder"
+          style="background:url('https://gelobel.com.br/wp-content/uploads/2020/02/don_pablo_2020.jpg') center/cover;height:180px;filter:brightness(0.7);">
+        </div>
+        <div class="unit-body">
+          <div class="unit-badge">Londrina</div>
+          <div class="unit-name">Don Pablo</div>
+          <div class="unit-info">
+            <div class="unit-info-row"><span class="unit-icon"><svg viewBox="0 0 24 24">
+                  <path d="M12 21C12 21 5 13.5 5 8a7 7 0 0 1 14 0c0 5.5-7 13-7 13z" />
+                  <circle cx="12" cy="8" r="2.5" />
+                </svg></span><span>Rua Caracas, 80 - Londrina</span></div>
+            <div class="unit-info-row"><span class="unit-icon"><svg viewBox="0 0 24 24">
+                  <path
+                    d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" />
+                </svg></span><span>(43) 3325-2942</span></div>
+          </div>
+          <div class="unit-hours">
+            <div class="unit-hours-header"><svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9" />
+                <polyline points="12 7 12 12 15 15" />
+              </svg>
+              <h4>Horários</h4>
+            </div>
+            <p>Seg–Sex: 11h às 14h30 · 17h às 23h30<br>Sábado: 11h às 23h30<br>Domingo: 11h às 15h</p>
+          </div>
+          <a href="https://maps.app.goo.gl/syN26DvLrNNTuykP9" target="_blank" class="unit-btn">Ver no Google
+            Maps ↗</a>
+        </div>
+      </div>
+      <div class="unit-card reveal">
+        <div class="unit-img-placeholder"
+          style="background:url('https://gelobel.com.br/wp-content/uploads/2020/03/DSC_1174.jpg') center/cover;height:180px;filter:brightness(0.7);">
+        </div>
+        <div class="unit-body">
+          <div class="unit-badge">Londrina</div>
+          <div class="unit-name">Catuaí</div>
+          <div class="unit-info">
+            <div class="unit-info-row"><span class="unit-icon"><svg viewBox="0 0 24 24">
+                  <path d="M12 21C12 21 5 13.5 5 8a7 7 0 0 1 14 0c0 5.5-7 13-7 13z" />
+                  <circle cx="12" cy="8" r="2.5" />
+                </svg></span><span>Rod. Celso Garcia Cid, 5600 - Londrina</span></div>
+            <div class="unit-info-row"><span class="unit-icon"><svg viewBox="0 0 24 24">
+                  <path
+                    d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" />
+                </svg></span><span>(43) 3325-1168</span></div>
+          </div>
+          <div class="unit-hours">
+            <div class="unit-hours-header"><svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9" />
+                <polyline points="12 7 12 12 15 15" />
+              </svg>
+              <h4>Horários</h4>
+            </div>
+            <p>Segunda a Domingo: 11h às 20h</p>
+          </div>
+          <a href="https://maps.app.goo.gl/KufUVnjPaDiF4k7r6" target="_blank" class="unit-btn">Ver
+            no Google Maps ↗</a>
+        </div>
+      </div>
+      <div class="unit-card reveal">
+        <div class="unit-img-placeholder"
+          style="background:url('https://gelobel.com.br/wp-content/uploads/2020/02/duque_2020.jpg') center/cover;height:180px;filter:brightness(0.7);">
+        </div>
+        <div class="unit-body">
+          <div class="unit-badge">Londrina</div>
+          <div class="unit-name">Duque</div>
+          <div class="unit-info">
+            <div class="unit-info-row"><span class="unit-icon"><svg viewBox="0 0 24 24">
+                  <path d="M12 21C12 21 5 13.5 5 8a7 7 0 0 1 14 0c0 5.5-7 13-7 13z" />
+                  <circle cx="12" cy="8" r="2.5" />
+                </svg></span><span>Av. Duque de Caxias, 2070 - Londrina</span></div>
+            <div class="unit-info-row"><span class="unit-icon"><svg viewBox="0 0 24 24">
+                  <path
+                    d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" />
+                </svg></span><span>(43) 3323-8942</span></div>
+          </div>
+          <div class="unit-hours">
+            <div class="unit-hours-header"><svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9" />
+                <polyline points="12 7 12 12 15 15" />
+              </svg>
+              <h4>Horários</h4>
+            </div>
+            <p>Seg–Sex: 11h às 14h30 · 17h às 23h30<br>Sábado: 11h às 23h30<br>Domingo: Fechado</p>
+          </div>
+          <a href="https://maps.app.goo.gl/Xr9NJ9yDAwGKe41e9" target="_blank" class="unit-btn">Ver no
+            Google Maps ↗</a>
+        </div>
+      </div>
+      <div class="unit-card reveal">
+        <div class="unit-img-placeholder"
+          style="background:url('https://gelobel.com.br/wp-content/uploads/2020/02/boulevard_2020.jpg') center/cover;height:180px;filter:brightness(0.7);">
+        </div>
+        <div class="unit-body">
+          <div class="unit-badge">Londrina</div>
+          <div class="unit-name">Boulevard</div>
+          <div class="unit-info">
+            <div class="unit-info-row"><span class="unit-icon"><svg viewBox="0 0 24 24">
+                  <path d="M12 21C12 21 5 13.5 5 8a7 7 0 0 1 14 0c0 5.5-7 13-7 13z" />
+                  <circle cx="12" cy="8" r="2.5" />
+                </svg></span><span>Av. Theodoro Victorelli, 150 - Londrina</span></div>
+            <div class="unit-info-row"><span class="unit-icon"><svg viewBox="0 0 24 24">
+                  <path
+                    d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" />
+                </svg></span><span>(43) 3341-0804</span></div>
+          </div>
+          <div class="unit-hours">
+            <div class="unit-hours-header"><svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9" />
+                <polyline points="12 7 12 12 15 15" />
+              </svg>
+              <h4>Horários</h4>
+            </div>
+            <p>Segunda a Domingo: 11h às 20h</p>
+          </div>
+          <a href="https://maps.app.goo.gl/HqtdcA2xVSxQ4Wj97" target="_blank" class="unit-btn">Ver
+            no Google Maps ↗</a>
+        </div>
+      </div>
+      <div class="unit-card reveal">
+        <div class="unit-img-placeholder"
+          style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/gelobel_curitiba.jpg') center/cover;height:180px;filter:brightness(0.7);">
+        </div>
+        <div class="unit-body">
+          <div class="unit-badge">Curitiba</div>
+          <div class="unit-name">Curitiba</div>
+          <div class="unit-info">
+            <div class="unit-info-row"><span class="unit-icon"><svg viewBox="0 0 24 24">
+                  <path d="M12 21C12 21 5 13.5 5 8a7 7 0 0 1 14 0c0 5.5-7 13-7 13z" />
+                  <circle cx="12" cy="8" r="2.5" />
+                </svg></span><span>Av. Sete de Setembro, 2775 - Curitiba</span></div>
+            <div class="unit-info-row"><span class="unit-icon"><svg viewBox="0 0 24 24">
+                  <path
+                    d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" />
+                </svg></span><span>(41) 3026-0920</span></div>
+          </div>
+          <div class="unit-hours">
+            <div class="unit-hours-header"><svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9" />
+                <polyline points="12 7 12 12 15 15" />
+              </svg>
+              <h4>Horários</h4>
+            </div>
+            <p>Seg–Sáb: 12h às 22h<br>Domingo: 12h às 20h</p>
+          </div>
+          <a href="https://maps.app.goo.gl/8HfGMkWghPfuPrSg6" target="_blank" class="unit-btn">Ver no
+            Google Maps ↗</a>
+        </div>
+      </div>
+      <div class="unit-card reveal">
+        <div class="unit-img-placeholder"
+          style="background:url('https://gelobel.com.br/wp-content/uploads/2020/02/delivery_2020.jpg') center/cover;height:180px;filter:brightness(0.7);">
+        </div>
+        <div class="unit-body">
+          <div class="unit-badge">Londrina · Delivery</div>
+          <div class="unit-name">Delivery</div>
+          <div class="unit-info">
+            <div class="unit-info-row"><span class="unit-icon"><svg viewBox="0 0 24 24">
+                  <path d="M12 21C12 21 5 13.5 5 8a7 7 0 0 1 14 0c0 5.5-7 13-7 13z" />
+                  <circle cx="12" cy="8" r="2.5" />
+                </svg></span><span>Rua Caracas, 96 - Londrina</span></div>
+            <div class="unit-info-row"><span class="unit-icon"><svg viewBox="0 0 24 24">
+                  <path
+                    d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" />
+                </svg></span><span>(43) 3325-3553</span></div>
+          </div>
+          <div class="unit-hours">
+            <div class="unit-hours-header"><svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9" />
+                <polyline points="12 7 12 12 15 15" />
+              </svg>
+              <h4>Horários</h4>
+            </div>
+            <p>Seg–Sáb: 11h às 15h · 18h às 23h<br>Domingo: Fechado</p>
+          </div>
+          <a href="https://maps.app.goo.gl/xkNoDvnKyoCqHsih8" target="_blank" class="unit-btn">Ver no Google
+            Maps ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-bg"></div>
+    <div class="cta-glow"></div>
+    <div class="cta-content reveal">
+      <span class="section-tag">Viva a Experiência</span>
+      <h2 class="cta-title">Reúna amigos, família e venha viver a <em>experiência Gelobel</em></h2>
+      <div class="cta-divider"></div>
+      <p class="cta-sub">A brasa está acesa e a mesa está posta — só falta você.</p>
+      <a href="#unidades" class="btn-primary">Encontrar Unidade</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-wrap" style="margin-bottom:16px;align-items:center;">
+          <div class="footer-logo-mark">
+            <img src="https://gelobel.com.br/wp-content/uploads/2019/12/GELOBEL-AMARELO-E-BRANCO-2048x906.png"
+              alt="Gelobel Logo" style="width:100%;height:100%;object-fit:contain;">
+          </div>
+        </div>
+        <p>Tradição, sabor e qualidade na brasa há mais de duas décadas. Londrina e Curitiba.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/gelobeloficial/" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="Instagram"><svg viewBox="0 0 24 24">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg></a>
+          <a href="https://www.facebook.com/grupogelobel/photos?locale=pt_BR" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="Facebook"><svg viewBox="0 0 24 24">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+            </svg></a>
+          <a href="#" class="soc-btn" aria-label="WhatsApp"><svg viewBox="0 0 24 24">
+              <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+              <path d="M9 10c0 5 3.5 7.5 7.5 4" />
+            </svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#sobre">Sobre nós</a></li>
+          <li><a href="#cardapio">Cardápio</a></li>
+          <li><a href="#experiencia">Experiência</a></li>
+          <li><a href="#unidades">Unidades</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Unidades</h4>
+        <ul>
+          <li><a href="https://maps.app.goo.gl/syN26DvLrNNTuykP9" target="_blank">Don Pablo</a></li>
+          <li><a href="https://maps.app.goo.gl/KufUVnjPaDiF4k7r6" target="_blank">Catuaí</a></li>
+          <li><a href="https://maps.app.goo.gl/Xr9NJ9yDAwGKe41e9" target="_blank">Duque</a></li>
+          <li><a href="https://maps.app.goo.gl/HqtdcA2xVSxQ4Wj97" target="_blank">Boulevard</a>
+          </li>
+          <li><a href="https://maps.app.goo.gl/8HfGMkWghPfuPrSg6" target="_blank">Curitiba</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-contact">
+        <h4>Contato</h4>
+        <p>
+          Don Pablo: <a href="tel:4333252942">(43) 3325-2942</a><br>
+          Catuaí: <a href="tel:4333251168">(43) 3325-1168</a><br>
+          Duque: <a href="tel:4333238942">(43) 3323-8942</a><br>
+          Boulevard: <a href="tel:4333410804">(43) 3341-0804</a><br>
+          Curitiba: <a href="tel:4130260920">(41) 3026-0920</a><br>
+          Delivery: <a href="tel:4333253553">(43) 3325-3553</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 <span>Gelobel Churrascaria</span>. Todos os direitos reservados.</p>
+      <p>Feito com <span>♥</span> em Londrina, PR</p>
+    </div>
+  </footer>
+<!-- FLOATING WHATSAPP -->
+  <div class="float-zap-wrap" id="floatZap">
+    <div class="float-zap-menu" id="floatZapMenu">
+      <div class="float-zap-menu-header">
+        <svg viewBox="0 0 48 48" width="22" height="22">
+          <path fill="#fff"
+            d="M24 4C12.95 4 4 12.95 4 24c0 3.6.96 6.98 2.64 9.9L4 44l10.4-2.6A19.88 19.88 0 0 0 24 44c11.05 0 20-8.95 20-20S35.05 4 24 4z" />
+          <path fill="#25D366"
+            d="M24 7c-9.39 0-17 7.61-17 17 0 3.16.87 6.1 2.38 8.62L8 40l7.54-1.97A16.94 16.94 0 0 0 24 41c9.39 0 17-7.61 17-17S33.39 7 24 7z" />
+          <path fill="#fff"
+            d="M33.46 28.9c-.46-.23-2.7-1.33-3.12-1.49-.42-.15-.72-.23-1.02.23-.3.46-1.17 1.49-1.43 1.8-.27.3-.53.34-.99.11-.46-.23-1.95-.72-3.71-2.29-1.37-1.22-2.3-2.73-2.57-3.19-.27-.46-.03-.71.2-.94.21-.2.46-.53.69-.8.23-.26.3-.46.46-.76.15-.3.08-.57-.04-.8-.11-.23-1.02-2.46-1.4-3.37-.37-.88-.74-.76-1.02-.77-.27-.01-.57-.01-.87-.01s-.8.11-1.22.57c-.42.46-1.6 1.56-1.6 3.8s1.64 4.4 1.87 4.7c.23.3 3.22 4.92 7.8 6.9 1.09.47 1.94.75 2.6.96.9.28 1.72.24 2.37.15.72-.11 2.22-.91 2.53-1.79.31-.88.31-1.63.22-1.79-.09-.15-.39-.26-.85-.49z" />
+        </svg>
+        <span>Escolha uma unidade</span>
+      </div>
+      <a href="https://wa.me/554333252942" target="_blank" class="float-zap-unit"><span class="float-zap-unit-name">Don
+          Pablo</span><span class="float-zap-unit-city">Londrina</span></a>
+      <a href="https://wa.me/554333251168" target="_blank" class="float-zap-unit"><span
+          class="float-zap-unit-name">Catuaí</span><span class="float-zap-unit-city">Londrina</span></a>
+      <a href="https://wa.me/554333238942" target="_blank" class="float-zap-unit"><span
+          class="float-zap-unit-name">Duque</span><span class="float-zap-unit-city">Londrina</span></a>
+      <a href="https://wa.me/554333410804" target="_blank" class="float-zap-unit"><span
+          class="float-zap-unit-name">Boulevard</span><span class="float-zap-unit-city">Londrina</span></a>
+      <a href="https://wa.me/554130260920" target="_blank" class="float-zap-unit"><span
+          class="float-zap-unit-name">Curitiba</span><span class="float-zap-unit-city">Curitiba</span></a>
+      <a href="https://wa.me/554333253553" target="_blank" class="float-zap-unit"><span
+          class="float-zap-unit-name">Delivery</span><span class="float-zap-unit-city">Londrina</span></a>
+    </div>
+    <button class="float-zap-btn" id="floatZapBtn" aria-label="WhatsApp — escolher unidade" onclick="toggleZapMenu()">
+      <svg class="float-zap-btn-logo" viewBox="0 0 48 48">
+        <path fill="#fff"
+          d="M24 4C12.95 4 4 12.95 4 24c0 3.6.96 6.98 2.64 9.9L4 44l10.4-2.6A19.88 19.88 0 0 0 24 44c11.05 0 20-8.95 20-20S35.05 4 24 4z" />
+        <path fill="#25D366"
+          d="M24 7c-9.39 0-17 7.61-17 17 0 3.16.87 6.1 2.38 8.62L8 40l7.54-1.97A16.94 16.94 0 0 0 24 41c9.39 0 17-7.61 17-17S33.39 7 24 7z" />
+        <path fill="#fff"
+          d="M33.46 28.9c-.46-.23-2.7-1.33-3.12-1.49-.42-.15-.72-.23-1.02.23-.3.46-1.17 1.49-1.43 1.8-.27.3-.53.34-.99.11-.46-.23-1.95-.72-3.71-2.29-1.37-1.22-2.3-2.73-2.57-3.19-.27-.46-.03-.71.2-.94.21-.2.46-.53.69-.8.23-.26.3-.46.46-.76.15-.3.08-.57-.04-.8-.11-.23-1.02-2.46-1.4-3.37-.37-.88-.74-.76-1.02-.77-.27-.01-.57-.01-.87-.01s-.8.11-1.22.57c-.42.46-1.6 1.56-1.6 3.8s1.64 4.4 1.87 4.7c.23.3 3.22 4.92 7.8 6.9 1.09.47 1.94.75 2.6.96.9.28 1.72.24 2.37.15.72-.11 2.22-.91 2.53-1.79.31-.88.31-1.63.22-1.79-.09-.15-.39-.26-.85-.49z" />
+      </svg>
+      <span class="float-zap-btn-label"></span>
+      <svg class="float-zap-btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+        stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15" />
+      </svg>
+    </button>
+  </div>
+
+  
+
+  
+<script src="../js/gelobel.js"></script>
+</body>
+
+</html>
