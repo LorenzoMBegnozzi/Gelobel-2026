@@ -840,7 +840,8 @@
       <h2 class="section-title">Momentos que <em>ficam</em> na memória</h2>
       <p>Ambiente aconchegante, atendimento cuidadoso e a melhor brasa do Paraná</p>
     </div>
-    <div class="gallery-grid reveal">
+    <div class="mobile-carousel-viewport reveal">
+    <div class="gallery-grid" data-mobile-carousel>
       <div class="gallery-item g1"><img class="gallery-img"
           src="https://images.unsplash.com/photo-1544025162-d76694265947?w=900&q=80" alt="Brasa Gelobel" loading="lazy">
       </div>
@@ -860,6 +861,12 @@
           src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80" alt="Mesa posta" loading="lazy">
       </div>
     </div>
+    </div>
+    <div class="mobile-carousel-controls" data-carousel-controls>
+      <button type="button" class="mobile-carousel-arrow" data-carousel-prev aria-label="Ver foto anterior">&lsaquo;</button>
+      <span class="mobile-carousel-status" data-carousel-status>1 / 6</span>
+      <button type="button" class="mobile-carousel-arrow" data-carousel-next aria-label="Ver próxima foto">&rsaquo;</button>
+    </div>
   </section>
 
   <!-- UNIDADES -->
@@ -870,12 +877,14 @@
       <p style="margin-top:16px;color:var(--text-muted);font-size:16px;">Venha nos visitar. Estamos esperando por você
         com a brasa sempre acesa.</p>
     </div>
-    <div class="unidades-grid">
+    <div class="mobile-carousel-viewport">
+    <div class="unidades-grid" data-mobile-carousel>
       <div class="unit-card reveal">
         <div class="unit-img-placeholder"
           style="background:url('https://gelobel.com.br/wp-content/uploads/2020/02/don_pablo_2020.jpg') center/cover;height:180px;filter:brightness(0.7);">
         </div>
         <div class="unit-body">
+          <div class="unit-content">
           <div class="unit-badge">Londrina</div>
           <div class="unit-name">Don Pablo</div>
           <div class="unit-info">
@@ -897,6 +906,7 @@
             </div>
             <p>Seg–Sex: 11h às 14h30 · 17h às 23h30<br>Sábado: 11h às 23h30<br>Domingo: 11h às 15h</p>
           </div>
+          </div>
           <a href="https://maps.app.goo.gl/syN26DvLrNNTuykP9" target="_blank" class="unit-btn">Ver no Google
             Maps ↗</a>
         </div>
@@ -906,6 +916,7 @@
           style="background:url('https://gelobel.com.br/wp-content/uploads/2020/03/DSC_1174.jpg') center/cover;height:180px;filter:brightness(0.7);">
         </div>
         <div class="unit-body">
+          <div class="unit-content">
           <div class="unit-badge">Londrina</div>
           <div class="unit-name">Catuaí</div>
           <div class="unit-info">
@@ -927,6 +938,7 @@
             </div>
             <p>Segunda a Domingo: 11h às 20h</p>
           </div>
+          </div>
           <a href="https://maps.app.goo.gl/KufUVnjPaDiF4k7r6" target="_blank" class="unit-btn">Ver
             no Google Maps ↗</a>
         </div>
@@ -936,6 +948,7 @@
           style="background:url('https://gelobel.com.br/wp-content/uploads/2020/02/duque_2020.jpg') center/cover;height:180px;filter:brightness(0.7);">
         </div>
         <div class="unit-body">
+          <div class="unit-content">
           <div class="unit-badge">Londrina</div>
           <div class="unit-name">Duque</div>
           <div class="unit-info">
@@ -957,6 +970,7 @@
             </div>
             <p>Seg–Sex: 11h às 14h30 · 17h às 23h30<br>Sábado: 11h às 23h30<br>Domingo: Fechado</p>
           </div>
+          </div>
           <a href="https://maps.app.goo.gl/Xr9NJ9yDAwGKe41e9" target="_blank" class="unit-btn">Ver no
             Google Maps ↗</a>
         </div>
@@ -966,6 +980,7 @@
           style="background:url('https://gelobel.com.br/wp-content/uploads/2020/02/boulevard_2020.jpg') center/cover;height:180px;filter:brightness(0.7);">
         </div>
         <div class="unit-body">
+          <div class="unit-content">
           <div class="unit-badge">Londrina</div>
           <div class="unit-name">Boulevard</div>
           <div class="unit-info">
@@ -987,6 +1002,7 @@
             </div>
             <p>Segunda a Domingo: 11h às 20h</p>
           </div>
+          </div>
           <a href="https://maps.app.goo.gl/HqtdcA2xVSxQ4Wj97" target="_blank" class="unit-btn">Ver
             no Google Maps ↗</a>
         </div>
@@ -996,6 +1012,7 @@
           style="background:url('https://gelobel.com.br/wp-content/uploads/2020/01/gelobel_curitiba.jpg') center/cover;height:180px;filter:brightness(0.7);">
         </div>
         <div class="unit-body">
+          <div class="unit-content">
           <div class="unit-badge">Curitiba</div>
           <div class="unit-name">Curitiba</div>
           <div class="unit-info">
@@ -1017,6 +1034,7 @@
             </div>
             <p>Seg–Sáb: 12h às 22h<br>Domingo: 12h às 20h</p>
           </div>
+          </div>
           <a href="https://maps.app.goo.gl/8HfGMkWghPfuPrSg6" target="_blank" class="unit-btn">Ver no
             Google Maps ↗</a>
         </div>
@@ -1026,6 +1044,7 @@
           style="background:url('https://gelobel.com.br/wp-content/uploads/2020/02/delivery_2020.jpg') center/cover;height:180px;filter:brightness(0.7);">
         </div>
         <div class="unit-body">
+          <div class="unit-content">
           <div class="unit-badge">Londrina · Delivery</div>
           <div class="unit-name">Delivery</div>
           <div class="unit-info">
@@ -1047,10 +1066,17 @@
             </div>
             <p>Seg–Sáb: 11h às 15h · 18h às 23h<br>Domingo: Fechado</p>
           </div>
+          </div>
           <a href="https://maps.app.goo.gl/xkNoDvnKyoCqHsih8" target="_blank" class="unit-btn">Ver no Google
             Maps ↗</a>
         </div>
       </div>
+    </div>
+    </div>
+    <div class="mobile-carousel-controls" data-carousel-controls>
+      <button type="button" class="mobile-carousel-arrow" data-carousel-prev aria-label="Ver unidade anterior">&lsaquo;</button>
+      <span class="mobile-carousel-status" data-carousel-status>1 / 6</span>
+      <button type="button" class="mobile-carousel-arrow" data-carousel-next aria-label="Ver próxima unidade">&rsaquo;</button>
     </div>
   </section>
 

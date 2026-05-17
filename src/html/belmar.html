@@ -122,7 +122,8 @@
     <span class="exp-eyebrow"><span class="accent-line"></span>Gastronomia<span class="accent-line" style="margin-left:12px;margin-right:0"></span></span>
     <h2 class="exp-title">Uma <em>experiência</em><br>sensorial completa</h2>
   </div>
-  <div class="exp-grid">
+  <div class="mobile-carousel-viewport">
+  <div class="exp-grid" data-mobile-carousel>
 
     <div class="exp-card reveal" style="transition-delay:0s">
       <img class="exp-card-img" src="../img-belmar/1.jpg" alt="Sushi Premium Belmar">
@@ -190,6 +191,12 @@
       </div>
     </div>
 
+  </div>
+  </div>
+  <div class="mobile-carousel-controls" data-carousel-controls>
+    <button type="button" class="mobile-carousel-arrow" data-carousel-prev aria-label="Ver foto anterior">&lsaquo;</button>
+    <span class="mobile-carousel-status" data-carousel-status>1 / 6</span>
+    <button type="button" class="mobile-carousel-arrow" data-carousel-next aria-label="Ver proxima foto">&rsaquo;</button>
   </div>
 </section>
 
@@ -374,15 +381,79 @@
     <span class="amb-eyebrow"><span class="accent-line"></span>Espaço<span class="accent-line" style="margin-left:12px;margin-right:0"></span></span>
     <h2 class="amb-title">O <em>Ambiente</em></h2>
   </div>
-  <div class="masonry">
-    <div class="masonry-item m1"><div class="masonry-img img-placeholder"><div class="img-placeholder-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Ambiente</span></div></div></div>
-    <div class="masonry-item m2"><div class="masonry-img img-placeholder"><div class="img-placeholder-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Pratos</span></div></div></div>
-    <div class="masonry-item m3"><div class="masonry-img img-placeholder"><div class="img-placeholder-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Detalhes</span></div></div></div>
-    <div class="masonry-item m4"><div class="masonry-img img-placeholder"><div class="img-placeholder-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Bar</span></div></div></div>
-    <div class="masonry-item m5"><div class="masonry-img img-placeholder"><div class="img-placeholder-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Iluminação</span></div></div></div>
-    <div class="masonry-item m6"><div class="masonry-img img-placeholder"><div class="img-placeholder-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Gastronomia</span></div></div></div>
-    <div class="masonry-item m7"><div class="masonry-img img-placeholder"><div class="img-placeholder-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Mesa</span></div></div></div>
-    <div class="masonry-item m8"><div class="masonry-img img-placeholder"><div class="img-placeholder-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Drinks</span></div></div></div>
+  <div class="mobile-carousel-viewport">
+  <div class="exp-grid" data-mobile-carousel>
+    <div class="exp-card reveal" style="transition-delay:0s">
+      <img class="exp-card-img" src="../img-belmar/pesca.jpg" alt="Salão principal do Belmar">
+      <div class="exp-card-overlay"></div>
+      <div class="glass-tag">Ambiente</div>
+      <div class="exp-card-content">
+        <span class="exp-card-tag">Espaço</span>
+        <h3 class="exp-card-name">Salão principal</h3>
+        <p class="exp-card-desc">Um ambiente amplo, elegante e pensado para uma experiência mais contemplativa.</p>
+      </div>
+    </div>
+
+    <div class="exp-card reveal" style="transition-delay:0.08s">
+      <img class="exp-card-img" src="../img-belmar/drinks.jpg" alt="Bar e drinks do Belmar">
+      <div class="exp-card-overlay"></div>
+      <div class="glass-tag">Bar</div>
+      <div class="exp-card-content">
+        <span class="exp-card-tag">Assinatura</span>
+        <h3 class="exp-card-name">Coquetelaria</h3>
+        <p class="exp-card-desc">Drinks autorais e apresentação refinada para acompanhar a experiência da casa.</p>
+      </div>
+    </div>
+
+    <div class="exp-card reveal" style="transition-delay:0.16s">
+      <img class="exp-card-img" src="../img-belmar/1.jpg" alt="Seleção de sushis do Belmar">
+      <div class="exp-card-overlay"></div>
+      <div class="glass-tag">Mesa</div>
+      <div class="exp-card-content">
+        <span class="exp-card-tag">Detalhes</span>
+        <h3 class="exp-card-name">Apresentação</h3>
+        <p class="exp-card-desc">Peças montadas com precisão e uma estética que valoriza cada detalhe do serviço.</p>
+      </div>
+    </div>
+
+    <div class="exp-card reveal" style="transition-delay:0.24s">
+      <img class="exp-card-img" src="../img-belmar/sashimi.jpg" alt="Sashimi servido no Belmar">
+      <div class="exp-card-overlay"></div>
+      <div class="glass-tag">Fresco</div>
+      <div class="exp-card-content">
+        <span class="exp-card-tag">Cozinha</span>
+        <h3 class="exp-card-name">Cortes nobres</h3>
+        <p class="exp-card-desc">Ingredientes selecionados e finalização delicada para destacar textura e frescor.</p>
+      </div>
+    </div>
+
+    <div class="exp-card reveal" style="transition-delay:0.32s">
+      <img class="exp-card-img" src="../img-belmar/2.jpg" alt="Experiência omakase do Belmar">
+      <div class="exp-card-overlay"></div>
+      <div class="glass-tag">Omakase</div>
+      <div class="exp-card-content">
+        <span class="exp-card-tag">Experiência</span>
+        <h3 class="exp-card-name">Serviço guiado</h3>
+        <p class="exp-card-desc">Uma condução mais autoral, com ritmo e apresentação alinhados à proposta da casa.</p>
+      </div>
+    </div>
+
+    <div class="exp-card reveal" style="transition-delay:0.40s">
+      <img class="exp-card-img" src="../img-belmar/4.jpg" alt="Entrada servida no Belmar">
+      <div class="exp-card-overlay"></div>
+      <div class="glass-tag">Entrada</div>
+      <div class="exp-card-content">
+        <span class="exp-card-tag">Recepção</span>
+        <h3 class="exp-card-name">Primeiras impressões</h3>
+        <p class="exp-card-desc">Aberturas leves e elegantes que reforçam o tom sofisticado do ambiente.</p>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="mobile-carousel-controls" data-carousel-controls>
+    <button type="button" class="mobile-carousel-arrow" data-carousel-prev aria-label="Ver foto anterior">&lsaquo;</button>
+    <span class="mobile-carousel-status" data-carousel-status>1 / 6</span>
+    <button type="button" class="mobile-carousel-arrow" data-carousel-next aria-label="Ver proxima foto">&rsaquo;</button>
   </div>
 </section>
 

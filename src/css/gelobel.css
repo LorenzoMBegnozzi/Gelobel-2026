@@ -1552,6 +1552,62 @@
       transform: scale(1.06);
     }
 
+    .mobile-carousel-viewport {
+      width: 100%;
+      position: relative;
+    }
+
+    .mobile-carousel-controls {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .mobile-carousel-arrow {
+      width: 48px;
+      height: 48px;
+      border-radius: 999px;
+      border: 1px solid rgba(200, 146, 42, 0.24);
+      background: linear-gradient(180deg, rgba(200, 146, 42, 0.18), rgba(245, 239, 224, 0.05));
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+      color: var(--cream);
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1;
+      cursor: pointer;
+      transition: transform 0.25s ease, background 0.3s ease, border-color 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .mobile-carousel-arrow:hover {
+      transform: translateY(-1px);
+      background: linear-gradient(180deg, rgba(200, 146, 42, 0.28), rgba(245, 239, 224, 0.08));
+      border-color: rgba(200, 146, 42, 0.46);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.24);
+    }
+
+    .mobile-carousel-arrow:disabled {
+      opacity: 0.32;
+      cursor: default;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .mobile-carousel-status {
+      min-width: 78px;
+      text-align: center;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(200, 146, 42, 0.18);
+      background: rgba(10, 10, 10, 0.28);
+      backdrop-filter: blur(10px);
+      font-size: 0.68rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
     /* UNIDADES */
     .unidades {
       background: var(--charcoal-3);
@@ -1570,6 +1626,7 @@
       max-width: 1200px;
       margin: 0 auto;
       align-items: stretch;
+      grid-auto-rows: 1fr;
     }
 
     .unit-card {
@@ -1579,6 +1636,8 @@
       transition: transform 0.3s;
       display: flex;
       flex-direction: column;
+      min-height: 620px;
+      height: 620px;
     }
 
     .unit-card:hover {
@@ -1612,6 +1671,15 @@
       display: flex;
       flex-direction: column;
       flex: 1;
+      gap: 24px;
+    }
+
+    .unit-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+      flex: 1;
     }
 
     .unit-name {
@@ -1635,7 +1703,6 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
-      margin-bottom: 20px;
     }
 
     .unit-info-row {
@@ -1667,7 +1734,6 @@
     .unit-hours {
       background: rgba(200, 146, 42, 0.06);
       padding: 16px;
-      margin-bottom: 20px;
       border-left: 2px solid rgba(200, 146, 42, 0.3);
     }
 
@@ -1714,7 +1780,6 @@
       text-decoration: none;
       transition: all 0.3s;
       font-family: 'DM Sans', sans-serif;
-      margin-top: auto;
     }
 
     .unit-btn:hover {
@@ -2106,9 +2171,35 @@
         grid-template-columns: 1fr;
       }
 
+      .mobile-carousel-viewport {
+        overflow: hidden;
+        touch-action: pan-y;
+      }
+
+      [data-mobile-carousel]>.reveal {
+        opacity: 1;
+        transform: none;
+      }
+
+      [data-mobile-carousel] {
+        display: block;
+      }
+
+      [data-mobile-carousel]>* {
+        display: none;
+      }
+
+      [data-mobile-carousel]>.is-active {
+        display: block;
+        animation: mobileCardIn 0.42s ease both;
+      }
+
+      [data-mobile-carousel]>.is-active.is-backward {
+        animation-name: mobileCardInBackward;
+      }
+
       .gallery-grid {
-        display: flex;
-        flex-direction: column;
+        display: block;
       }
 
       .g1,
@@ -2118,6 +2209,19 @@
       .g5,
       .g6 {
         height: 240px;
+      }
+
+      .unit-card {
+        min-height: 620px;
+        height: 620px;
+      }
+
+      .unit-body {
+        gap: 20px;
+      }
+
+      .mobile-carousel-controls {
+        display: flex;
       }
 
       .category-tabs {
@@ -2133,6 +2237,30 @@
         height: 220px;
       }
 
+
+    @keyframes mobileCardIn {
+      from {
+        opacity: 0;
+        transform: translateX(22px) scale(0.985);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+      }
+    }
+
+    @keyframes mobileCardInBackward {
+      from {
+        opacity: 0;
+        transform: translateX(-22px) scale(0.985);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+      }
+    }
       .cat-tab {
         padding: 12px 16px;
         font-size: 11px;

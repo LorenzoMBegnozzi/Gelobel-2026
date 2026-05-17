@@ -96,6 +96,109 @@
       }
     });
 
+    function initMobileCardCarousels() {
+      const mobileQuery = window.matchMedia('(max-width: 640px)');
+      const carousels = Array.from(document.querySelectorAll('[data-mobile-carousel]')).map((grid) => {
+        const section = grid.closest('section');
+        const viewport = grid.closest('.mobile-carousel-viewport');
+        const controls = section?.querySelector('[data-carousel-controls]');
+        const prevButton = controls?.querySelector('[data-carousel-prev]');
+        const nextButton = controls?.querySelector('[data-carousel-next]');
+        const status = controls?.querySelector('[data-carousel-status]');
+        const cards = Array.from(grid.children);
+
+        return { grid, viewport, prevButton, nextButton, status, cards, index: 0, direction: 'forward' };
+      });
+
+      function goToPrev(carousel) {
+        if (!mobileQuery.matches || carousel.index === 0) return;
+        carousel.direction = 'backward';
+        carousel.index -= 1;
+        renderCarousel(carousel);
+      }
+
+      function goToNext(carousel) {
+        if (!mobileQuery.matches || carousel.index >= carousel.cards.length - 1) return;
+        carousel.direction = 'forward';
+        carousel.index += 1;
+        renderCarousel(carousel);
+      }
+
+      function renderCarousel(carousel) {
+        const total = carousel.cards.length;
+
+        if (!mobileQuery.matches) {
+          carousel.index = 0;
+          carousel.cards.forEach((card) => card.classList.remove('is-active', 'is-backward'));
+          if (carousel.status) carousel.status.textContent = `1 / ${total}`;
+          if (carousel.prevButton) carousel.prevButton.disabled = false;
+          if (carousel.nextButton) carousel.nextButton.disabled = false;
+          return;
+        }
+
+        carousel.cards.forEach((card, cardIndex) => {
+          const isActive = cardIndex === carousel.index;
+          card.classList.toggle('is-active', isActive);
+          card.classList.toggle('is-backward', isActive && carousel.direction === 'backward');
+        });
+
+        if (carousel.status) carousel.status.textContent = `${carousel.index + 1} / ${total}`;
+        if (carousel.prevButton) carousel.prevButton.disabled = carousel.index === 0;
+        if (carousel.nextButton) carousel.nextButton.disabled = carousel.index === total - 1;
+      }
+
+      carousels.forEach((carousel) => {
+        if (carousel.prevButton) {
+          carousel.prevButton.addEventListener('click', () => goToPrev(carousel));
+        }
+
+        if (carousel.nextButton) {
+          carousel.nextButton.addEventListener('click', () => goToNext(carousel));
+        }
+
+        if (carousel.viewport) {
+          let startX = 0;
+          let startY = 0;
+
+          carousel.viewport.addEventListener('touchstart', (event) => {
+            const touch = event.changedTouches[0];
+            startX = touch.clientX;
+            startY = touch.clientY;
+          }, { passive: true });
+
+          carousel.viewport.addEventListener('touchend', (event) => {
+            if (!mobileQuery.matches) return;
+
+            const touch = event.changedTouches[0];
+            const deltaX = touch.clientX - startX;
+            const deltaY = touch.clientY - startY;
+
+            if (Math.abs(deltaX) < 45 || Math.abs(deltaX) <= Math.abs(deltaY)) {
+              return;
+            }
+
+            if (deltaX < 0) {
+              goToNext(carousel);
+            } else {
+              goToPrev(carousel);
+            }
+          }, { passive: true });
+        }
+
+        renderCarousel(carousel);
+      });
+
+      const rerender = () => carousels.forEach(renderCarousel);
+      if (typeof mobileQuery.addEventListener === 'function') {
+        mobileQuery.addEventListener('change', rerender);
+      } else {
+        mobileQuery.addListener(rerender);
+      }
+      window.addEventListener('resize', rerender);
+    }
+
+    initMobileCardCarousels();
+
     function selectYear(item, targetId) {
       document.querySelectorAll('.vtl-year-item').forEach(i => i.classList.remove('active'));
       document.querySelectorAll('.vtl-panel').forEach(p => { p.classList.remove('active'); });
