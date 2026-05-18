@@ -1,7 +1,36 @@
+@font-face {
+  font-family: 'The Seasons';
+  src: url('../fonts/the-seasons-regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'The Seasons';
+  src: url('../fonts/the-seasons-italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Salvatore';
+  src: url('../fonts/salvatore.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* ── Brand exact colors ── */
   --brand-green: #546150;
   --brand-cream: #F0E8D5;
+
+  --font-body: 'Barlow', sans-serif;
+  --font-logo: 'The Seasons', serif;
+  --font-quote: 'Salvatore', serif;
+  --font-price: 'Cormorant Garamond', serif;
 
   /* ── Green scale (derived from #546150) ── */
   --olive: #546150;
@@ -38,7 +67,7 @@ html {
 body {
   background: var(--ink);
   color: var(--cream);
-  font-family: 'Jost', sans-serif;
+  font-family: var(--font-body);
   font-weight: 300;
   overflow-x: hidden;
   cursor: auto;
@@ -117,7 +146,7 @@ body.page-transitioning {
 #loader.hidden { opacity: 0; visibility: hidden; }
 
 .loader-logo {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-logo);
   font-size: 3rem;
   font-weight: 300;
   letter-spacing: 12px;
@@ -158,7 +187,7 @@ nav.scrolled {
   border-bottom: 1px solid var(--glass-border);
 }
 .nav-logo {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-logo);
   font-size: 1.5rem;
   font-weight: 400;
   letter-spacing: 6px;
@@ -308,7 +337,7 @@ nav.scrolled {
 }
 
 .hero-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-logo);
   font-size: clamp(5rem, 12vw, 11rem);
   font-weight: 300;
   line-height: 1;
@@ -404,7 +433,7 @@ nav.scrolled {
   color: rgba(168,180,154,0.25); z-index: 1;
 }
 .img-placeholder-inner svg { width: 36px; height: 36px; }
-.img-placeholder-inner span { font-size: 0.6rem; letter-spacing: 4px; text-transform: uppercase; font-family: 'Jost', sans-serif; }
+.img-placeholder-inner span { font-size: 0.6rem; letter-spacing: 4px; text-transform: uppercase; font-family: var(--font-body); }
 
 /* SOBRE */
 #sobre {
@@ -445,7 +474,7 @@ nav.scrolled {
   color: var(--olive); margin-bottom: 20px; display: block;
 }
 .sobre-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-body);
   font-size: clamp(2.4rem, 4vw, 4rem);
   font-weight: 400;
   line-height: 1.1;
@@ -463,8 +492,8 @@ nav.scrolled {
   background: rgba(84,97,80,0.07);
 }
 .sobre-quote p {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.3rem; font-weight: 400; font-style: italic;
+  font-family: var(--font-quote);
+  font-size: 3.5rem; font-weight: 400; font-style: italic;
   color: var(--charcoal); line-height: 1.6;
 }
 
@@ -479,7 +508,7 @@ nav.scrolled {
 }
 .exp-eyebrow { font-size: 0.6rem; letter-spacing: 6px; text-transform: uppercase; color: var(--olive-light); margin-bottom: 20px; display: block; }
 .exp-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-body);
   font-size: clamp(2.4rem, 4vw, 4rem);
   font-weight: 300; color: var(--cream);
   line-height: 1.1;
@@ -527,7 +556,7 @@ nav.scrolled {
   color: var(--sage); margin-bottom: 8px; display: block;
 }
 .exp-card-name {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-body);
   font-size: 1.6rem; font-weight: 400;
   color: var(--cream); line-height: 1.2; margin-bottom: 8px;
 }
@@ -616,7 +645,7 @@ nav.scrolled {
 .rod-header { margin-bottom: 80px; }
 .rod-eyebrow { font-size: 0.6rem; letter-spacing: 6px; text-transform: uppercase; color: var(--olive); margin-bottom: 20px; display: block; }
 .rod-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-body);
   font-size: clamp(2.4rem, 4vw, 4rem);
   font-weight: 400; color: var(--charcoal);
   line-height: 1.1; max-width: 500px;
@@ -637,7 +666,7 @@ nav.scrolled {
   background: var(--brand-green);
 }
 .rod-table-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-body);
   font-size: 1.7rem; font-weight: 400; font-style: italic;
   color: var(--sage); margin-bottom: 36px;
 }
@@ -650,7 +679,7 @@ nav.scrolled {
 .rod-item-label { font-size: 0.9rem; color: var(--bege); line-height: 1.55; }
 .rod-item-sub { font-size: 0.72rem; color: var(--olive-light); display: block; margin-top: 3px; }
 .rod-item-price {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-price);
   font-size: 2rem; font-weight: 300;
   color: var(--cream); letter-spacing: -1px; flex-shrink: 0; padding-left: 20px;
 }
@@ -659,7 +688,7 @@ nav.scrolled {
   background: var(--brand-green); padding: 56px 52px;
   display: flex; flex-direction: column; justify-content: center;
 }
-.rod-info-title { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 400; color: var(--cream); margin-bottom: 28px; font-style: italic; }
+.rod-info-title { font-family: var(--font-body); font-size: 1.35rem; font-weight: 400; color: var(--cream); margin-bottom: 28px; font-style: italic; }
 .rod-info-item { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px; }
 .rod-info-icon { color: var(--sage); margin-top: 2px; flex-shrink: 0; }
 .rod-info-text { font-size: 0.9rem; color: rgba(245,240,232,0.75); line-height: 1.75; }
@@ -680,7 +709,7 @@ nav.scrolled {
 .rod-infantil .rod-item-label { color: #6A6355; }
 .rod-infantil .rod-item-sub { color: var(--olive); }
 .rod-infantil .rod-item-price { color: var(--charcoal); }
-.rod-infantil .rod-cortesia { font-size: 1rem; color: var(--olive); font-style: italic; font-family: 'Cormorant Garamond', serif; }
+.rod-infantil .rod-cortesia { font-size: 1rem; color: var(--olive); font-style: italic; font-family: var(--font-body); }
 
 /* CARDAPIO */
 #cardapio {
@@ -690,7 +719,7 @@ nav.scrolled {
 .card-header { text-align: center; margin-bottom: 80px; }
 .card-eyebrow { font-size: 0.6rem; letter-spacing: 6px; text-transform: uppercase; color: var(--olive-light); margin-bottom: 20px; display: block; }
 .card-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-body);
   font-size: clamp(2.4rem, 4vw, 4rem);
   font-weight: 300; color: var(--cream); line-height: 1.1;
 }
@@ -703,7 +732,7 @@ nav.scrolled {
 }
 .card-tab {
   background: none; border: none; cursor: pointer;
-  font-family: 'Jost', sans-serif; font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase;
+  font-family: var(--font-body); font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase;
   color: var(--olive-light); padding: 14px 28px; transition: all 0.3s;
   position: relative;
 }
@@ -739,7 +768,7 @@ nav.scrolled {
 
 .menu-card-body { padding: 28px 28px 32px; }
 .menu-card-name {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-body);
   font-size: 1.3rem; font-weight: 400; color: var(--cream);
   margin-bottom: 8px; line-height: 1.2;
 }
@@ -754,7 +783,7 @@ nav.scrolled {
 .hor-header { margin-bottom: 80px; }
 .hor-eyebrow { font-size: 0.6rem; letter-spacing: 6px; text-transform: uppercase; color: var(--olive); margin-bottom: 20px; display: block; }
 .hor-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-body);
   font-size: clamp(2.4rem, 4vw, 4rem);
   font-weight: 400; color: var(--charcoal);
   line-height: 1.1; max-width: 500px;
@@ -771,14 +800,14 @@ nav.scrolled {
 .hor-card::before {
   content: attr(data-num);
   position: absolute; top: -10px; right: 28px;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-body);
   font-size: 8rem; font-weight: 300;
   color: rgba(250,248,244,0.03); line-height: 1;
   pointer-events: none;
 }
 .hor-card-icon { font-size: 1.2rem; margin-bottom: 20px; opacity: 0.6; }
 .hor-card-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-body);
   font-size: 1.45rem; font-weight: 400; font-style: italic;
   color: var(--sage); margin-bottom: 20px;
 }
@@ -793,7 +822,7 @@ nav.scrolled {
 .amb-header { text-align: center; margin-bottom: 80px; }
 .amb-eyebrow { font-size: 0.6rem; letter-spacing: 6px; text-transform: uppercase; color: var(--olive-light); margin-bottom: 20px; display: block; }
 .amb-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-body);
   font-size: clamp(2.4rem, 4vw, 4rem);
   font-weight: 300; color: var(--cream); line-height: 1.1;
 }
@@ -933,7 +962,7 @@ nav.scrolled {
   color: var(--olive-light);
 }
 .noticia-belmar-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-body);
   font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 300;
   line-height: 1.08;
@@ -965,7 +994,7 @@ nav.scrolled {
 .reservas-content { position: relative; z-index: 2; max-width: 700px; margin: 0 auto; }
 .reservas-eyebrow { font-size: 0.6rem; letter-spacing: 6px; text-transform: uppercase; color: rgba(245,240,232,0.5); margin-bottom: 28px; display: block; }
 .reservas-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-body);
   font-size: clamp(2.8rem, 5vw, 5rem);
   font-weight: 300; color: var(--cream); line-height: 1.1; margin-bottom: 24px;
 }
@@ -979,39 +1008,39 @@ nav.scrolled {
 /* FOOTER */
 footer {
   background: #0E0D0B;
-  padding: 80px 60px 40px;
+  padding: 46px 60px 20px;
   border-top: 1px solid rgba(250,248,244,0.06);
 }
 .footer-top {
-  max-width: 1300px; margin: 0 auto;
-  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px;
-  margin-bottom: 60px;
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 30px;
+  margin-bottom: 28px;
 }
 .footer-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.6rem; font-weight: 300; letter-spacing: 6px;
+  font-family: var(--font-logo);
+  font-size: 2rem; font-weight: 300; letter-spacing: 6px;
   color: var(--cream); text-transform: uppercase; margin-bottom: 16px; display: block;
 }
-.footer-tagline { font-size: 0.7rem; letter-spacing: 2px; color: var(--olive-light); margin-bottom: 24px; font-style: italic; font-family: 'Cormorant Garamond', serif; }
-.footer-p { font-size: 0.78rem; color: rgba(168,180,154,0.6); line-height: 1.8; }
+.footer-tagline { font-size: 0.65rem; letter-spacing: 2px; color: var(--olive-light); margin-bottom: 16px; font-style: italic; font-family: var(--font-body); }
+.footer-p { font-size: 0.8125rem; color: rgba(168,180,154,0.6); line-height: 1.6; }
 
-.footer-col h4 { font-size: 0.6rem; letter-spacing: 4px; text-transform: uppercase; color: var(--olive-light); margin-bottom: 20px; }
-.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.footer-col ul li a { font-size: 0.78rem; color: rgba(245,240,232,0.5); text-decoration: none; transition: color 0.3s; }
+.footer-col h4 { font-size: 0.625rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--olive-light); margin-bottom: 12px; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.footer-col ul li a { font-size: 0.8125rem; color: rgba(245,240,232,0.5); text-decoration: none; transition: color 0.3s; }
 .footer-col ul li a:hover { color: var(--sage); }
-.footer-col .contact p { font-size: 0.78rem; color: rgba(245,240,232,0.5); line-height: 1.9; }
+.footer-col .contact p { font-size: 0.8125rem; color: rgba(245,240,232,0.5); line-height: 1.6; }
 .footer-col .contact strong { color: var(--sage); font-weight: 400; display: block; margin-top: 12px; }
 
-.footer-social { display: flex; gap: 12px; margin-top: 28px; }
+.footer-social { display: flex; gap: 10px; margin-top: 14px; }
 .footer-social a {
-  width: 36px; height: 36px; border: 1px solid rgba(168,180,154,0.2);
+  width: 34px; height: 34px; border: 1px solid rgba(168,180,154,0.2);
   display: flex; align-items: center; justify-content: center;
-  color: var(--olive-light); text-decoration: none; font-size: 0.75rem;
-  transition: all 0.3s; font-family: 'Jost', sans-serif;
+  color: var(--olive-light); text-decoration: none; font-size: 0.875rem;
+  transition: all 0.3s; font-family: var(--font-body);
 }
 .footer-social a svg {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   stroke: currentColor;
   fill: none;
   stroke-width: 1.8;
@@ -1021,11 +1050,11 @@ footer {
 .footer-social a:hover { border-color: var(--sage); color: var(--sage); }
 
 .footer-bottom {
-  max-width: 1300px; margin: 0 auto; padding-top: 28px;
+  max-width: 1200px; margin: 0 auto; padding-top: 18px;
   border-top: 1px solid rgba(250,248,244,0.05);
   display: flex; justify-content: space-between; align-items: center;
 }
-.footer-bottom p { font-size: 0.68rem; color: rgba(168,180,154,0.3); letter-spacing: 1px; }
+.footer-bottom p { font-size: 0.75rem; color: rgba(168,180,154,0.3); letter-spacing: 0; }
 .footer-contact-row {
   display: flex;
   align-items: flex-start;
@@ -1052,9 +1081,9 @@ footer {
 }
 .footer-contact-value,
 .footer-contact-value a {
-  font-size: 0.78rem;
+  font-size: 0.8125rem;
   color: rgba(245,240,232,0.5);
-  line-height: 1.9;
+  line-height: 1.6;
   text-decoration: none;
 }
 .footer-contact-value strong {
@@ -1072,8 +1101,8 @@ footer {
   border: 1px solid rgba(168,180,154,0.2);
   color: var(--cream);
   text-decoration: none;
-  font-size: 0.68rem;
-  letter-spacing: 2px;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
   text-transform: uppercase;
   transition: border-color 0.3s ease, color 0.3s ease, background 0.3s ease;
 }
@@ -1212,7 +1241,7 @@ footer {
 /* SCROLL indicator */
 .section-number {
   position: absolute; left: 60px; top: 160px;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-body);
   font-size: 0.7rem; font-weight: 300; letter-spacing: 2px;
   color: rgba(250,248,244,0.15);
   writing-mode: vertical-rl;
