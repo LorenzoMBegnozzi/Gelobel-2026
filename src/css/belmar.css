@@ -852,6 +852,100 @@ nav.scrolled {
 .m8 .masonry-photo { object-position: center 32%; }
 
 /* CTA */
+#noticias {
+  padding: 140px 60px 110px;
+  background: linear-gradient(180deg, #171a14 0%, #20241c 100%);
+  position: relative;
+  overflow: hidden;
+}
+#noticias::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(138,158,133,0.1), transparent 34%);
+  pointer-events: none;
+}
+.noticias-belmar-header {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+.noticias-belmar-sub {
+  font-size: 0.82rem;
+  color: rgba(245,240,232,0.6);
+  line-height: 1.9;
+  max-width: 620px;
+  margin: 0 auto;
+}
+.noticias-belmar-grid {
+  position: relative;
+  z-index: 1;
+  max-width: 980px;
+  margin: 0 auto;
+}
+.noticia-belmar-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+.noticia-belmar-card {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.95fr) minmax(0, 1.05fr);
+  min-height: 420px;
+  background: rgba(240,232,213,0.03);
+  border: 1px solid rgba(240,232,213,0.1);
+  box-shadow: 0 28px 80px rgba(0,0,0,0.22);
+  overflow: hidden;
+  transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+}
+.noticia-belmar-link:hover .noticia-belmar-card,
+.noticia-belmar-link:focus-visible .noticia-belmar-card {
+  transform: translateY(-8px);
+  border-color: rgba(138,158,133,0.32);
+  background: rgba(240,232,213,0.05);
+}
+.noticia-belmar-link:focus-visible {
+  outline: none;
+}
+.noticia-belmar-thumb {
+  min-height: 100%;
+  position: relative;
+}
+.noticia-belmar-thumb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(24,28,22,0.04), rgba(24,28,22,0.48));
+}
+.noticia-belmar-body {
+  padding: 42px 38px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+.noticia-belmar-meta {
+  font-size: 0.58rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--olive-light);
+}
+.noticia-belmar-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 300;
+  line-height: 1.08;
+  color: var(--cream);
+}
+.noticia-belmar-excerpt {
+  font-size: 0.82rem;
+  color: rgba(245,240,232,0.62);
+  line-height: 1.9;
+  max-width: 520px;
+}
+
 #reservas {
   padding: 200px 60px;
   background: var(--moss);
@@ -1016,7 +1110,7 @@ footer {
   .nav-brand-divider { display: none; }
   .nav-brand-gelobel { padding: 8px 12px; }
   .nav-brand-gelobel img { width: 118px; max-width: 32vw; }
-  section, #sobre, #experiencia, #rodizio, #cardapio, #horarios, #ambiente, #reservas { padding: 100px 28px; }
+  section, #sobre, #experiencia, #rodizio, #cardapio, #horarios, #ambiente, #noticias, #reservas { padding: 100px 28px; }
   .sobre-inner { grid-template-columns: 1fr; gap: 60px; }
   .sobre-img-accent { display: none; }
   .sobre-img-main { width: 100%; }
@@ -1033,6 +1127,9 @@ footer {
   .hero-kanji { display: none; }
   body { cursor: auto; }
   .card-tab { padding: 12px 16px; }
+  .noticia-belmar-card { grid-template-columns: 1fr; min-height: 0; }
+  .noticia-belmar-thumb { min-height: 300px; }
+  .noticia-belmar-body { padding: 30px 26px; }
 }
 @media (max-width: 600px) {
   .mobile-carousel-viewport {
@@ -1078,6 +1175,10 @@ footer {
   .hero-btns { flex-direction: column; align-items: center; }
   .nav-brand-gelobel { padding: 8px 10px; }
   .nav-brand-gelobel img { width: 100px; }
+  .noticia-belmar-thumb { min-height: 220px; }
+  .noticia-belmar-body { padding: 24px 20px; }
+  .noticia-belmar-title { font-size: 2rem; }
+  .noticia-belmar-excerpt { font-size: 0.78rem; line-height: 1.75; }
 }
 
 @keyframes mobileCardIn {
