@@ -777,34 +777,103 @@
       position: relative;
     }
 
-    .sobre-img-placeholder {
+    .sobre-carousel {
       width: 100%;
       aspect-ratio: 4/5;
-      background: linear-gradient(135deg, var(--charcoal-3), var(--wood));
-      display: flex;
-      align-items: center;
-      justify-content: center;
       position: relative;
       overflow: hidden;
+      background: linear-gradient(135deg, var(--charcoal-3), var(--wood));
+      border: 1px solid rgba(200, 146, 42, 0.12);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.26);
     }
 
-    .sobre-img-placeholder::after {
+    .sobre-carousel-track {
+      position: absolute;
+      inset: 0;
+    }
+
+    .sobre-slide {
+      position: absolute;
+      inset: 0;
+      margin: 0;
+      opacity: 0;
+      transform: scale(1.04);
+      transition: opacity 0.75s ease, transform 0.9s ease;
+    }
+
+    .sobre-slide.is-active {
+      opacity: 1;
+      transform: scale(1);
+      z-index: 1;
+    }
+
+    .sobre-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.95) brightness(0.78);
+    }
+
+    .sobre-slide::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80') center/cover;
-      opacity: 0.7;
+      background: linear-gradient(180deg, rgba(13, 12, 10, 0.06), rgba(13, 12, 10, 0.38));
     }
 
-    .img-accent {
+    .sobre-carousel-controls {
       position: absolute;
-      bottom: -24px;
-      right: -24px;
-      width: 55%;
-      aspect-ratio: 4/3;
-      background: url('https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=600&q=80') center/cover;
-      border: 4px solid var(--charcoal-2);
+      left: 22px;
+      right: 22px;
+      bottom: 22px;
       z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .sobre-carousel-arrow {
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: 1px solid rgba(245, 239, 224, 0.22);
+      background: rgba(13, 12, 10, 0.45);
+      color: var(--cream);
+      font-size: 24px;
+      line-height: 1;
+      cursor: pointer;
+      transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .sobre-carousel-arrow:hover {
+      background: rgba(235, 187, 5, 0.18);
+      border-color: rgba(235, 187, 5, 0.45);
+      transform: translateY(-1px);
+    }
+
+    .sobre-carousel-dots {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .sobre-carousel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      border: none;
+      background: rgba(245, 239, 224, 0.32);
+      cursor: pointer;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .sobre-carousel-dot.is-active {
+      background: var(--gold);
+      transform: scale(1.15);
     }
 
     .gold-line {
@@ -2058,10 +2127,6 @@
         gap: 48px;
       }
 
-      .img-accent {
-        display: none;
-      }
-
       .sobre-stats {
         grid-template-columns: repeat(3, 1fr);
       }
@@ -2149,6 +2214,17 @@
 
       .sobre-stats {
         grid-template-columns: 1fr 1fr;
+      }
+
+      .sobre-carousel-controls {
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+      }
+
+      .sobre-carousel-arrow {
+        width: 38px;
+        height: 38px;
       }
 
       .vtl-award {
