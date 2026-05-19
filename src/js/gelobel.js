@@ -43,6 +43,61 @@
     }, { threshold: 0.12 });
     revealEls.forEach(el => io.observe(el));
 
+    function initStatsCounters() {
+      const counterSection = document.querySelector('[data-stats-counter-section]');
+      const counters = Array.from(document.querySelectorAll('[data-counter-target]'));
+
+      if (!counterSection || !counters.length) {
+        return;
+      }
+
+      function animateCounter(counter, index) {
+        const target = Number(counter.dataset.counterTarget || '0');
+        const suffix = counter.dataset.counterSuffix || '';
+
+        if (!Number.isFinite(target) || target <= 0) {
+          counter.textContent = `0${suffix}`;
+          return;
+        }
+
+        const duration = 1800 + index * 180;
+        const startDelay = index * 110;
+
+        window.setTimeout(() => {
+          const startTime = performance.now();
+
+          function frame(now) {
+            const progress = Math.min((now - startTime) / duration, 1);
+            const eased = 0.5 - Math.cos(progress * Math.PI) / 2;
+            const currentValue = Math.round(target * eased);
+
+            counter.textContent = `${currentValue}${suffix}`;
+
+            if (progress < 1) {
+              requestAnimationFrame(frame);
+            }
+          }
+
+          requestAnimationFrame(frame);
+        }, startDelay);
+      }
+
+      const observer = new IntersectionObserver((entries, currentObserver) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          counters.forEach((counter, index) => animateCounter(counter, index));
+          currentObserver.unobserve(entry.target);
+        });
+      }, { threshold: 0.45 });
+
+      observer.observe(counterSection);
+    }
+
+    initStatsCounters();
+
     function initSobreCarousel() {
       const carousel = document.querySelector('[data-about-carousel]');
       if (!carousel) return;

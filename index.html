@@ -10,7 +10,7 @@
   <link rel="apple-touch-icon" href="./src/img-gelobel/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Poppins:wght@300;400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Poppins:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
   <link rel="stylesheet" href="./src/css/gelobel.css">
@@ -101,18 +101,18 @@
           <p>Hoje, com várias unidades, o Grupo Gelobel continua escrevendo uma história repleta de conquistas, guiada
             pela paixão pelo que fazemos.</p>
         </div>
-        <div class="sobre-stats">
+        <div class="sobre-stats" data-stats-counter-section>
           <div class="stat">
-            <div class="stat-num">30+</div>
+            <div class="stat-num" data-counter-target="35">0</div>
             <div class="stat-label">Anos de tradição</div>
           </div>
           <div class="stat">
-            <div class="stat-num">6</div>
+            <div class="stat-num" data-counter-target="6">0</div>
             <div class="stat-label">Unidades</div>
           </div>
           <div class="stat">
-            <div class="stat-num">1991</div>
-            <div class="stat-label">Fundação</div>
+            <div class="stat-num" data-counter-target="350" data-counter-suffix="+">0</div>
+            <div class="stat-label">Colaboradores</div>
           </div>
         </div>
       </div>
@@ -154,35 +154,43 @@
     <div class="vtl-wrap reveal">
       <div class="vtl-years">
         <div class="vtl-year-item active" data-target="tl1991" onclick="selectYear(this,'tl1991')">
-          <span class="vtl-date">12/10 · 1991</span>
+          <span class="vtl-date">1991</span>
           <div class="vtl-yr-dot"></div>
         </div>
         <div class="vtl-year-item" data-target="tl1997" onclick="selectYear(this,'tl1997')">
           <span class="vtl-date">1997</span>
           <div class="vtl-yr-dot"></div>
         </div>
-        <div class="vtl-year-item" data-target="tl2011" onclick="selectYear(this,'tl2011')">
-          <span class="vtl-date">2011</span>
-          <div class="vtl-yr-dot"></div>
-        </div>
-        <div class="vtl-year-item" data-target="tl2012" onclick="selectYear(this,'tl2012')">
-          <span class="vtl-date">2012</span>
+        <div class="vtl-year-item" data-target="tl2000" onclick="selectYear(this,'tl2000')">
+          <span class="vtl-date">2000</span>
           <div class="vtl-yr-dot"></div>
         </div>
         <div class="vtl-year-item" data-target="tl2014" onclick="selectYear(this,'tl2014')">
           <span class="vtl-date">2014</span>
           <div class="vtl-yr-dot"></div>
         </div>
+        <div class="vtl-year-item" data-target="tl2015" onclick="selectYear(this,'tl2015')">
+          <span class="vtl-date">2015</span>
+          <div class="vtl-yr-dot"></div>
+        </div>
+        <div class="vtl-year-item" data-target="tl2017" onclick="selectYear(this,'tl2017')">
+          <span class="vtl-date">2017</span>
+          <div class="vtl-yr-dot"></div>
+        </div>
+        <div class="vtl-year-item" data-target="tl2018" onclick="selectYear(this,'tl2018')">
+          <span class="vtl-date">2018</span>
+          <div class="vtl-yr-dot"></div>
+        </div>
         <div class="vtl-year-item" data-target="tl2019" onclick="selectYear(this,'tl2019')">
           <span class="vtl-date">2019</span>
           <div class="vtl-yr-dot"></div>
         </div>
-        <div class="vtl-year-item" data-target="tl2020" onclick="selectYear(this,'tl2020')">
-          <span class="vtl-date">2020</span>
+        <div class="vtl-year-item" data-target="tl2024" onclick="selectYear(this,'tl2024')">
+          <span class="vtl-date">2024</span>
           <div class="vtl-yr-dot"></div>
         </div>
-        <div class="vtl-year-item vtl-hoje" data-target="tlhoje" onclick="selectYear(this,'tlhoje')">
-          <span class="vtl-date">Hoje</span>
+        <div class="vtl-year-item vtl-hoje" data-target="tl2025" onclick="selectYear(this,'tl2025')">
+          <span class="vtl-date">2025</span>
           <div class="vtl-yr-dot vtl-dot-pulse"></div>
         </div>
       </div>
@@ -195,102 +203,42 @@
 
         <!-- 1991 -->
         <div class="vtl-panel active" id="tl1991">
-          <div class="vtl-img-slot" title="1991 - Inauguração na Duque">
+          <div class="vtl-img-slot" title="1991 - Gelobel Duque">
             <img src="https://gelobel.com.br/wp-content/uploads/2020/02/duque_2020.jpg"
               alt="Gelobel 1991 - Unidade Duque">
           </div>
           <div class="vtl-text">
-            <div class="vtl-tag">12 de outubro de 1991</div>
-            <h3 class="vtl-title">INAUGURAMOS NA DUQUE</h3>
-            <p>De início apenas como distribuidora de gelo, carvão e bebidas, conseguimos quebrar limites.</p>
-            <div class="vtl-sub-title">DESCOBRIMOS NOVOS E TRADICIONAIS SABORES</div>
-            <p>Nos tornamos um forte ponto de encontro de amigos e assim iniciando também nossos espetinhos que
-              acompanhavam o que ainda é tradicional até hoje — maionese e farofa, receitas tradicionais de família.</p>
+            <div class="vtl-tag">1991</div>
+            <h3 class="vtl-title">GELOBEL DUQUE</h3>
+            <p>O marco inicial da nossa trajetória. A unidade Duque inaugura a história da Gelobel e dá origem a uma
+              marca construída com tradição, atendimento próximo e sabor na brasa.</p>
           </div>
         </div>
 
-        <!-- 1997 — layout especial: composição lateral com sobreposição -->
+        <!-- 1997 -->
         <div class="vtl-panel" id="tl1997">
-          <div class="vtl-overlap-wrap">
-            <div class="vtl-overlap-main">
-              <img src="https://gelobel.com.br/wp-content/uploads/2020/02/don_pablo_2020.jpg"
-                alt="Don Pablo - fachada">
-            </div>
-            <div class="vtl-overlap-accent">
-              <img
-                src="https://netdeal.com.br/api/images/proxy?format=webp&quality=100&src=https://s3.amazonaws.com/producao.spayce.com.br/1634914731417_01.jpg"
-                alt="Don Pablo - interior">
-            </div>
+          <div class="vtl-img-slot" title="1997 - Gelobel Don Pablo">
+            <img src="https://gelobel.com.br/wp-content/uploads/2020/02/don_pablo_2020.jpg"
+              alt="Gelobel Don Pablo 1997">
           </div>
           <div class="vtl-text">
             <div class="vtl-tag">1997</div>
-            <h3 class="vtl-title">HOMENAGEAMOS NOSSA SEGUNDA CASA</h3>
-            <p>Em nome ao criador Paulo Ferreira, homenageamos nossa segunda casa — o <strong
-                style="color:var(--gold)">Don Pablo</strong> — e consolidamos a identidade da marca que é referência em
-              Londrina até hoje.</p>
+            <h3 class="vtl-title">GELOBEL DON PABLO</h3>
+            <p>A expansão para o Don Pablo fortalece a presença da marca em Londrina e consolida a Gelobel como um
+              nome cada vez mais lembrado quando o assunto é churrasco e encontro.</p>
           </div>
         </div>
 
-        <!-- 2011 -->
-        <div class="vtl-panel" id="tl2011">
-          <div class="vtl-img-slot" title="2011 - Premiação">
-            <img src="https://gelobel.com.br/wp-content/uploads/2020/02/2011.png" alt="Prêmios Gelobel 2011">
+        <!-- 2000 -->
+        <div class="vtl-panel" id="tl2000">
+          <div class="vtl-img-slot" title="2000 - Gelobel Expo LDN">
+            <img src="https://gelobel.com.br/wp-content/uploads/2020/02/duque_2020.jpg" alt="Gelobel Expo LDN 2000">
           </div>
           <div class="vtl-text">
-            <div class="vtl-tag">2011</div>
-            <h3 class="vtl-title">FOMOS PREMIADOS</h3>
-            <div class="vtl-award">
-              <div class="vtl-award-icon">
-                <svg viewBox="0 0 24 24">
-                  <path d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" />
-                  <path d="M9 15v7l3-2 3 2v-7" />
-                </svg>
-              </div>
-              <span>Troféu Top of Business 2011</span>
-            </div>
-            <div class="vtl-award">
-              <div class="vtl-award-icon">
-                <svg viewBox="0 0 24 24">
-                  <path
-                    d="M8.56 2.9A7 7 0 0 1 19 9v1l1.17 2.34a1 1 0 0 1-.9 1.44H4.73a1 1 0 0 1-.9-1.44L5 10V9a7 7 0 0 1 3-5.8" />
-                  <path d="M9 17v2a3 3 0 0 0 6 0v-2" />
-                </svg>
-              </div>
-              <span>Troféu Top Empreendedor</span>
-            </div>
-            <p>Um reconhecimento que confirmou o que já sabíamos: a qualidade e o carinho com que servimos nossos
-              clientes fazem toda a diferença.</p>
-          </div>
-        </div>
-
-        <!-- 2012 -->
-        <div class="vtl-panel" id="tl2012">
-          <div class="vtl-img-slot" title="2012 - Premiação">
-            <img src="https://gelobel.com.br/wp-content/uploads/2020/02/2012.png" alt="Prêmios Gelobel 2012">
-          </div>
-          <div class="vtl-text">
-            <div class="vtl-tag">2012</div>
-            <h3 class="vtl-title">REFERÊNCIA GASTRONÔMICA PELO 2º ANO CONSECUTIVO</h3>
-            <div class="vtl-award">
-              <div class="vtl-award-icon">
-                <svg viewBox="0 0 24 24">
-                  <path d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" />
-                  <path d="M9 15v7l3-2 3 2v-7" />
-                </svg>
-              </div>
-              <span>Troféu Top of Business 2012</span>
-            </div>
-            <div class="vtl-award">
-              <div class="vtl-award-icon">
-                <svg viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="9" />
-                  <path d="M3.6 9h16.8M3.6 15h16.8" />
-                  <path d="M12 3a14.5 14.5 0 0 1 0 18M12 3a14.5 14.5 0 0 0 0 18" />
-                </svg>
-              </div>
-              <span>Prêmio Latin American Quality Institute</span>
-            </div>
-            <p>Dois anos seguidos premiados. A Gelobel consolida sua posição como referência gastronômica no Paraná.</p>
+            <div class="vtl-tag">2000</div>
+            <h3 class="vtl-title">GELOBEL EXPO LDN</h3>
+            <p>A presença da Gelobel na Expo Londrina amplia a conexão da marca com a cidade e reforça sua identidade
+              junto ao público em grandes eventos e experiências gastronômicas.</p>
           </div>
         </div>
 
@@ -301,57 +249,90 @@
           </div>
           <div class="vtl-text">
             <div class="vtl-tag">2014</div>
-            <h3 class="vtl-title">INAUGURAMOS NOSSA UNIDADE DELIVERY</h3>
-            <p>A Gelobel Delivery nasce para levar o sabor da brasa até a porta da sua casa. Uma nova forma de viver a
-              experiência Gelobel — com o mesmo sabor de sempre.</p>
+            <h3 class="vtl-title">GELOBEL DELIVERY</h3>
+            <p>A operação Delivery nasce para levar a experiência Gelobel para além do salão, ampliando a conveniência
+              sem abrir mão da identidade e do sabor que acompanham a marca.</p>
+          </div>
+        </div>
+
+        <!-- 2015 -->
+        <div class="vtl-panel" id="tl2015">
+          <div class="vtl-img-slot" title="2015 - Gelobel Boulevard">
+            <img src="https://gelobel.com.br/wp-content/uploads/2020/02/boulevard_2020.jpg"
+              alt="Gelobel Boulevard 2015">
+          </div>
+          <div class="vtl-text">
+            <div class="vtl-tag">2015</div>
+            <h3 class="vtl-title">GELOBEL BOULEVARD</h3>
+            <p>A chegada ao Boulevard representa mais um passo na expansão da Gelobel, levando a marca para novos
+              públicos e fortalecendo sua presença em Londrina.</p>
+          </div>
+        </div>
+
+        <!-- 2017 -->
+        <div class="vtl-panel" id="tl2017">
+          <div class="vtl-img-slot" title="2017 - Gelobel Garden">
+            <img src="https://gelobel.com.br/wp-content/uploads/2020/03/DSC_1174.jpg" alt="Gelobel Garden 2017">
+          </div>
+          <div class="vtl-text">
+            <div class="vtl-tag">2017</div>
+            <h3 class="vtl-title">GELOBEL GARDEN</h3>
+            <p>O marco do Garden amplia o ecossistema da marca e reforça a estratégia de crescimento com novas frentes
+              e novos pontos de encontro para o público Gelobel.</p>
+          </div>
+        </div>
+
+        <!-- 2018 -->
+        <div class="vtl-panel" id="tl2018">
+          <div class="vtl-img-slot" title="2018 - CD Gelobel">
+            <img src="https://gelobel.com.br/wp-content/uploads/2020/02/delivery_2020.jpg" alt="CD Gelobel 2018">
+          </div>
+          <div class="vtl-text">
+            <div class="vtl-tag">2018</div>
+            <h3 class="vtl-title">CD GELOBEL</h3>
+            <p>Com a estruturação do CD Gelobel, a operação ganha ainda mais força para sustentar expansão, logística e
+              padronização da experiência entre as unidades.</p>
           </div>
         </div>
 
         <!-- 2019 -->
         <div class="vtl-panel" id="tl2019">
-          <div class="vtl-img-slot" title="2019 - Curitiba">
+          <div class="vtl-img-slot" title="2019 - Gelobel Estacao Curitiba">
             <img src="https://gelobel.com.br/wp-content/uploads/2020/01/gelobel_curitiba.jpg"
               alt="Gelobel Curitiba 2019">
           </div>
           <div class="vtl-text">
             <div class="vtl-tag">2019</div>
-            <h3 class="vtl-title">INAUGURAÇÃO EM CURITIBA</h3>
-            <p>A Gelobel chega à capital paranaense com a inauguração no Shopping Estação — levando a tradição e o sabor
-              de Londrina para uma nova cidade.</p>
+            <h3 class="vtl-title">GELOBEL ESTACAO - CURITIBA</h3>
+            <p>A expansão para Curitiba, com a operação no Estação, leva a Gelobel para um novo mercado e marca uma
+              etapa importante de consolidação fora de Londrina.</p>
           </div>
         </div>
 
-        <!-- 2020 -->
-        <div class="vtl-panel" id="tl2020">
-          <div class="vtl-img-slot" title="2020 - Boulevard">
-            <img src="https://gelobel.com.br/wp-content/uploads/2020/02/boulevard_2020.jpg"
-              alt="Gelobel Boulevard 2020">
+        <!-- 2024 -->
+        <div class="vtl-panel" id="tl2024">
+          <div class="vtl-img-slot" title="2024 - Gelobel Terrace">
+            <img src="https://gelobel.com.br/wp-content/uploads/2020/01/gelobel_curitiba.jpg"
+              alt="Gelobel Terrace 2024">
           </div>
           <div class="vtl-text">
-            <div class="vtl-tag">2020</div>
-            <h3 class="vtl-title">EXPANDIMOS A UNIDADE GELOBEL BOULEVARD</h3>
-            <p>Em um novo ambiente, mais amplo e aconchegante — para a sua família ter ainda mais espaço e conforto ao
-              redor de uma boa mesa.</p>
+            <div class="vtl-tag">2024</div>
+            <h3 class="vtl-title">GELOBEL TERRACE</h3>
+            <p>O Terrace entra na linha do tempo como mais um capítulo de expansão e atualização da presença Gelobel,
+              acompanhando novas oportunidades e novas experiências para o público.</p>
           </div>
         </div>
 
-        <!-- HOJE -->
-        <div class="vtl-panel" id="tlhoje">
-          <div class="vtl-img-slot vtl-img-hoje" title="Hoje">
-            <img
-              src="https://netdeal.com.br/api/images/proxy?format=webp&width=800&src=https://www.netdeal.com.br/api/images/producao.spayce.com.br/1634914514315_gelobel.jpg"
-              alt="Gelobel Hoje">
+        <!-- 2025 -->
+        <div class="vtl-panel" id="tl2025">
+          <div class="vtl-img-slot vtl-img-hoje" title="2025 - Belmar Cozinha Japonesa">
+            <img src="./src/img-belmar/pesca.jpg" alt="Belmar Cozinha Japonesa 2025">
           </div>
           <div class="vtl-text">
-            <div class="vtl-tag vtl-tag-hoje">Hoje · Em plena atividade</div>
-            <h3 class="vtl-title vtl-title-hoje">E CONTINUA…</h3>
-            <p>6 unidades espalhadas entre Londrina e Curitiba. Centenas de clientes diários e a mesma paixão de sempre
-              por servir bem — do primeiro espetinho ao último chopp.</p>
-            <div class="vtl-hoje-nums">
-              <div class="vtl-num-box"><span class="vtl-big">6</span><span class="vtl-lbl">Unidades</span></div>
-              <div class="vtl-num-box"><span class="vtl-big">30+</span><span class="vtl-lbl">Anos</span></div>
-              <div class="vtl-num-box"><span class="vtl-big">∞</span><span class="vtl-lbl">Histórias</span></div>
-            </div>
+            <div class="vtl-tag vtl-tag-hoje">2025</div>
+            <h3 class="vtl-title vtl-title-hoje">BELMAR COZINHA JAPONESA</h3>
+            <p>O lançamento do Belmar Cozinha Japonesa inaugura uma nova fase do grupo, ampliando o portfólio e abrindo
+              espaço para uma proposta gastronômica complementar, sofisticada e autoral.</p>
           </div>
         </div>
 
@@ -855,29 +836,67 @@
   <!-- EXPERIÊNCIA -->
   <section class="experiencia" id="experiencia">
     <div class="exp-header reveal">
-      <span class="section-tag">Experiência Gelobel</span>
+      <span class="section-tag">Eventos Gelobel</span>
       <h2 class="section-title">Momentos que <em>ficam</em> na memória</h2>
-      <p>Ambiente aconchegante, atendimento cuidadoso e a melhor brasa do Paraná</p>
+      <p>Ações que aproximam colaboradores, clientes e parceiros em experiências que fortalecem a cultura do Grupo Gelobel.</p>
     </div>
     <div class="mobile-carousel-viewport reveal">
     <div class="gallery-grid" data-mobile-carousel>
-      <div class="gallery-item g1"><img class="gallery-img"
-          src="https://images.unsplash.com/photo-1544025162-d76694265947?w=900&q=80" alt="Brasa Gelobel" loading="lazy">
+      <div class="gallery-item event-card g1">
+        <img class="gallery-img"
+          src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=1200&q=80" alt="Ação de endomarketing do Grupo Gelobel" loading="lazy">
+        <div class="event-copy">
+          <span class="event-kicker">Cultura interna</span>
+          <h3 class="event-title">Ações de Endomarketing</h3>
+          <p class="event-desc">Nosso calendário anual cria experiências de reconhecimento em datas como Páscoa, Dia das Mães, Dia dos Namorados e Dia dos Pais, fortalecendo conexão, orgulho e pertencimento entre mais de 350 colaboradores.</p>
+        </div>
       </div>
-      <div class="gallery-item g2"><img class="gallery-img"
-          src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=700&q=80" alt="Carne na brasa"
-          loading="lazy"></div>
-      <div class="gallery-item g3"><img class="gallery-img"
-          src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=700&q=80" alt="Churrasco premium"
-          loading="lazy"></div>
-      <div class="gallery-item g4"><img class="gallery-img"
-          src="https://images.unsplash.com/photo-1558030006-450675393462?w=600&q=80" alt="Ambiente" loading="lazy">
+      <div class="gallery-item event-card g2">
+        <img class="gallery-img"
+          src="https://images.unsplash.com/photo-1516589091380-5d8e87df6999?w=900&q=80" alt="Celebração de Páscoa do Grupo Gelobel"
+          loading="lazy">
+        <div class="event-copy">
+          <span class="event-kicker">Calendário anual</span>
+          <h3 class="event-title">Páscoa Gelobel</h3>
+          <p class="event-desc">Uma das ações sazonais que transforma datas especiais em momentos de afeto, reconhecimento e união para toda a equipe.</p>
+        </div>
       </div>
-      <div class="gallery-item g5"><img class="gallery-img"
-          src="https://images.unsplash.com/photo-1484980972926-edee96e0960d?w=600&q=80" alt="Família" loading="lazy">
+      <div class="gallery-item event-card g3">
+        <img class="gallery-img"
+          src="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=900&q=80" alt="Homenagem de Dia das Mães do Grupo Gelobel"
+          loading="lazy">
+        <div class="event-copy">
+          <span class="event-kicker">Reconhecimento</span>
+          <h3 class="event-title">Dia das Mães</h3>
+          <p class="event-desc">Uma celebração pensada para valorizar histórias, vínculos e o cuidado de quem faz parte da nossa trajetória todos os dias.</p>
+        </div>
       </div>
-      <div class="gallery-item g6"><img class="gallery-img"
-          src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80" alt="Mesa posta" loading="lazy">
+      <div class="gallery-item event-card g4">
+        <img class="gallery-img"
+          src="./src/img-gelobel/paizao-aventura.jpg" alt="Evento Paizão Aventura do Grupo Gelobel" loading="lazy">
+        <div class="event-copy">
+          <span class="event-kicker">Experiência em família</span>
+          <h3 class="event-title">Paizão Aventura</h3>
+          <p class="event-desc">Sorteamos um pai e filho entre clientes e colaboradores para viverem juntos uma aventura inesquecível, com espaço para marcas parceiras participarem da experiência.</p>
+        </div>
+      </div>
+      <div class="gallery-item event-card g5">
+        <img class="gallery-img"
+          src="./src/img-gelobel/mcDiaFeliz.jpg" alt="Ação Mc Dia Feliz com doação de lanches" loading="lazy">
+        <div class="event-copy">
+          <span class="event-kicker">Impacto social</span>
+          <h3 class="event-title">Mc Dia Feliz</h3>
+          <p class="event-desc">Há cinco anos mobilizamos colaboradores para arrecadar e entregar lanches a crianças de instituições carentes. Em 2025, foram 1.200 lanches e mais de R$ 24 mil em doações.</p>
+        </div>
+      </div>
+      <div class="gallery-item event-card g6">
+        <img class="gallery-img"
+          src="./src/img-gelobel/gelobelRun.jpg" alt="Gelobel Run no Shopping Catuaí" loading="lazy">
+        <div class="event-copy">
+          <span class="event-kicker">Esporte e marca</span>
+          <h3 class="event-title">Gelobel Run</h3>
+          <p class="event-desc">Criada em 2021, a prova reúne mais de 1.500 inscritos em modalidades como 5km, 10km, Kangoo Jumps, caminhada e cãominhada, com grande visibilidade para marcas parceiras.</p>
+        </div>
       </div>
     </div>
     </div>
