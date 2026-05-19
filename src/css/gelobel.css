@@ -2034,15 +2034,16 @@
     footer {
       background: var(--charcoal-2);
       border-top: 1px solid rgba(200, 146, 42, 0.1);
-      padding: 80px 60px 40px;
+      padding: 30px 60px 12px;
     }
 
     .footer-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1.5fr;
-      gap: 60px;
+      grid-template-columns: minmax(0, 1.4fr) minmax(250px, 280px);
+      align-items: start;
+      gap: 18px;
       max-width: 1200px;
-      margin: 0 auto 60px;
+      margin: 0 auto 14px;
     }
 
     .footer-brand .nav-logo {
@@ -2054,19 +2055,20 @@
     .footer-brand p {
       font-size: 14px;
       color: var(--text-muted);
-      line-height: 1.8;
-      max-width: 280px;
+      line-height: 1.45;
+      max-width: 320px;
+      margin: 0;
     }
 
     .footer-social {
       display: flex;
-      gap: 12px;
-      margin-top: 24px;
+      gap: 10px;
+      margin-top: 10px;
     }
 
     .soc-btn {
-      width: 40px;
-      height: 40px;
+      width: 36px;
+      height: 36px;
       border: 1px solid rgba(200, 146, 42, 0.25);
       display: flex;
       align-items: center;
@@ -2098,7 +2100,7 @@
       letter-spacing: 3px;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 20px;
+      margin-bottom: 8px;
     }
 
     .footer-col ul {
@@ -2119,10 +2121,19 @@
       color: var(--gold);
     }
 
+    .footer-contact {
+      justify-self: end;
+      width: min(100%, 280px);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
     .footer-contact p {
       font-size: 14px;
       color: var(--text-muted);
-      line-height: 1.9;
+      line-height: 1.45;
+      margin: 0;
     }
 
     .footer-contact a {
@@ -2132,7 +2143,7 @@
 
     .footer-bottom {
       border-top: 1px solid rgba(245, 239, 224, 0.06);
-      padding-top: 32px;
+      padding-top: 10px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -2141,8 +2152,9 @@
     }
 
     .footer-bottom p {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--text-muted);
+      margin: 0;
     }
 
     .footer-bottom span {
@@ -2202,8 +2214,8 @@
       }
 
       .footer-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 16px;
       }
 
       .gallery-grid {
@@ -2335,16 +2347,21 @@
 
       .footer-grid {
         grid-template-columns: 1fr;
-        gap: 32px;
+        gap: 14px;
+      }
+
+      .footer-contact {
+        justify-self: start;
+        width: 100%;
       }
 
       footer {
-        padding: 64px 20px 32px;
+        padding: 28px 20px 14px;
       }
 
       .footer-bottom {
         flex-direction: column;
-        gap: 12px;
+        gap: 4px;
         text-align: center;
       }
 
