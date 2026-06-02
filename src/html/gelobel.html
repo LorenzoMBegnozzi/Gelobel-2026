@@ -8,12 +8,18 @@
   <link rel="icon" type="image/png" href="../img-gelobel/logo.png">
   <link rel="shortcut icon" type="image/png" href="../img-gelobel/logo.png">
   <link rel="apple-touch-icon" href="../img-gelobel/logo.png">
+  <!-- preconnect servidores externos -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Poppins:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://gelobel.com.br">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <!-- CSS crítico primeiro -->
   <link rel="stylesheet" href="../css/gelobel.css">
+  <!-- fontes e ícones depois (não bloqueiam render) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Poppins:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Poppins:wght@300;400;500;600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css"></noscript>
 </head>
 
 <body>
@@ -29,7 +35,7 @@
   <div id="loader">
     <div class="loader-logo-slot" title="Gelobel Logo">
       <img src="https://gelobel.com.br/wp-content/uploads/2019/12/GELOBEL-AMARELO-E-BRANCO-2048x906.png"
-        alt="Gelobel Logo">
+        alt="Gelobel Logo" fetchpriority="high">
     </div>
     <div class="loader-bar">
       <div class="loader-fill"></div>
@@ -120,16 +126,16 @@
         <div class="sobre-carousel" data-about-carousel>
           <div class="sobre-carousel-track">
             <figure class="sobre-slide is-active">
-              <img src="https://gelobel.com.br/wp-content/uploads/2020/02/duque_2020.jpg" alt="Unidade Duque da Gelobel">
+              <img src="https://gelobel.com.br/wp-content/uploads/2020/02/duque_2020.jpg" alt="Unidade Duque da Gelobel" loading="lazy">
             </figure>
             <figure class="sobre-slide">
-              <img src="https://gelobel.com.br/wp-content/uploads/2020/02/don_pablo_2020.jpg" alt="Fachada da unidade Don Pablo">
+              <img src="https://gelobel.com.br/wp-content/uploads/2020/02/don_pablo_2020.jpg" alt="Fachada da unidade Don Pablo" loading="lazy">
             </figure>
             <figure class="sobre-slide">
-              <img src="https://gelobel.com.br/wp-content/uploads/2020/02/boulevard_2020.jpg" alt="Ambiente da unidade Boulevard da Gelobel">
+              <img src="https://gelobel.com.br/wp-content/uploads/2020/02/boulevard_2020.jpg" alt="Ambiente da unidade Boulevard da Gelobel" loading="lazy">
             </figure>
             <figure class="sobre-slide">
-              <img src="https://gelobel.com.br/wp-content/uploads/2020/01/gelobel_curitiba.jpg" alt="Unidade Gelobel em Curitiba">
+              <img src="https://gelobel.com.br/wp-content/uploads/2020/01/gelobel_curitiba.jpg" alt="Unidade Gelobel em Curitiba" loading="lazy">
             </figure>
           </div>
           <div class="sobre-carousel-controls">
@@ -205,7 +211,7 @@
         <div class="vtl-panel active" id="tl1991">
           <div class="vtl-img-slot" title="1991 - Gelobel Duque">
             <img src="https://gelobel.com.br/wp-content/uploads/2020/02/duque_2020.jpg"
-              alt="Gelobel 1991 - Unidade Duque">
+              alt="Gelobel 1991 - Unidade Duque" loading="lazy">
           </div>
           <div class="vtl-text">
             <div class="vtl-tag">1991</div>
@@ -219,7 +225,7 @@
         <div class="vtl-panel" id="tl1997">
           <div class="vtl-img-slot" title="1997 - Gelobel Don Pablo">
             <img src="https://gelobel.com.br/wp-content/uploads/2020/02/don_pablo_2020.jpg"
-              alt="Gelobel Don Pablo 1997">
+              alt="Gelobel Don Pablo 1997" loading="lazy">
           </div>
           <div class="vtl-text">
             <div class="vtl-tag">1997</div>
@@ -232,7 +238,7 @@
         <!-- 2000 -->
         <div class="vtl-panel" id="tl2000">
           <div class="vtl-img-slot" title="2000 - Gelobel Expo LDN">
-            <img src="https://gelobel.com.br/wp-content/uploads/2020/02/duque_2020.jpg" alt="Gelobel Expo LDN 2000">
+            <img src="https://gelobel.com.br/wp-content/uploads/2020/02/duque_2020.jpg" alt="Gelobel Expo LDN 2000" loading="lazy">
           </div>
           <div class="vtl-text">
             <div class="vtl-tag">2000</div>
@@ -245,7 +251,7 @@
         <!-- 2014 -->
         <div class="vtl-panel" id="tl2014">
           <div class="vtl-img-slot" title="2014 - Gelobel Delivery">
-            <img src="https://gelobel.com.br/wp-content/uploads/2020/02/delivery_2020.jpg" alt="Gelobel Delivery 2014">
+            <img src="https://gelobel.com.br/wp-content/uploads/2020/02/delivery_2020.jpg" alt="Gelobel Delivery 2014" loading="lazy">
           </div>
           <div class="vtl-text">
             <div class="vtl-tag">2014</div>
@@ -259,7 +265,7 @@
         <div class="vtl-panel" id="tl2015">
           <div class="vtl-img-slot" title="2015 - Gelobel Boulevard">
             <img src="https://gelobel.com.br/wp-content/uploads/2020/02/boulevard_2020.jpg"
-              alt="Gelobel Boulevard 2015">
+              alt="Gelobel Boulevard 2015" loading="lazy">
           </div>
           <div class="vtl-text">
             <div class="vtl-tag">2015</div>
@@ -272,7 +278,7 @@
         <!-- 2017 -->
         <div class="vtl-panel" id="tl2017">
           <div class="vtl-img-slot" title="2017 - Gelobel Garden">
-            <img src="https://gelobel.com.br/wp-content/uploads/2020/03/DSC_1174.jpg" alt="Gelobel Garden 2017">
+            <img src="https://gelobel.com.br/wp-content/uploads/2020/03/DSC_1174.jpg" alt="Gelobel Garden 2017" loading="lazy">
           </div>
           <div class="vtl-text">
             <div class="vtl-tag">2017</div>
@@ -285,7 +291,7 @@
         <!-- 2018 -->
         <div class="vtl-panel" id="tl2018">
           <div class="vtl-img-slot" title="2018 - CD Gelobel">
-            <img src="https://gelobel.com.br/wp-content/uploads/2020/02/delivery_2020.jpg" alt="CD Gelobel 2018">
+            <img src="https://gelobel.com.br/wp-content/uploads/2020/02/delivery_2020.jpg" alt="CD Gelobel 2018" loading="lazy">
           </div>
           <div class="vtl-text">
             <div class="vtl-tag">2018</div>
@@ -299,7 +305,7 @@
         <div class="vtl-panel" id="tl2019">
           <div class="vtl-img-slot" title="2019 - Gelobel Estacao Curitiba">
             <img src="https://gelobel.com.br/wp-content/uploads/2020/01/gelobel_curitiba.jpg"
-              alt="Gelobel Curitiba 2019">
+              alt="Gelobel Curitiba 2019" loading="lazy">
           </div>
           <div class="vtl-text">
             <div class="vtl-tag">2019</div>
@@ -313,7 +319,7 @@
         <div class="vtl-panel" id="tl2024">
           <div class="vtl-img-slot" title="2024 - Gelobel Terrace">
             <img src="https://gelobel.com.br/wp-content/uploads/2020/01/gelobel_curitiba.jpg"
-              alt="Gelobel Terrace 2024">
+              alt="Gelobel Terrace 2024" loading="lazy">
           </div>
           <div class="vtl-text">
             <div class="vtl-tag">2024</div>
@@ -326,7 +332,7 @@
         <!-- 2025 -->
         <div class="vtl-panel" id="tl2025">
           <div class="vtl-img-slot vtl-img-hoje" title="2025 - Belmar Cozinha Japonesa">
-            <img src="../img-belmar/pesca.jpg" alt="Belmar Cozinha Japonesa 2025">
+            <img src="../img-belmar/pesca.jpg" alt="Belmar Cozinha Japonesa 2025" loading="lazy">
           </div>
           <div class="vtl-text">
             <div class="vtl-tag vtl-tag-hoje">2025</div>
@@ -1222,45 +1228,45 @@
     <div class="parceiros-track">
       <!-- set A -->
       <div class="parceiros-list">
-        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-1.png" alt="Parceiro 1">
-        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-2.png" alt="Parceiro 2">
-        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-3.png" alt="Parceiro 3">
-        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-1.png" alt="Parceiro 1">
-        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-2.png" alt="Parceiro 2">
-        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-3.png" alt="Parceiro 3">
-        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-1.png" alt="Parceiro 1">
-        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-2.png" alt="Parceiro 2">
-        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-3.png" alt="Parceiro 3">
-        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-1.png" alt="Parceiro 1">
-        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-2.png" alt="Parceiro 2">
-        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-3.png" alt="Parceiro 3">
-        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-1.png" alt="Parceiro 1">
-        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-2.png" alt="Parceiro 2">
-        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-3.png" alt="Parceiro 3">
-        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-1.png" alt="Parceiro 1">
-        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-2.png" alt="Parceiro 2">
-        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-3.png" alt="Parceiro 3">
+        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-1.png" alt="Parceiro 1" loading="lazy">
+        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-2.png" alt="Parceiro 2" loading="lazy">
+        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-3.png" alt="Parceiro 3" loading="lazy">
+        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-1.png" alt="Parceiro 1" loading="lazy">
+        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-2.png" alt="Parceiro 2" loading="lazy">
+        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-3.png" alt="Parceiro 3" loading="lazy">
+        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-1.png" alt="Parceiro 1" loading="lazy">
+        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-2.png" alt="Parceiro 2" loading="lazy">
+        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-3.png" alt="Parceiro 3" loading="lazy">
+        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-1.png" alt="Parceiro 1" loading="lazy">
+        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-2.png" alt="Parceiro 2" loading="lazy">
+        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-3.png" alt="Parceiro 3" loading="lazy">
+        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-1.png" alt="Parceiro 1" loading="lazy">
+        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-2.png" alt="Parceiro 2" loading="lazy">
+        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-3.png" alt="Parceiro 3" loading="lazy">
+        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-1.png" alt="Parceiro 1" loading="lazy">
+        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-2.png" alt="Parceiro 2" loading="lazy">
+        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-3.png" alt="Parceiro 3" loading="lazy">
       </div>
       <!-- set B — idêntico para loop contínuo -->
       <div class="parceiros-list" aria-hidden="true">
-        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-1.png" alt="Parceiro 1">
-        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-2.png" alt="Parceiro 2">
-        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-3.png" alt="Parceiro 3">
-        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-1.png" alt="Parceiro 1">
-        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-2.png" alt="Parceiro 2">
-        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-3.png" alt="Parceiro 3">
-        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-1.png" alt="Parceiro 1">
-        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-2.png" alt="Parceiro 2">
-        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-3.png" alt="Parceiro 3">
-        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-1.png" alt="Parceiro 1">
-        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-2.png" alt="Parceiro 2">
-        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-3.png" alt="Parceiro 3">
-        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-1.png" alt="Parceiro 1">
-        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-2.png" alt="Parceiro 2">
-        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-3.png" alt="Parceiro 3">
-        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-1.png" alt="Parceiro 1">
-        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-2.png" alt="Parceiro 2">
-        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-3.png" alt="Parceiro 3">
+        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-1.png" alt="Parceiro 1" loading="lazy">
+        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-2.png" alt="Parceiro 2" loading="lazy">
+        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-3.png" alt="Parceiro 3" loading="lazy">
+        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-1.png" alt="Parceiro 1" loading="lazy">
+        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-2.png" alt="Parceiro 2" loading="lazy">
+        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-3.png" alt="Parceiro 3" loading="lazy">
+        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-1.png" alt="Parceiro 1" loading="lazy">
+        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-2.png" alt="Parceiro 2" loading="lazy">
+        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-3.png" alt="Parceiro 3" loading="lazy">
+        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-1.png" alt="Parceiro 1" loading="lazy">
+        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-2.png" alt="Parceiro 2" loading="lazy">
+        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-3.png" alt="Parceiro 3" loading="lazy">
+        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-1.png" alt="Parceiro 1" loading="lazy">
+        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-2.png" alt="Parceiro 2" loading="lazy">
+        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-3.png" alt="Parceiro 3" loading="lazy">
+        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-1.png" alt="Parceiro 1" loading="lazy">
+        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-2.png" alt="Parceiro 2" loading="lazy">
+        <img class="parceiros-logo" src="../img-gelobel/parceiros/parceiro-3.png" alt="Parceiro 3" loading="lazy">
       </div>
     </div>
   </section>
@@ -1272,7 +1278,7 @@
         <div class="logo-wrap" style="margin-bottom:16px;align-items:center;">
           <div class="footer-logo-mark">
             <img src="https://gelobel.com.br/wp-content/uploads/2019/12/GELOBEL-AMARELO-E-BRANCO-2048x906.png"
-              alt="Gelobel Logo" style="width:100%;height:100%;object-fit:contain;">
+              alt="Gelobel Logo" style="width:100%;height:100%;object-fit:contain;" loading="lazy">
           </div>
         </div>
         <p>Tradição, sabor e qualidade na brasa há mais de duas décadas. Londrina e Curitiba.</p>
@@ -1358,4 +1364,5 @@
 </body>
 
 </html>
+
 
