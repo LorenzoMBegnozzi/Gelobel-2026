@@ -8,6 +8,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    @font-face {
+      font-family: 'Adam Script';
+      src: url('./src/fonts/RTL-AdamScript-Regular.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -150,7 +158,7 @@
     .gelobel-bg {
       position: absolute;
       inset: 0;
-      background: url('./src/img-gelobel/picanha.jpg') center/cover no-repeat;
+      background: url('./src/img-gelobel/picanha-hero.jpg') center/cover no-repeat;
       transition: transform 1.1s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .panel-gelobel:hover .gelobel-bg { transform: scale(1.015); }
@@ -170,6 +178,11 @@
       position: absolute;
       bottom: 80px; left: 60px;
       z-index: 2;
+      transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .panel-gelobel:hover .panel-content {
+      transform: translateY(-12px);
     }
 
     .gelobel-wordmark {
@@ -247,6 +260,11 @@
       position: absolute;
       bottom: 80px; left: 60px;
       z-index: 2;
+      transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .panel-belmar:hover .panel-content {
+      transform: translateY(-12px);
     }
 
     .belmar-wordmark {
@@ -336,7 +354,8 @@
       <div class="gelobel-overlay"></div>
 
       <div class="panel-content">
-        <img src="https://gelobel.com.br/wp-content/uploads/2019/12/GELOBEL-AMARELO-E-BRANCO-2048x906.png" alt="Gelobel Logo" style="max-width:260px;display:block;margin-bottom:32px;">
+        <img src="https://gelobel.com.br/wp-content/uploads/2019/12/GELOBEL-AMARELO-E-BRANCO-2048x906.png" alt="Gelobel Logo" style="max-width:260px;display:block;margin-bottom:12px;">
+        <span style="font-family:'Adam Script',cursive;font-size:clamp(2rem,4vw,3rem);color:var(--gold-light);display:block;margin-bottom:32px;line-height:1;">sempre combina</span>
         <span class="btn-entrar-gold">Entrar <span class="arrow">→</span></span>
       </div>
     </a>

@@ -473,7 +473,7 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(13, 12, 10, 0.3) 0%, rgba(13, 12, 10, 0.6) 50%, rgba(13, 12, 10, 0.9) 100%), radial-gradient(ellipse at 30% 60%, rgba(200, 146, 42, 0.08) 0%, transparent 60%), url('../img-gelobel/fundo.jpg') center/cover no-repeat;
+      background: linear-gradient(180deg, rgba(13, 12, 10, 0.3) 0%, rgba(13, 12, 10, 0.6) 50%, rgba(13, 12, 10, 0.9) 100%), radial-gradient(ellipse at 30% 60%, rgba(200, 146, 42, 0.08) 0%, transparent 60%), url('../img-gelobel/picanha-hero.jpg') center/cover no-repeat;
       transform: scale(1.08);
       animation: heroZoom 12s ease-in-out infinite alternate;
       will-change: transform;
