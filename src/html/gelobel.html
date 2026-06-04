@@ -349,12 +349,19 @@
   <!-- CARDÁPIO -->
   <section class="cardapio" id="cardapio">
     <div class="cardapio-header reveal">
-      <span class="section-tag">Cardápio</span>
+      <span class="section-tag" style="display:flex;align-items:center;justify-content:center;gap:12px;">
+        <span style="display:inline-block;width:32px;height:1px;background:var(--gold);opacity:0.6;"></span>
+        Cardápio
+        <span style="display:inline-block;width:32px;height:1px;background:var(--gold);opacity:0.6;"></span>
+      </span>
       <h2 class="section-title">Uma experiência <em>gastronômica</em> completa</h2>
       <p>Carnes nobres, acompanhamentos selecionados e bebidas para todos os momentos</p>
+      <div style="margin-top:32px;">
+        <a href="https://www.flipsnack.com/B69E695569B/card-pio-gelobel-rua/full-view.html" target="_blank" rel="noopener" class="btn-outline" style="display:inline-flex;align-items:center;gap:10px;">Ver Cardápio Completo <span>↗</span></a>
+      </div>
     </div>
 
-    <div class="category-tabs reveal">
+    <div class="category-tabs reveal" style="display:flex;width:fit-content;margin:0 auto 80px;border-bottom:1px solid rgba(200,146,42,0.1);">
       <button class="cat-tab active" onclick="showPanel('carnes',this)">Carnes</button>
       <button class="cat-tab" onclick="showPanel('entradas',this)">Entradas &amp; Porções</button>
       <button class="cat-tab" onclick="showPanel('frios',this)">Frios</button>
@@ -843,9 +850,9 @@
 
     <!-- DOCES -->
     <div class="menu-panel" id="panel-doces">
-      <div class="menu-grid" style="max-width:900px;margin:0 auto;">
+      <div class="menu-grid">
         <div class="menu-card">
-          <div class="menu-card-placeholder" style="background:url('../img-gelobel/cardapio/pudim.jpg') center/cover;height:280px;">
+          <div class="menu-card-placeholder" style="background:url('../img-gelobel/cardapio/pudim.jpg') center/cover;height:260px;">
             <div class="menu-card-overlay"></div>
             <div class="menu-card-body">
               <div class="menu-card-name">Pudim</div>
@@ -854,7 +861,7 @@
           </div>
         </div>
         <div class="menu-card">
-          <div class="menu-card-placeholder" style="background:url('../img-gelobel/cardapio/petit-gateau.jpg') center/cover;height:280px;">
+          <div class="menu-card-placeholder" style="background:url('../img-gelobel/cardapio/petit-gateau.jpg') center/cover;height:260px;">
             <div class="menu-card-overlay"></div>
             <div class="menu-card-body">
               <div class="menu-card-name">Petit Gateau</div>
@@ -863,7 +870,7 @@
           </div>
         </div>
         <div class="menu-card">
-          <div class="menu-card-placeholder" style="background:url('../img-gelobel/cardapio/grand-gateau.jpg') center/cover;height:280px;">
+          <div class="menu-card-placeholder" style="background:url('../img-gelobel/cardapio/grand-gateau.jpg') center/cover;height:260px;">
             <div class="menu-card-overlay"></div>
             <div class="menu-card-body">
               <div class="menu-card-name">Grand Gateau</div>
@@ -872,7 +879,7 @@
           </div>
         </div>
         <div class="menu-card">
-          <div class="menu-card-placeholder" style="background:url('../img-gelobel/cardapio/Churros.jpg') center/cover;height:280px;">
+          <div class="menu-card-placeholder" style="background:url('../img-gelobel/cardapio/Churros.jpg') center/cover;height:260px;">
             <div class="menu-card-overlay"></div>
             <div class="menu-card-body">
               <div class="menu-card-name">Churros Cream</div>

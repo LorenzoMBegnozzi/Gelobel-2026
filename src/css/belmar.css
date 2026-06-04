@@ -727,8 +727,9 @@ nav.scrolled {
 
 .card-tabs {
   display: flex; justify-content: center; gap: 0;
-  margin-bottom: 60px; flex-wrap: wrap;
+  width: fit-content; margin: 0 auto 80px;
   border-bottom: 1px solid rgba(250,248,244,0.08);
+  flex-wrap: wrap;
 }
 .card-tab {
   background: none; border: none; cursor: pointer;
@@ -1128,6 +1129,43 @@ footer {
 .reveal-left.visible { opacity: 1; transform: translateX(0); }
 .reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 0.9s ease, transform 0.9s ease; }
 .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+/* BELMAR MENU CARDS — mesmo padrão Gelobel */
+.bmenu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2px; }
+.menu-card { background: #111; position: relative; overflow: hidden; cursor: pointer; transition: transform 0.4s ease; }
+.menu-card:hover { transform: scale(1.02); z-index: 2; }
+.menu-card-placeholder { width: 100%; aspect-ratio: 4/3; background: #111; display: flex; align-items: flex-end; position: relative; overflow: hidden; }
+.menu-card-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, rgba(10,14,9,0.95) 100%); }
+.menu-card-body { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px; }
+.menu-card-name { font-family: var(--font-logo); font-size: 1.1rem; font-weight: 300; color: var(--cream); letter-spacing: 1px; margin-bottom: 4px; }
+.menu-card-desc { font-size: 0.68rem; color: var(--olive-light); line-height: 1.55; }
+.menu-card-acomp { font-size: 0.7rem; color: var(--sage); margin-top: 6px; letter-spacing: 0.5px; }
+.menu-card-tag { display: inline-block; font-size: 0.52rem; letter-spacing: 3px; text-transform: uppercase; background: var(--sage); color: var(--ink); padding: 2px 8px; margin-bottom: 8px; }
+.bmenu-cat-title { font-size: 0.58rem; letter-spacing: 5px; text-transform: uppercase; color: var(--sage); margin: 0 auto 20px; max-width: 1100px; padding-bottom: 12px; border-bottom: 1px solid rgba(138,148,112,0.2); }
+.bmenu-extra { max-width: 1100px; margin: 0 auto 48px; background: rgba(138,148,112,0.05); border-left: 2px solid rgba(138,148,112,0.3); padding: 16px 20px; }
+.bmenu-extra p { font-size: 0.7rem; color: var(--olive-light); line-height: 1.8; }
+.bmenu-extra strong { color: var(--sage); font-weight: 500; }
+
+/* BELMAR MENU LIST */
+.bmenu-wrap { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+.bmenu-section { margin-bottom: 52px; }
+.bmenu-cat { font-size: 0.58rem; letter-spacing: 5px; text-transform: uppercase; color: var(--sage); font-weight: 400; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid rgba(138,148,112,0.25); }
+.bmenu-item { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.bmenu-item:last-child { border-bottom: none; }
+.bmenu-info { flex: 1; }
+.bmenu-name { font-size: 0.78rem; font-weight: 500; color: var(--cream); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px; }
+.bmenu-desc { font-size: 0.7rem; color: var(--olive-light); line-height: 1.65; font-weight: 300; }
+.bmenu-price { font-size: 0.78rem; color: var(--sage); font-weight: 400; white-space: nowrap; flex-shrink: 0; padding-top: 2px; }
+.bmenu-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0 64px; }
+.bmenu-note { font-size: 0.65rem; color: rgba(138,148,112,0.6); font-style: italic; margin-top: 12px; line-height: 1.6; }
+.bmenu-tag { display: inline-block; font-size: 0.55rem; letter-spacing: 3px; text-transform: uppercase; color: var(--ink); background: var(--sage); padding: 2px 8px; margin-bottom: 6px; font-weight: 500; }
+
+/* DRINK LIST */
+.drink-category { }
+.drink-cat-title { font-family: var(--font-logo); font-size: 1rem; font-weight: 300; color: var(--cream); letter-spacing: 1px; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid rgba(138,148,112,0.2); }
+.drink-list { list-style: none; padding: 0; margin: 0; }
+.drink-list li { font-size: 0.85rem; color: var(--olive-light); padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.04); display: flex; justify-content: space-between; gap: 12px; line-height: 1.5; }
+.drink-list li:last-child { border-bottom: none; }
 
 /* RESPONSIVE */
 @media (max-width: 1000px) {
