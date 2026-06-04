@@ -16,6 +16,14 @@
       font-display: swap;
     }
 
+    @font-face {
+      font-family: 'Salvatore';
+      src: url('./src/fonts/salvatore.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -201,9 +209,8 @@
 
     .panel-tagline {
       margin-top: 10px;
-      font-size: 10px;
+      font-size: clamp(2.5rem, 5vw, 3.8rem);
       letter-spacing: 5px;
-      text-transform: uppercase;
       color: rgba(255,255,255,0.4);
       font-weight: 400;
     }
@@ -355,7 +362,7 @@
 
       <div class="panel-content">
         <img src="https://gelobel.com.br/wp-content/uploads/2019/12/GELOBEL-AMARELO-E-BRANCO-2048x906.png" alt="Gelobel Logo" style="max-width:260px;display:block;margin-bottom:12px;">
-        <span style="font-family:'Adam Script',cursive;font-size:clamp(2rem,4vw,3rem);color:var(--gold-light);display:block;margin-bottom:32px;line-height:1;">sempre combina</span>
+        <span style="font-family:'Adam Script',cursive;font-size:clamp(2rem,4vw,3rem);color:var(--gold-light);display:block;margin-bottom:32px;line-height:1;">Sempre combina</span>
         <span class="btn-entrar-gold">Entrar <span class="arrow">→</span></span>
       </div>
     </a>
@@ -367,7 +374,7 @@
 
       <div class="panel-content">
         <div class="belmar-wordmark">Belmar</div>
-        <div class="panel-tagline" style="color:rgba(255,255,255,0.5)">Cozinha Japonesa &nbsp;·&nbsp; Desde 2025</div>
+        <div class="panel-tagline" style="color:rgba(255,255,255,0.5);font-family:'Salvatore',serif">Servir é um ato de amor</div>
         <span class="btn-entrar-outline">Entrar <span class="arrow">→</span></span>
       </div>
     </a>
