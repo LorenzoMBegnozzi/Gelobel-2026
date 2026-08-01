@@ -584,12 +584,12 @@
     }
 
     .hero-subtitle {
-      font-family: var(--font-body);
+      font-family: var(--font-title);
       font-style: normal;
-      font-size: clamp(20px, 3vw, 28px);
+      font-size: clamp(28px, 4.2vw, 42px);
       color: var(--cream-dark);
       margin-bottom: 48px;
-      font-weight: 300;
+      font-weight: 400;
       letter-spacing: 1px;
     }
 
