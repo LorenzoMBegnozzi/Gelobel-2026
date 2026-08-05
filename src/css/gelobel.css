@@ -6,6 +6,12 @@
       font-display: swap;
     }
 
+    .lobster-regular {
+      font-family: "Lobster", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+
     :root {
       --gold: #EBBB05;
       --gold-light: #F5CE3A;
@@ -561,7 +567,7 @@
     .hero-occasion {
       font-family: var(--font-title);
       font-weight: 300;
-      font-size: clamp(20px, 3vw, 36px);
+      font-size: clamp(32px, 5vw, 58px);
       letter-spacing: 5px;
       text-transform: uppercase;
       color: rgba(255,255,255,0.85);
@@ -569,7 +575,7 @@
     }
 
     .hero-title {
-      font-family: 'Adam Script', cursive;
+      font-family: 'Lobster', cursive;
       font-size: clamp(40px, 6vw, 72px);
       font-weight: 400;
       color: var(--gold);
@@ -1486,9 +1492,6 @@
       .cardapio-notice { flex-direction: column; }
       .cardapio-notice-btn { min-height: 48px; padding: 14px 24px; }
       .cardapio-units { padding: 0 16px; gap: 12px; }
-    }
-      font-style: italic;
-      font-size: 20px;
     }
 
     .category-tabs {
